@@ -1,4 +1,4 @@
-public class Variables {
+public class DT2Variables {
   public static void main(String[] args) {
     byte b = 5;
     short s = 300;

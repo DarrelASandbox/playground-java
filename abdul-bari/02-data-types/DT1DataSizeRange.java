@@ -1,4 +1,4 @@
-public class DataSizeRange {
+public class DT1DataSizeRange {
   public static void main(String arg[]) {
     System.out.println("Integer.MIN_VALUE: " + Integer.MIN_VALUE);
     System.out.println("Integer.MAX_VALUE: " + Integer.MAX_VALUE);

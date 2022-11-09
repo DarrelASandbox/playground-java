@@ -1,4 +1,4 @@
-public class DataTypeDetails {
+public class DT4DataTypeDetails {
   public static void main(String[] args) {
     int x = 5;
     int y = -5;
