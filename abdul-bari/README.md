@@ -5,6 +5,7 @@
     <li><a href="#01-introduction">01-introduction</a></li>
     <li><a href="#02-data-types">02-data-types</a></li>
     <li><a href="#03-features-and-architecture">03-features-and-architecture</a></li>
+    <li><a href="#04-operator-and-expressions">04-operator-and-expressions</a></li>
   </ol>
 </details>
 
@@ -173,6 +174,35 @@ javap java.lang.Boolean
   - It is interpreter language but gives **high performance**
   - It supports **distributed** computing which is mostly used by businesses globally where multiple business are connected to a single network
   - Java is **dynamic** because it is created in heap
+
+&nbsp;
+
+---
+
+&nbsp;
+
+## 04-operator-and-expressions
+
+- The mechanism of converting data type internally by the compiler is known as **COERCION**.
+- **Bit Merging and Masking:**
+  - One of the aplication of bitwise operators.
+  - They are used to check whether the bits are marked as zero or one.
+  - The process of setting one of the bit as ‘1’ is known as merging (using or operator).
+  - To check if the bit is on or not by using and operator is known as masking.
+  - 4 bits is also known as nibble.
+  - XOR operation is used for Swapping two numbers without inserting any third number.
+- **Widening and Narrowing:**
+  - It is related to conversion of data type of given data item.
+  - **Widening**: the process of storing the data of smaller size data type into a larger size data type can be done automatically by the compiler.
+    - The compiler directly converts the data type without showing any errors i.e from source data type to the destination data type.
+    - Since it is done internally it is said as automatically.
+    - The source and destination data type should be compatible.
+    - It is also known as upcasting.
+  - **Narrowing:** the process of storing the data of larger size data type into a smaller size data type.
+    - due to difference in size it may lead to loss of data.
+    - it is not compatible.
+    - typecasting is required for narrowing.
+  - Boolean is compatible only with Boolean.
 
 &nbsp;
 
