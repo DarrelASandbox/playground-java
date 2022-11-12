@@ -1,4 +1,4 @@
-public class DT3Literals {
+public class _03_Literals {
   public static void main(String[] args) {
     byte b1 = 10;
     byte b2 = 0b1010;

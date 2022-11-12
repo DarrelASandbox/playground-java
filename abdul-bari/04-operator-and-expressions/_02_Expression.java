@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class OAE2Expression {
+public class _02_Expression {
   // public static void main(String[] args) {
   // float base, height, area;
   // System.out.println("Enter base and height");

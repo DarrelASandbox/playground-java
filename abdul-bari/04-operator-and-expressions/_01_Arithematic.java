@@ -1,4 +1,4 @@
-public class OAE1Arithematic {
+public class _01_Arithematic {
 
   public static void main(String[] args) {
 

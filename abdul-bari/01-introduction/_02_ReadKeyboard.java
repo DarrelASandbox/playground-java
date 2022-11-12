@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class I2ReadKeyboard {
+public class _02_ReadKeyboard {
   public static void main(String arg[]) {
     Scanner sc = new Scanner(System.in);
 

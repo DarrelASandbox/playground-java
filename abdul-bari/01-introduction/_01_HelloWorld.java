@@ -1,7 +1,7 @@
 // Auto imported
 // import java.lang.*;
 
-class I1HelloWorld {
+class _01_HelloWorld {
   public static void main(String arg[]) {
     System.out.println("Hello World");
     // Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 0
