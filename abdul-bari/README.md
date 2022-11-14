@@ -204,6 +204,43 @@ javap java.lang.Boolean
     - typecasting is required for narrowing.
   - Boolean is compatible only with Boolean.
 
+|                      |     |
+| :------------------: | :-: |
+|         AND          |  &  |
+|          OR          |     |
+|         NOT          |  ~  |
+|         XOR          |  ^  |
+|     Right Shift      | >>  |
+| Unsigned Right Shift | >>> |
+|      Left Shift      | <<< |
+
+- **Bitwise Operator** are faster than other operators
+  - It works on the principle of Truth Tables
+
+|  A  |  B  | A & B |
+| :-: | :-: | :---: |
+|  0  |  0  |   0   |
+|  0  |  1  |   0   |
+|  1  |  0  |   0   |
+|  1  |  1  |   1   |
+
+|  A  |  B  | A \| B |
+| :-: | :-: | :----: |
+|  0  |  0  |   0    |
+|  0  |  1  |   1    |
+|  1  |  0  |   1    |
+|  1  |  1  |   1    |
+
+|  A  |  B  | A ^ B |
+| :-: | :-: | :---: |
+|  0  |  0  |   0   |
+|  0  |  1  |   1   |
+|  1  |  0  |   1   |
+|  1  |  1  |   0   |
+
+- These bitwise operator are performed only on integer type of data
+- If you are taking byte and short the result will still be an integer
+
 &nbsp;
 
 ---
