@@ -22,6 +22,7 @@
   - [Bean Lifecycle](#bean-lifecycle)
   - [Special Note about Prototype Scope - Destroy Lifecycle Method and Lazy Init](#special-note-about-prototype-scope---destroy-lifecycle-method-and-lazy-init)
   - [Configuring Beans with Java Code](#configuring-beans-with-java-code)
+- [Hibernate/JPA CRUD](#hibernatejpa-crud)
 
 &nbsp;
 
@@ -416,3 +417,28 @@
   - However, we configured the S3 Client as a Spring Bean using `@Bean`
   - It is now a Spring Bean and we can inject it into other services of our application
   - Make an existing third-party class available to Spring framework
+
+&nbsp;
+
+# Hibernate/JPA CRUD
+
+- [Hibernate](www.hibernate.org/orm)
+  - A framework for persisting / saving Java objects in a database
+  - **Benefits**
+    - Handles all of the low-level SQL
+    - Minimizes the amount of JDBC code you have to develop
+    - Provides the Object-to-Relational Mapping (ORM)
+- [**Jakarta Persistence API (JPA)**](https://www.jcp.org/en/jsr/detail?id=338)
+  - previously known as Java Persistence API
+  - Standard API for Object-to-Relational-Mapping (ORM)
+  - Only a **specification**
+    - Defines a set of interfaces
+    - Requires an implementation to be usable
+  - [JPA Vendors](https://en.wikipedia.org/wiki/Jakarta_Persistence)
+    - Hibernate is the default implementation using Spring Boot
+  - **Benefits**
+    - By having a standard API, you are not locked to vendor's implementation
+    - Maintain portable, flexible code by coding to JPA spec (interfaces)
+    - Can theoretically switch vendor implementations
+      - For example, if Vendor ABC stops supporting their product
+      - You could switch to Vendor XYZ without vendor lock in
