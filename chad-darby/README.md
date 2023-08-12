@@ -442,3 +442,4 @@
     - Can theoretically switch vendor implementations
       - For example, if Vendor ABC stops supporting their product
       - You could switch to Vendor XYZ without vendor lock in
+  - Uses JDBC for all database communications
