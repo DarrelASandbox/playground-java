@@ -23,6 +23,7 @@
   - [Special Note about Prototype Scope - Destroy Lifecycle Method and Lazy Init](#special-note-about-prototype-scope---destroy-lifecycle-method-and-lazy-init)
   - [Configuring Beans with Java Code](#configuring-beans-with-java-code)
 - [Hibernate/JPA CRUD](#hibernatejpa-crud)
+  - [JPA Annotation](#jpa-annotation)
 
 &nbsp;
 
@@ -443,3 +444,28 @@
       - For example, if Vendor ABC stops supporting their product
       - You could switch to Vendor XYZ without vendor lock in
   - Uses JDBC for all database communications
+
+## JPA Annotation
+
+- **Entity Class**:
+  - Java class that is mapped to a database table
+  - `@Entity`
+  - Must have a public or protected no-argument constructor
+    - The class can have other constructors
+  - **Constructor**:
+    - Remember about constructors in Java If you don’t declare any constructors
+      - Java will provide a no-argument constructor for free
+    - If you declare constructors with arguments
+      - then you do NOT get a no-argument constructor for free
+      - In this case, you have to explicitly declare a no-argument constructor
+- **ID Generation Strategies**
+  - You can define your own CUSTOM generation strategy
+    - Create implementation of `org.hibernate.id.IdentifierGenerator`
+    - Override the method: `public Serializable generate(...)`
+
+|          Name           |                                 Description                                 |
+| :---------------------: | :-------------------------------------------------------------------------: |
+|   GenerationType.AUTO   |          Pick an appropriate strategy for the particular database           |
+| GenerationType.IDENTITY |             Assign primary keys using database identity column              |
+| GenerationType.SEQUENCE |                Assign primary keys using a database sequence                |
+|  GenerationType.TABLE   | Assign primary keys using an underlying database table to ensure uniqueness |
