@@ -24,6 +24,7 @@
   - [Configuring Beans with Java Code](#configuring-beans-with-java-code)
 - [Hibernate/JPA CRUD](#hibernatejpa-crud)
   - [JPA Annotation](#jpa-annotation)
+  - [Data Access Object (DAO) Design Pattern](#data-access-object-dao-design-pattern)
 
 &nbsp;
 
@@ -469,3 +470,25 @@
 | GenerationType.IDENTITY |             Assign primary keys using database identity column              |
 | GenerationType.SEQUENCE |                Assign primary keys using a database sequence                |
 |  GenerationType.TABLE   | Assign primary keys using an underlying database table to ensure uniqueness |
+
+## Data Access Object (DAO) Design Pattern
+
+- Responsible for **interfacing** with the database
+  - Methods:
+    - findById(...)
+    - findAll()
+    - findByLastName(...)
+    - update(...)
+    - delete(...)
+    - deleteAll()
+- Needs a **JPA Entity Manager** which is the main component for **saving/retrieving entities**
+  - Needs a **Data Source** which defines database connection info
+- JPA Entity Manager and Data Source are automatically created by Spring Boot
+  - Based on the file: application.properties (JDBC URL, user id, password, etc ...)
+- We can autowire/inject the JPA Entity Manager into our Student DAO
+- Student DAO <-> Entity Manager <-> Data Source <-> Database
+- Spring Boot Specialized Annotations for DAO
+  - `@Transactional`
+  - `@Repository`
+  - Spring will automatically register the DAO implementation using component scanning
+  - Spring also provides translation of any JDBC related exceptions
