@@ -30,9 +30,8 @@ public class StudentDAOImpl implements StudentDAO {
     entityManager.persist(theStudent);
   }
 
-
   @Override
-  public Student findById(Integer id){
+  public Student findById(Integer id) {
     return entityManager.find(Student.class, id);
   }
 
@@ -41,17 +40,23 @@ public class StudentDAOImpl implements StudentDAO {
   // It is not the name of the database table
   // `lastName` is the field of JPA entity
   @Override
-  public List<Student> findAll(){
+  public List<Student> findAll() {
     TypedQuery<Student> theQuery = entityManager.createQuery("FROM Student order by lastName", Student.class);
     return theQuery.getResultList();
   }
 
   // JPQL Named Parameters are prefixed with a colon `:`
   @Override
-  public List<Student> findByLastName(String theLastName){
+  public List<Student> findByLastName(String theLastName) {
     TypedQuery<Student> theQuery = entityManager.createQuery("FROM Student WHERE lastName=:theData", Student.class);
 
     theQuery.setParameter("theData", theLastName);
     return theQuery.getResultList();
+  }
+
+  @Override
+  @Transactional
+  public void update(Student theStudent) {
+    entityManager.merge(theStudent);
   }
 }

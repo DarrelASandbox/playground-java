@@ -24,31 +24,44 @@ public class Application {
 
 		return runner -> {
 			// createStudent(studentDAO);
-			// createMultipleStudents(studentDAO); 
+			// createMultipleStudents(studentDAO);
 			// readStudent(studentDAO);
 			// queryForStudents(studentDAO);
-			queryForStudentsByLastName(studentDAO);
+			// queryForStudentsByLastName(studentDAO);
+			updateStudent(studentDAO);
 		};
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+		int studentId = 1;
+		System.out.println("Getting student with id: " + studentId);
+		Student myStudent = studentDAO.findById(studentId);
+
+		System.out.println("Updating student...");
+		myStudent.setFirstName("Michael");
+
+		studentDAO.update(myStudent);
+		System.out.println("Updated student:" + myStudent);
 	}
 
 	private void queryForStudentsByLastName(StudentDAO studentDAO) {
 		List<Student> theStudents = studentDAO.findByLastName("Duck");
-		for (Student tempStudent : theStudents){
-			System.out.println(tempStudent);	
+		for (Student tempStudent : theStudents) {
+			System.out.println(tempStudent);
 		}
 	}
 
 	private void queryForStudents(StudentDAO studentDAO) {
 		List<Student> theStudents = studentDAO.findAll();
-		for (Student tempStudent : theStudents){
-			System.out.println(tempStudent);	
+		for (Student tempStudent : theStudents) {
+			System.out.println(tempStudent);
 		}
 	}
 
 	private void readStudent(StudentDAO studentDAO) {
 		System.out.println("Creating new student object...");
 		Student tempStudent = new Student("Daffy", "Duck", "daffyd@e.com");
-		
+
 		System.out.println("Saving the student...");
 		studentDAO.save(tempStudent);
 
