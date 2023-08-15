@@ -1,5 +1,7 @@
 package com.darrelasandbox._crud_demo;
 
+import java.util.List;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,9 +24,17 @@ public class Application {
 
 		return runner -> {
 			// createStudent(studentDAO);
-			// createMultipleStudents(studentDAO);
-			readStudent(studentDAO);
+			// createMultipleStudents(studentDAO); 
+			// readStudent(studentDAO);
+			queryForStudents(studentDAO);
 		};
+	}
+
+	private void queryForStudents(StudentDAO studentDAO) {
+		List<Student> theStudents = studentDAO.findAll();
+		for (Student tempStudent : theStudents){
+			System.out.println(tempStudent);	
+		}
 	}
 
 	private void readStudent(StudentDAO studentDAO) {
