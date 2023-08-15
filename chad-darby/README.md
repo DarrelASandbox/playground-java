@@ -492,3 +492,21 @@
   - `@Repository`
   - Spring will automatically register the DAO implementation using component scanning
   - Spring also provides translation of any JDBC related exceptions
+- **Create database tables from Java code using JPA/Hibernate annotations**
+  - `application.properties`: `spring.jpa.hibernate.ddl-auto=create`
+  - When you run your app, JPA/Hibernate will **drop** tables then **create** them
+
+| Property Value |                                                  Property Description                                                   |
+| :------------: | :---------------------------------------------------------------------------------------------------------------------: |
+|      none      |                                               No action will be performed                                               |
+|      drop      |                                               Database tables are dropped                                               |
+|     create     |                            Database tables are dropped followed by database tables creation                             |
+|  create-drop   | Database tables are dropped followed by database tables creation.</br>On application shutdown, drop the database tables |
+|    validate    |                                           Validate the database tables schema                                           |
+|     update     |                                            Update the database tables schema                                            |
+
+- **Recommendations**
+  - Corporate DBAs prefer SQL scripts for governance and code review
+  - The SQL scripts can be customized and fine-tuned for complex database designs
+  - The SQL scripts can be version-controlled
+  - Can also work with schema migration tools such as Liquibase and Flyway
