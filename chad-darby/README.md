@@ -25,6 +25,7 @@
 - [Hibernate/JPA CRUD](#hibernatejpa-crud)
   - [JPA Annotation](#jpa-annotation)
   - [Data Access Object (DAO) Design Pattern](#data-access-object-dao-design-pattern)
+- [REST CRUD](#rest-crud)
 
 &nbsp;
 
@@ -510,3 +511,28 @@
   - The SQL scripts can be customized and fine-tuned for complex database designs
   - The SQL scripts can be version-controlled
   - Can also work with schema migration tools such as Liquibase and Flyway
+
+&nbsp;
+
+# REST CRUD
+
+- **REST**: REpresentational State Transfer
+  - JSON & XML
+  - HTTP Request Message
+    - **Request line**: the HTTP command
+    - **Header variables**: request metadata
+    - **Message body**: contents of message
+  - HTTP Response Message
+    - **Response line**: server protocol and status code
+    - **Header variables**: response metadata
+    - **Message body**: contents of message
+  - MIME Content Types
+    - The message format is described by MIME content type
+    - Multipurpose Internet Mail-Extension
+    - **Basic Syntax**: type/sub-type
+      - `text/html`
+      - `text/plain`
+      - `application/json`
+      - `application/xml`
+
+&nbsp;

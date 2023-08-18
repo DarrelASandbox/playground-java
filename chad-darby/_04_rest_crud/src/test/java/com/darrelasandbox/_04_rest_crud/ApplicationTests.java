@@ -1,4 +1,4 @@
-package com.darrelasandbox._01_hello_world;
+package com.darrelasandbox._04_rest_crud;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
