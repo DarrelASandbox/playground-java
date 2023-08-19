@@ -534,5 +534,16 @@
       - `text/plain`
       - `application/json`
       - `application/xml`
+- Data binding is the process of converting JSON data to a Java POJO
+  - Also known as
+    - Mapping
+    - Serialization / Deserialization
+    - Marshalling / Unmarshalling
+  - [jackson-databind](https://github.com/FasterXML/jackson-databind)
+    - By default, Jackson will call appropriate getter/setter method
+    - When building Spring REST applications
+    - Spring will automatically handle Jackson Integration
+    - JSON data being passed to REST controller is converted to POJO
+    - Java object being returned from REST controller is converted to JSON
 
 &nbsp;
