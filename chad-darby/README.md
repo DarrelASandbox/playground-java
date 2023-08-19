@@ -29,7 +29,9 @@
   - [Paypal](#paypal)
   - [GitHub Developer](#github-developer)
   - [SalesForce](#salesforce)
-  - [Create DAO in Spring Boot](#create-dao-in-spring-boot)
+- [Application Architecture](#application-architecture)
+  - [Create DAO interface in Spring Boot](#create-dao-interface-in-spring-boot)
+  - [Add a Service Layer](#add-a-service-layer)
 
 &nbsp;
 
@@ -578,7 +580,24 @@
 |    POST     |    /services/apexrest/clinic01/v1/individual/    |
 |     PUT     |    /services/apexrest/clinic01/v1/individual/    |
 
-## Create DAO in Spring Boot
+# Application Architecture
+
+- Delegate calls using a service layer and DAO layer
+
+```
+      Employee REST Controller
+                 |
+                 v
+         Employee Service
+         /       |        \
+        /        |         \
+Employee DAO  Skills DAO  Payroll DAO
+        \        |         /
+         \       |        /
+             Database
+```
+
+## Create DAO interface in Spring Boot
 
 1. Set up Database Dev Environment
 2. Create Spring Boot project using Spring Initializr
@@ -587,5 +606,12 @@
 5. Create DAO interface
 6. Create DAO implementation
 7. Create REST controller to use DAO
+
+## Add a Service Layer
+
+- **Purpose**
+  - **Service Facade** design pattern
+  - Intermediate layer for custom business logic
+  - Integrate data from multiple sources (DAO/repositories)
 
 &nbsp;
