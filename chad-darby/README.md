@@ -32,7 +32,7 @@
 - [Application Architecture](#application-architecture)
   - [Create DAO interface in Spring Boot](#create-dao-interface-in-spring-boot)
   - [Add a Service Layer](#add-a-service-layer)
-  - [Spring Data JPA](#spring-data-jpa)
+  - [Spring Data](#spring-data)
 
 &nbsp;
 
@@ -621,12 +621,51 @@ Employee DAO  Skills DAO  Payroll DAO                  |
     - Apply `@Transactional` on service methods
     - Remove `@Transactional` on DAO methods if they already exist
 
-## Spring Data JPA
+## Spring Data
 
-- Create a DAO and just plug in your **entity type** and **primary key**
-- **Advanced features**:
-  - Extending and adding custom queries with JPQL
-  - Query Domain Specific Language (Query DSL)
-  - Defining custom methods (low-level coding)
+```
+    Spring Data REST
+            |
+            v
+    Employee Repository
+  (Using Spring Data JPA)
+            |
+            |
+            |
+            |
+         Database
+```
+
+- **JPA**
+  - Create a DAO and just plug in your **entity type** and **primary key**
+  - **Advanced features**:
+    - Extending and adding custom queries with JPQL
+    - Query Domain Specific Language (Query DSL)
+    - Defining custom methods (low-level coding)
+- **REST**
+  - 3 Items:
+    1. **Entity**: `Employee`
+    2. **JpaRepository**: `EmployeeRepository extends JpaRepository`
+    3. **Maven POM dependency for**: `spring-boot-starter-data-rest`
+  - Spring Data REST endpoints are [**HATEOAS**](https://spring.io/projects/spring-hateoas) compliant
+    - Hypermedia as the Engine of Application State
+    - Hypermedia-driven sites provide information to access REST interfaces
+    - Think of it as meta-data for REST data
+  - Spring Data REST only uses ID on the URL
+  - By default, Spring Data REST will create endpoints based on entity type
+    - Simple pluralized form
+      - First character of Entity type is lowercase
+      - Then just adds an "s" to the entity
+      - Spring Data REST does NOT handle:
+        - Goose - Geese
+        - Person - People
+        - Syllabus - Syllabi
+      - **Solution**: Specify plural name / path with an annotation
+
+|                Name                |                  Description                  |
+| :--------------------------------: | :-------------------------------------------: |
+|     spring.data.rest.base-path     | Base path used to expose repository resources |
+| spring.data.rest.default-page-size |             Default size of pages             |
+|   spring.data.rest.max-page-size   |             Maximum size of pages             |
 
 &nbsp;
