@@ -29,6 +29,7 @@
   - [Paypal](#paypal)
   - [GitHub Developer](#github-developer)
   - [SalesForce](#salesforce)
+  - [Create DAO in Spring Boot](#create-dao-in-spring-boot)
 
 &nbsp;
 
@@ -576,5 +577,15 @@
 |     GET     |        /services/apexrest/v1/individual/         |
 |    POST     |    /services/apexrest/clinic01/v1/individual/    |
 |     PUT     |    /services/apexrest/clinic01/v1/individual/    |
+
+## Create DAO in Spring Boot
+
+1. Set up Database Dev Environment
+2. Create Spring Boot project using Spring Initializr
+3. Update db configs in application.properties
+4. Create Employee entity
+5. Create DAO interface
+6. Create DAO implementation
+7. Create REST controller to use DAO
 
 &nbsp;
