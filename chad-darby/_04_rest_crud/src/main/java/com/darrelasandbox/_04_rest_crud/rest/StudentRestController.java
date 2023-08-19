@@ -40,8 +40,15 @@ public class StudentRestController {
     return theStudents;
   }
 
+  // Bind path variable to method parameter using `@PathVariable`
   @GetMapping("/students/{studentId}")
   public Student getStudent(@PathVariable int studentId) {
+
+    // Update REST service to throw exception if student not found.
+    if ((studentId >= theStudents.size() || (studentId < 0))) {
+      throw new StudentNotFoundException("Student id not found.");
+    }
+
     return theStudents.get(studentId);
   }
 }
