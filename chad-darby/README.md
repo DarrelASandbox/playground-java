@@ -32,6 +32,7 @@
 - [Application Architecture](#application-architecture)
   - [Create DAO interface in Spring Boot](#create-dao-interface-in-spring-boot)
   - [Add a Service Layer](#add-a-service-layer)
+  - [Spring Data JPA](#spring-data-jpa)
 
 &nbsp;
 
@@ -585,16 +586,16 @@
 - Delegate calls using a service layer and DAO layer
 
 ```
-      Employee REST Controller
-                 |
-                 v
-         Employee Service
-         /       |        \
-        /        |         \
-Employee DAO  Skills DAO  Payroll DAO
-        \        |         /
-         \       |        /
-             Database
+      Employee REST Controller              Employee REST Controller
+                 |                                     |
+                 v                                     v
+         Employee Service                      Employee Repository
+         /       |        \                  (Using Spring Data JPA)
+        /        |         \                           |
+Employee DAO  Skills DAO  Payroll DAO                  |
+        \        |         /                           |
+         \       |        /                            |
+             Database                               Database
 ```
 
 ## Create DAO interface in Spring Boot
@@ -619,5 +620,13 @@ Employee DAO  Skills DAO  Payroll DAO
   - For implementation code
     - Apply `@Transactional` on service methods
     - Remove `@Transactional` on DAO methods if they already exist
+
+## Spring Data JPA
+
+- Create a DAO and just plug in your **entity type** and **primary key**
+- **Advanced features**:
+  - Extending and adding custom queries with JPQL
+  - Query Domain Specific Language (Query DSL)
+  - Defining custom methods (low-level coding)
 
 &nbsp;
