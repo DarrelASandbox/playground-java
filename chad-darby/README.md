@@ -613,5 +613,11 @@ Employee DAO  Skills DAO  Payroll DAO
   - **Service Facade** design pattern
   - Intermediate layer for custom business logic
   - Integrate data from multiple sources (DAO/repositories)
+- **Best Practices**
+  - Apply transactional boundaries at the service layer
+  - It is the service layer’s responsibility to manage transaction boundaries
+  - For implementation code
+    - Apply `@Transactional` on service methods
+    - Remove `@Transactional` on DAO methods if they already exist
 
 &nbsp;
