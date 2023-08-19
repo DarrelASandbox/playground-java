@@ -26,6 +26,9 @@
   - [JPA Annotation](#jpa-annotation)
   - [Data Access Object (DAO) Design Pattern](#data-access-object-dao-design-pattern)
 - [REST CRUD](#rest-crud)
+  - [Paypal](#paypal)
+  - [GitHub Developer](#github-developer)
+  - [SalesForce](#salesforce)
 
 &nbsp;
 
@@ -545,5 +548,33 @@
     - Spring will automatically handle Jackson Integration
     - JSON data being passed to REST controller is converted to POJO
     - Java object being returned from REST controller is converted to JSON
+
+## Paypal
+
+| HTTP Method |              Endpoint               |
+| :---------: | :---------------------------------: |
+|    POST     |       /v1/invoicing/invoices        |
+|     GET     |       /v1/invoicing/invoices        |
+|     GET     | /v1/invoicing/invoices/{invoice_id} |
+|     PUT     | /v1/invoicing/invoices/{invoice_id} |
+|   DELETE    | /v1/invoicing/invoices/{invoice_id} |
+
+## GitHub Developer
+
+| HTTP Method |      Endpoint       |
+| :---------: | :-----------------: |
+|    POST     |     /user/repos     |
+|     GET     |     /user/repos     |
+|     GET     | /repos/:owner/:repo |
+|   DELETE    | /repos/:owner/:repo |
+
+## SalesForce
+
+| HTTP Method |                     Endpoint                     |
+| :---------: | :----------------------------------------------: |
+|     GET     | /services/apexrest/v1/individual/{individual_id} |
+|     GET     |        /services/apexrest/v1/individual/         |
+|    POST     |    /services/apexrest/clinic01/v1/individual/    |
+|     PUT     |    /services/apexrest/clinic01/v1/individual/    |
 
 &nbsp;
