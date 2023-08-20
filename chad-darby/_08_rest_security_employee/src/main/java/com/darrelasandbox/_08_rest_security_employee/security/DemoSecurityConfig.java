@@ -47,7 +47,20 @@ public class DemoSecurityConfig {
   // Using JDBC (Hardcoded users are not required anymore)
   @Bean
   public UserDetailsManager userDetailsManager(DataSource dataSource) {
-    return new JdbcUserDetailsManager(dataSource);
+    // return new JdbcUserDetailsManager(dataSource);
+
+    // Security Schema Customization
+    JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
+
+    // Define query to retrieve a user by username
+    jdbcUserDetailsManager.setUsersByUsernameQuery(
+        "SELECT user_id, pw, active FROM members WHERE user_id=?");
+
+    // Define query to retrieve the authorities/ roles by username
+    jdbcUserDetailsManager.setAuthoritiesByUsernameQuery(
+        "SELECT user_id, role FROM roles WHERE user_id=?");
+
+    return jdbcUserDetailsManager;
   }
 
   // Restricting access to roles

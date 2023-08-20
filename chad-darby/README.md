@@ -36,6 +36,7 @@
 - [REST API Security](#rest-api-security)
   - [Cross-Site Request Forgery (CSRF)](#cross-site-request-forgery-csrf)
   - [JDBC Authentication](#jdbc-authentication)
+  - [BCrypt](#bcrypt)
 
 &nbsp;
 
@@ -734,5 +735,25 @@ Employee DAO  Skills DAO  Payroll DAO                  |
   2. Add database support to Maven POM file
   3. Create JDBC properties file
   4. Update Spring Security Configuration to use JDBC
+
+## BCrypt
+
+- Spring Security recommends using the popular **bcrypt algorithm**
+  - Performs [one-way encrypted hashing](https://bcrypt.online/)
+  - Adds a random salt to the password for additional protection
+  - Includes support to defeat brute force attacks
+  - Modify DDL for password field, length should be 68
+- **Login process**
+  1. Retrieve password from db for the user
+  2. Read the encoding algorithm id (bcrypt etc)
+  3. For case of bcrypt, encrypt plaintext password from login form (using salt from db password)
+  4. Compare encrypted password from login form WITH encrypted password from db
+  5. If there is a match, login successful
+  6. If no match, login NOT successful
+- **Development Process**
+  - Create our custom tables with SQL
+  - Update Spring Security Configuration
+    - Provide query to find user by user name
+    - Provide query to find authorities / roles by user name
 
 &nbsp;
