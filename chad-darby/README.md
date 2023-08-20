@@ -34,6 +34,7 @@
   - [Add a Service Layer](#add-a-service-layer)
   - [Spring Data](#spring-data)
 - [REST API Security](#rest-api-security)
+  - [Cross-Site Request Forgery (CSRF)](#cross-site-request-forgery-csrf)
 
 &nbsp;
 
@@ -702,5 +703,26 @@ Employee DAO  Skills DAO  Payroll DAO                  |
 | :----: | :---------------------: |
 |  noop  |  Plain text passwords   |
 | bcrypt | BCrypt password hashing |
+
+| HTTP Method |          Endpoint           |   CRUD Action   |   Role   |
+| :---------: | :-------------------------: | :-------------: | :------: |
+|     GET     |       /api/employees        |    Read all     | EMPLOYEE |
+|     GET     | /api/employees/{employeeId} |   Read single   | EMPLOYEE |
+|    POST     |       /api/employees        |     Create      | MANAGER  |
+|     PUT     |       /api/employees        |     Update      | MANAGER  |
+|   DELETE    | /api/employees/{employeeId} | Delete employee |  ADMIN   |
+
+## Cross-Site Request Forgery (CSRF)
+
+- Spring Security can protect against CSRF attacks
+- Embed additional authentication data/token into all HTML forms
+- On subsequent requests, web app will verify token before processing
+- Primary use case is traditional web applications (HTML forms etc ...)
+- **When to use CSRF Protection?**
+  - Use CSRF protection for any normal browser web requests
+  - Traditional web apps with HTML forms to add/modify data
+- Non-browser clients
+  - you _may_ want to disable CSRF protection
+- In general, not required for stateless REST APIs that use POST, PUT, DELETE and/or PATCH
 
 &nbsp;
