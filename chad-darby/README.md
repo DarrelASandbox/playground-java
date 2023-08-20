@@ -35,6 +35,7 @@
   - [Spring Data](#spring-data)
 - [REST API Security](#rest-api-security)
   - [Cross-Site Request Forgery (CSRF)](#cross-site-request-forgery-csrf)
+  - [JDBC Authentication](#jdbc-authentication)
 
 &nbsp;
 
@@ -724,5 +725,14 @@ Employee DAO  Skills DAO  Payroll DAO                  |
 - Non-browser clients
   - you _may_ want to disable CSRF protection
 - In general, not required for stateless REST APIs that use POST, PUT, DELETE and/or PATCH
+
+## JDBC Authentication
+
+- **Development Process**
+  1. Develop SQL Script to set up database tables
+     - `authorities` same as `roles`
+  2. Add database support to Maven POM file
+  3. Create JDBC properties file
+  4. Update Spring Security Configuration to use JDBC
 
 &nbsp;

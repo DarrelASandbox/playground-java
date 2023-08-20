@@ -1,13 +1,14 @@
 package com.darrelasandbox._08_rest_security_employee.security;
 
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 // Since we defined our users here
@@ -15,28 +16,38 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class DemoSecurityConfig {
 
-  // In-memory user details for authentication.
+  /*
+   * // Comment out for JDBC authentication
+   * // In-memory user details for authentication.
+   * 
+   * @Bean
+   * public InMemoryUserDetailsManager userDetailsManager() {
+   * UserDetails john = User.builder()
+   * .username("john")
+   * .password("{noop}p")
+   * .roles("EMPLOYEE")
+   * .build();
+   * 
+   * UserDetails mary = User.builder()
+   * .username("mary")
+   * .password("{noop}p")
+   * .roles("EMPLOYEE", "MANAGER")
+   * .build();
+   * 
+   * UserDetails susan = User.builder()
+   * .username("susan")
+   * .password("{noop}p")
+   * .roles("EMPLOYEE", "MANAGER", "ADMIN")
+   * .build();
+   * 
+   * return new InMemoryUserDetailsManager(john, mary, susan);
+   * }
+   */
+
+  // Using JDBC (Hardcoded users are not required anymore)
   @Bean
-  public InMemoryUserDetailsManager userDetailsManager() {
-    UserDetails john = User.builder()
-        .username("john")
-        .password("{noop}p")
-        .roles("EMPLOYEE")
-        .build();
-
-    UserDetails mary = User.builder()
-        .username("mary")
-        .password("{noop}p")
-        .roles("EMPLOYEE", "MANAGER")
-        .build();
-
-    UserDetails susan = User.builder()
-        .username("susan")
-        .password("{noop}p")
-        .roles("EMPLOYEE", "MANAGER", "ADMIN")
-        .build();
-
-    return new InMemoryUserDetailsManager(john, mary, susan);
+  public UserDetailsManager userDetailsManager(DataSource dataSource) {
+    return new JdbcUserDetailsManager(dataSource);
   }
 
   // Restricting access to roles
