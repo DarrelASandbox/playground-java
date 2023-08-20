@@ -694,6 +694,13 @@ Employee DAO  Skills DAO  Payroll DAO                  |
     - `spring.security.user.name=scott`
     - `spring.security.user.password=test123`
   - Create Spring Security Configuration (@Configuration)
+    - Since we defined our users here
+    - Spring Boot will NOT use the user/pass from the `application.properties` file
   - Add users, passwords and roles
+
+|   ID   |       Description       |
+| :----: | :---------------------: |
+|  noop  |  Plain text passwords   |
+| bcrypt | BCrypt password hashing |
 
 &nbsp;
