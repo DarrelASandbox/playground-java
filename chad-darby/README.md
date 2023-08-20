@@ -33,6 +33,7 @@
   - [Create DAO interface in Spring Boot](#create-dao-interface-in-spring-boot)
   - [Add a Service Layer](#add-a-service-layer)
   - [Spring Data](#spring-data)
+- [REST API Security](#rest-api-security)
 
 &nbsp;
 
@@ -667,5 +668,32 @@ Employee DAO  Skills DAO  Payroll DAO                  |
 |     spring.data.rest.base-path     | Base path used to expose repository resources |
 | spring.data.rest.default-page-size |             Default size of pages             |
 |   spring.data.rest.max-page-size   |             Maximum size of pages             |
+
+&nbsp;
+
+# REST API Security
+
+- [spring-security](https://spring.io/projects/spring-security)
+- **Authentication**: Check user id and password with credentials stored in app / db
+- **Authorization**: Check to see if user has an authorized role
+- **Declarative Security**: Define application’s security constraints in configuration
+  - All Java config: @Configuration
+  - Provides separation of concerns between application code and security
+- **Programmatic Security**:
+  - Spring Security provides an API for custom application coding
+  - Provides greater customization for specific app requirements
+- Authentication and Authorization
+  - In-memory
+  - JDBC
+  - LDAP
+  - Custom / Pluggable
+  - others ...
+- **Development Process**
+  - Edit `pom.xml` and add `spring-boot-starter-security`
+  - `application.properties`
+    - `spring.security.user.name=scott`
+    - `spring.security.user.password=test123`
+  - Create Spring Security Configuration (@Configuration)
+  - Add users, passwords and roles
 
 &nbsp;
