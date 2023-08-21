@@ -37,6 +37,7 @@
   - [Cross-Site Request Forgery (CSRF)](#cross-site-request-forgery-csrf)
   - [JDBC Authentication](#jdbc-authentication)
   - [BCrypt](#bcrypt)
+- [Spring MVC with Thymeleaf](#spring-mvc-with-thymeleaf)
 
 &nbsp;
 
@@ -755,5 +756,28 @@ Employee DAO  Skills DAO  Payroll DAO                  |
   - Update Spring Security Configuration
     - Provide query to find user by user name
     - Provide query to find authorities / roles by user name
+
+&nbsp;
+
+# Spring MVC with Thymeleaf
+
+- Thymeleaf is a **Java templating engine**
+- Commonly used to generate the HTML views for web apps
+- Thymeleaf template
+  - Can be an HTML page with some Thymeleaf expressions
+  - Include dynamic content from Thymeleaf expressions
+- **Development Process**
+  - Add Thymeleaf to Maven POM file
+  - Develop Spring MVC Controller
+  - Create Thymeleaf template
+- **Thymeleaf template files go in**: `src/main/resources/templates`
+- For web apps, Thymeleaf templates have a `.html` extension
+- **Additional Features**:
+  - Looping and conditionals
+  - CSS and JavaScript integration
+  - Template layouts and fragments
+- **Using CSS with Thymeleaf Templates**
+  - Local CSS files as part of your project
+  - Referencing remote CSS files
 
 &nbsp;
