@@ -802,5 +802,10 @@ Employee DAO  Skills DAO  Payroll DAO                  |
 - **`@InitBinder` annotation**
   - Works as a pre-processor (Pre-process each web request to our controller)
   - Method annotated with `@InitBinder` is executed
+- **`typeMismatch.customer.freePasses=Invalid number`**
+  - Error type
+  - Spring model attribute name
+  - Field name
+  - Our custom message
 
 &nbsp;
