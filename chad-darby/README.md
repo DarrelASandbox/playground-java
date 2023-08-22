@@ -807,5 +807,9 @@ Employee DAO  Skills DAO  Payroll DAO                  |
   - Spring model attribute name
   - Field name
   - Our custom message
+- **Custom Validation**
+  - Perform custom validation based on your business rules
+  - Spring MVC calls our custom validation
+  - Custom validation returns boolean value for true/ false
 
 &nbsp;

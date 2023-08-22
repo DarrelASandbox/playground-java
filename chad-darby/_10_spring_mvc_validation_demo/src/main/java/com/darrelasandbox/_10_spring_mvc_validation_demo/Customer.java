@@ -1,5 +1,7 @@
 package com.darrelasandbox._10_spring_mvc_validation_demo;
 
+import com.darrelasandbox._10_spring_mvc_validation_demo.validation.CourseCode;
+
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -23,6 +25,17 @@ public class Customer {
 
   @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 chars/digits")
   private String postalCode;
+
+  @CourseCode(value = "TOPS", message = "must start with TOPS")
+  private String courseCode;
+
+  public String getCourseCode() {
+    return courseCode;
+  }
+
+  public void setCourseCode(String courseCode) {
+    this.courseCode = courseCode;
+  }
 
   public String getPostalCode() {
     return postalCode;
