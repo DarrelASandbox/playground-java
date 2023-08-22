@@ -37,8 +37,9 @@
   - [Cross-Site Request Forgery (CSRF)](#cross-site-request-forgery-csrf)
   - [JDBC Authentication](#jdbc-authentication)
   - [BCrypt](#bcrypt)
-- [Spring MVC with Thymeleaf](#spring-mvc-with-thymeleaf)
-- [Spring MVC Validation](#spring-mvc-validation)
+- [Spring MVC](#spring-mvc)
+  - [Thymeleaf](#thymeleaf)
+  - [Validation](#validation)
 
 &nbsp;
 
@@ -760,7 +761,9 @@ Employee DAO  Skills DAO  Payroll DAO                  |
 
 &nbsp;
 
-# Spring MVC with Thymeleaf
+# Spring MVC
+
+## Thymeleaf
 
 - Thymeleaf is a **Java templating engine**
 - Commonly used to generate the HTML views for web apps
@@ -784,6 +787,20 @@ Employee DAO  Skills DAO  Payroll DAO                  |
   - Local Installation
   - Download Bootstrap file(s) and add to `/static/css` directory
 
-# Spring MVC Validation
+## Validation
+
+- [**Java’s Standard Bean Validation API**](http://www.beanvalidation.org)
+  - Java has a standard Bean Validation API
+  - Defines a metadata model and API for entity validation
+  - Spring Boot and Thymeleaf also support the Bean Validation API
+- **Development Process**
+  - Create Customer class and add validation rules
+  - Add Controller code to show HTML form
+  - Develop HTML form and add validation support
+  - Perform validation in the Controller class
+  - Create confirmation page
+- **`@InitBinder` annotation**
+  - Works as a pre-processor (Pre-process each web request to our controller)
+  - Method annotated with `@InitBinder` is executed
 
 &nbsp;
