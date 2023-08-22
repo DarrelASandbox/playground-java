@@ -38,6 +38,7 @@
   - [JDBC Authentication](#jdbc-authentication)
   - [BCrypt](#bcrypt)
 - [Spring MVC with Thymeleaf](#spring-mvc-with-thymeleaf)
+- [Spring MVC Validation](#spring-mvc-validation)
 
 &nbsp;
 
@@ -779,5 +780,10 @@ Employee DAO  Skills DAO  Payroll DAO                  |
 - **Using CSS with Thymeleaf Templates**
   - Local CSS files as part of your project
   - Referencing remote CSS files
+- **3rd Party CSS Libraries: Bootstrap**
+  - Local Installation
+  - Download Bootstrap file(s) and add to `/static/css` directory
+
+# Spring MVC Validation
 
 &nbsp;
