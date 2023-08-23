@@ -34,18 +34,21 @@ public class Application {
 		};
 	}
 
+	@SuppressWarnings("unused")
 	private void deleteAllStudents(StudentDAO studentDAO) {
 		System.out.println("Deleting all students");
 		int numRowsDeleted = studentDAO.deleteAll();
 		System.out.println("Delete row count: " + numRowsDeleted);
 	}
 
+	@SuppressWarnings("unused")
 	private void deleteStudent(StudentDAO studentDAO) {
 		int studentId = 3;
 		System.out.println("Deleting student id: " + studentId);
 		studentDAO.delete(studentId);
 	}
 
+	@SuppressWarnings("unused")
 	private void updateStudent(StudentDAO studentDAO) {
 		int studentId = 1;
 		System.out.println("Getting student with id: " + studentId);
@@ -58,6 +61,7 @@ public class Application {
 		System.out.println("Updated student:" + myStudent);
 	}
 
+	@SuppressWarnings("unused")
 	private void queryForStudentsByLastName(StudentDAO studentDAO) {
 		List<Student> theStudents = studentDAO.findByLastName("Duck");
 		for (Student tempStudent : theStudents) {
@@ -65,6 +69,7 @@ public class Application {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private void queryForStudents(StudentDAO studentDAO) {
 		List<Student> theStudents = studentDAO.findAll();
 		for (Student tempStudent : theStudents) {
@@ -72,6 +77,7 @@ public class Application {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private void readStudent(StudentDAO studentDAO) {
 		System.out.println("Creating new student object...");
 		Student tempStudent = new Student("Daffy", "Duck", "daffyd@e.com");
@@ -104,6 +110,7 @@ public class Application {
 		System.out.println("Saved student. Generated id: " + tempStudent3.getId());
 	}
 
+	@SuppressWarnings("unused")
 	private void createStudent(StudentDAO studentDAO) {
 		System.out.println("Creating new student object...");
 		Student tempStudent = new Student("Paul", "Doe", "pauld@e.com");
