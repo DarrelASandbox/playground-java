@@ -40,6 +40,7 @@
 - [Spring MVC](#spring-mvc)
   - [Thymeleaf](#thymeleaf)
   - [Validation](#validation)
+- [Spring MVC Security](#spring-mvc-security)
 
 &nbsp;
 
@@ -811,5 +812,35 @@ Employee DAO  Skills DAO  Payroll DAO                  |
   - Perform custom validation based on your business rules
   - Spring MVC calls our custom validation
   - Custom validation returns boolean value for true/ false
+
+&nbsp;
+
+# Spring MVC Security
+
+- **Goals**
+  - Secure Spring MVC Web Apps
+  - Develop login pages (default and custom)
+  - Define users and roles with simple authentication
+  - Protect URLs based on role
+  - Hide/show content based on role
+  - Store users, passwords and roles in DB (plain-text -> encrypted)
+- [**Spring Security Reference Manual**](https://docs.spring.io/spring-security/reference/)
+- **Spring Security Model**
+  - A framework for security
+  - Implemented using **Servlet filters** in the background
+    - Used to pre-process / post-process web requests
+    - Can route web requests based on security logic
+    - Provides a bulk of security functionality with servlet filters
+  - **2 methods**:
+    - Declarative
+    - Programmatic
+
+&nbsp;
+
+![spring_security_overview](./_00_diagrams/spring_security_overview.png)
+
+&nbsp;
+
+![spring_security_in_action](./_00_diagrams/spring_security_in_action.png)
 
 &nbsp;
