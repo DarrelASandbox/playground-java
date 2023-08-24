@@ -844,3 +844,9 @@ Employee DAO  Skills DAO  Payroll DAO                  |
 ![spring_security_in_action](./_00_diagrams/spring_security_in_action.png)
 
 &nbsp;
+
+- **Context Path**
+  - The root path for your web application
+  - Allows us to dynamically reference context path of application
+
+&nbsp;
