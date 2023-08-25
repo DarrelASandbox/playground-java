@@ -41,6 +41,7 @@
   - [Thymeleaf](#thymeleaf)
   - [Validation](#validation)
 - [Spring MVC Security](#spring-mvc-security)
+- [JPA/ Hibernate Advanced Mappings](#jpa-hibernate-advanced-mappings)
 
 &nbsp;
 
@@ -848,5 +849,47 @@ Employee DAO  Skills DAO  Payroll DAO                  |
 - **Context Path**
   - The root path for your web application
   - Allows us to dynamically reference context path of application
+
+&nbsp;
+
+# JPA/ Hibernate Advanced Mappings
+
+- In the database, you most likely will have
+  - Multiple Tables
+  - Relationships between Tables
+- Need to model this with Hibernate
+- **Database Concept**
+  - One-to-One
+  - One-to-Many, Many-to-One
+  - Many-to-Many
+  - Primary key and foreign key
+  - Cascade
+- **Fetch Types**
+  - **Eager** will retrieve everything
+  - **Lazy** will retrieve on request
+- **Entity Lifecycle**
+
+| Operations |                                    Description                                     |
+| :--------: | :--------------------------------------------------------------------------------: |
+|   Detach   |        If entity is detached, it is not associated with a Hibernate session        |
+|   Merge    |     If instance is detached from session, then merge will reattach to session      |
+|  Persist   |  Transitions new instances to managed state. Next flush / commit will save in db.  |
+|   Remove   | Transitions managed entity to be removed. Next flush / commit will delete from db. |
+|  Refresh   |            Reload / synch object with data from db. Prevents stale data            |
+
+- **Cascade Types**
+
+| Cascade Type |                                         Description                                          |
+| :----------: | :------------------------------------------------------------------------------------------: |
+|   PERSIST    |            If entity is persisted / saved, related entity will also be persisted             |
+|    REMOVE    |             If entity is removed / deleted, related entity will also be deleted              |
+|   REFRESH    |                If entity is refreshed, related entity will also be refreshed                 |
+|    DETACH    | If entity is detached (not associated w/ session), then related entity will also be detached |
+|    MERGE     |                 If entity is merged, then related entity will also be merged                 |
+|     ALL      |                                  All of above cascade types                                  |
+
+&nbsp;
+
+![entity_lifecycle_session_method_calls](_00_diagrams/entity_lifecycle_session_method_calls.png)
 
 &nbsp;
