@@ -13,12 +13,21 @@ import javax.sql.DataSource;
 @Configuration
 public class DemoSecurityConfig {
 
-  // Inject data source
-  // Auto-configured by Spring Boot
+
   @Bean
   public UserDetailsManager userDetailsManager(DataSource dataSource) {
-      // Tell Spring Security to use JDBC authentication with our data source
-      return new JdbcUserDetailsManager(dataSource);
+
+      JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
+
+      // define query to retrieve a user by username
+      jdbcUserDetailsManager.setUsersByUsernameQuery(
+              "SELECT user_id, pw, active FROM members WHERE user_id=?");
+
+      // define query to retrieve the authorities/roles by username
+      jdbcUserDetailsManager.setAuthoritiesByUsernameQuery(
+              "SELECT user_id, role FROM roles WHERE user_id=?");
+
+      return jdbcUserDetailsManager;
   }
 
   @Bean
