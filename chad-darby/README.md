@@ -42,6 +42,8 @@
   - [Validation](#validation)
 - [Spring MVC Security](#spring-mvc-security)
 - [JPA/ Hibernate Advanced Mappings](#jpa-hibernate-advanced-mappings)
+  - [One-to-One Mapping (Unidirectional)](#one-to-one-mapping-unidirectional)
+  - [One-to-One Mapping (Bidirectional)](#one-to-one-mapping-bidirectional)
 
 &nbsp;
 
@@ -891,5 +893,27 @@ Employee DAO  Skills DAO  Payroll DAO                  |
 &nbsp;
 
 ![entity_lifecycle_session_method_calls](_00_diagrams/entity_lifecycle_session_method_calls.png)
+
+&nbsp;
+
+## One-to-One Mapping (Unidirectional)
+
+- Instructor -> Instructor Detail
+- **Development Process**
+  - Prep Work - Define database tables
+  - Create InstructorDetail class
+  - Create Instructor class
+  - Create Main App
+
+## One-to-One Mapping (Bidirectional)
+
+- Method to load an `InstructorDetail` to get the associated `Instructor`
+- Instructor <-> Instructor Detail
+- **Development Process**
+  - Make updates to `InstructorDetail` class:
+    - Add new field to reference `Instructor`
+    - Add getter/setter methods for `Instructor`
+    - Add `@OneToOne` annotation
+  - Create Main App
 
 &nbsp;
