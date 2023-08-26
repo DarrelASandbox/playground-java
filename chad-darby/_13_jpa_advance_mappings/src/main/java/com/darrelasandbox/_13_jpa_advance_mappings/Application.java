@@ -34,7 +34,11 @@ public class Application {
 			// createInstructorWithCourses(appDAO);
 			// findInstructorWithCourses(appDAO);
 			// findCoursesForInstructor(appDAO);
-			findInstructorWithCoursesJoinFetch(appDAO);
+			// findInstructorWithCoursesJoinFetch(appDAO);
+			// updateInstructor(appDAO);
+			// updateCourse(appDAO);
+			// deleteInstructor(appDAO);
+			// deleteCourse(appDAO);
 		};
 	}
 
@@ -102,7 +106,6 @@ public class Application {
 		//
 		System.out.println("Saving instructor: " + tempInstructor);
 		appDAO.save(tempInstructor);
-
 		System.out.println("Done!");
 	}
 
@@ -114,6 +117,36 @@ public class Application {
 	// `appDAO.findInstructorByIdJoinFetch(...)`
 	// This gives us flexibility instead of having eager fetch hard-coded
 	//
+
+	@SuppressWarnings("unused")
+	private void deleteCourse(AppDAO appDAO) {
+		int theId = 10;
+		System.out.println("Deleting course id: " + theId);
+		appDAO.deleteCourseById(theId);
+		System.out.println("Done!");
+	}
+
+	@SuppressWarnings("unused")
+	private void updateCourse(AppDAO appDAO) {
+		int theId = 10;
+		System.out.println("Finding course id: " + theId);
+		Course tempCourse = appDAO.findCourseById(theId);
+		System.out.println("Updating course id: " + theId);
+		tempCourse.setTitle("Enjoy the Simple Things");
+		appDAO.update(tempCourse);
+		System.out.println("Done!");
+	}
+
+	@SuppressWarnings("unused")
+	private void updateInstructor(AppDAO appDAO) {
+		int theId = 1;
+		System.out.println("Finding instructor id: " + theId);
+		Instructor tempInstructor = appDAO.findInstructorById(theId);
+		System.out.println("Updating instructor id: " + theId);
+		tempInstructor.setLastName("TESTER");
+		appDAO.update(tempInstructor);
+		System.out.println("Done!");
+	}
 
 	@SuppressWarnings("unused")
 	private void findInstructorWithCoursesJoinFetch(AppDAO appDAO) {

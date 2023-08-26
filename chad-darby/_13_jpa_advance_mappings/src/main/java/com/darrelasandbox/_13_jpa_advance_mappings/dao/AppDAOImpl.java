@@ -39,11 +39,16 @@ public class AppDAOImpl implements AppDAO {
     @Override
     @Transactional
     public void deleteInstructorById(int theId) {
-
-        // retrieve the instructor
         Instructor tempInstructor = entityManager.find(Instructor.class, theId);
 
-        // delete the instructor
+        // java.sql.SQLIntegrityConstraintViolationException
+        // An instructor can not be deleted if it is referenced by a course
+        // You must remove the instructor from the course first
+        List<Course> courses = tempInstructor.getCourses();
+        for (Course tempCourse : courses) {
+            tempCourse.setInstructor(null);
+        }
+
         entityManager.remove(tempInstructor);
     }
 
@@ -69,30 +74,21 @@ public class AppDAOImpl implements AppDAO {
                 // Or change `CascadeType` config in `InstructorDetail.java`
                 entityManager.remove(tempInstructor);
             }
-
-            // Delete the instructor detail
             entityManager.remove(tempInstructorDetail);
         }
     }
 
     @Override
     public List<Course> findCoursesByInstructorId(int theId) {
-
-        // create query
         TypedQuery<Course> query = entityManager.createQuery(
                 "from Course where instructor.id = :data", Course.class);
         query.setParameter("data", theId);
-
-        // execute query
         List<Course> courses = query.getResultList();
-
         return courses;
     }
 
     @Override
     public Instructor findInstructorByIdJoinFetch(int theId) {
-
-        // create query
         // the `JOIN FETCH` is similar to eager loading
         TypedQuery<Instructor> query = entityManager.createQuery(
                 "select i from Instructor i "
@@ -101,11 +97,31 @@ public class AppDAOImpl implements AppDAO {
                         + "where i.id = :data",
                 Instructor.class);
         query.setParameter("data", theId);
-
-        // execute query
         Instructor instructor = query.getSingleResult();
-
         return instructor;
     }
 
+    @Override
+    @Transactional
+    public void update(Instructor tempInstructor) {
+        entityManager.merge(tempInstructor);
+    }
+
+    @Override
+    @Transactional
+    public void update(Course tempCourse) {
+        entityManager.merge(tempCourse);
+    }
+
+    @Override
+    public Course findCourseById(int theId) {
+        return entityManager.find(Course.class, theId);
+    }
+
+    @Override
+    @Transactional
+    public void deleteCourseById(int theId) {
+        Course tempCourse = entityManager.find(Course.class, theId);
+        entityManager.remove(tempCourse);
+    }
 }
