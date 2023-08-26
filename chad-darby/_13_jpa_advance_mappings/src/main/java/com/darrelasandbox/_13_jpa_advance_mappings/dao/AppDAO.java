@@ -1,5 +1,8 @@
 package com.darrelasandbox._13_jpa_advance_mappings.dao;
 
+import java.util.List;
+
+import com.darrelasandbox._13_jpa_advance_mappings.entity.Course;
 import com.darrelasandbox._13_jpa_advance_mappings.entity.Instructor;
 import com.darrelasandbox._13_jpa_advance_mappings.entity.InstructorDetail;
 
@@ -15,4 +18,7 @@ public interface AppDAO {
 
     void deleteInstructorDetailById(int theId);
 
+    List<Course> findCoursesByInstructorId(int theId);
+
+    Instructor findInstructorByIdJoinFetch(int theId);
 }

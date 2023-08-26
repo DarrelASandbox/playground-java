@@ -1,13 +1,17 @@
 package com.darrelasandbox._13_jpa_advance_mappings.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.darrelasandbox._13_jpa_advance_mappings.entity.Course;
 import com.darrelasandbox._13_jpa_advance_mappings.entity.Instructor;
 import com.darrelasandbox._13_jpa_advance_mappings.entity.InstructorDetail;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 
 @Repository
 public class AppDAOImpl implements AppDAO {
@@ -69,6 +73,39 @@ public class AppDAOImpl implements AppDAO {
             // Delete the instructor detail
             entityManager.remove(tempInstructorDetail);
         }
+    }
+
+    @Override
+    public List<Course> findCoursesByInstructorId(int theId) {
+
+        // create query
+        TypedQuery<Course> query = entityManager.createQuery(
+                "from Course where instructor.id = :data", Course.class);
+        query.setParameter("data", theId);
+
+        // execute query
+        List<Course> courses = query.getResultList();
+
+        return courses;
+    }
+
+    @Override
+    public Instructor findInstructorByIdJoinFetch(int theId) {
+
+        // create query
+        // the `JOIN FETCH` is similar to eager loading
+        TypedQuery<Instructor> query = entityManager.createQuery(
+                "select i from Instructor i "
+                        + "JOIN FETCH i.courses "
+                        + "JOIN FETCH i.instructorDetail "
+                        + "where i.id = :data",
+                Instructor.class);
+        query.setParameter("data", theId);
+
+        // execute query
+        Instructor instructor = query.getSingleResult();
+
+        return instructor;
     }
 
 }

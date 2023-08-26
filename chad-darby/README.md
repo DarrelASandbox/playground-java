@@ -44,6 +44,7 @@
 - [JPA/ Hibernate Advanced Mappings](#jpa-hibernate-advanced-mappings)
   - [One-to-One Mapping (Unidirectional)](#one-to-one-mapping-unidirectional)
   - [One-to-One Mapping (Bidirectional)](#one-to-one-mapping-bidirectional)
+  - [One-to-Many Mapping (Bidirectional)](#one-to-many-mapping-bidirectional)
 
 &nbsp;
 
@@ -898,7 +899,10 @@ Employee DAO  Skills DAO  Payroll DAO                  |
 
 ## One-to-One Mapping (Unidirectional)
 
-- Instructor -> Instructor Detail
+```
+Instructor -> Instructor Detail
+```
+
 - **Development Process**
   - Prep Work - Define database tables
   - Create InstructorDetail class
@@ -908,12 +912,46 @@ Employee DAO  Skills DAO  Payroll DAO                  |
 ## One-to-One Mapping (Bidirectional)
 
 - Method to load an `InstructorDetail` to get the associated `Instructor`
-- Instructor <-> Instructor Detail
+
+```
+Instructor <-> Instructor Detail
+```
+
 - **Development Process**
   - Make updates to `InstructorDetail` class:
     - Add new field to reference `Instructor`
     - Add getter/setter methods for `Instructor`
     - Add `@OneToOne` annotation
   - Create Main App
+
+## One-to-Many Mapping (Bidirectional)
+
+```
+          Instructor
+              ^
+              |
+              |
+   +-------+-------+-------+
+   |       |       |       |
+   V       V       V       V
+Course1 Course2 Course3 Course4
+```
+
+- **Development Process**
+  - Define database tables
+  - Create Course class
+  - Update Instructor class
+  - Create Main App
+- **Only load data when absolutely needed**
+  - Prefer **lazy loading** instead of **eager loading**
+  - Lazy loading will load the main entity first
+  - Load dependent entities on demand (lazy)
+
+|   Mapping   | Default Fetch Type |
+| :---------: | :----------------: |
+|  @OneToOne  |  FetchType.EAGER   |
+| @OneToMany  |   FetchType.LAZY   |
+| @ManyToOne  |  FetchType.EAGER   |
+| @ManyToMany |   FetchType.LAZY   |
 
 &nbsp;
