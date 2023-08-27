@@ -1,17 +1,12 @@
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li><a href="#about-the-project">About The Project</a></li>
-    <li><a href="#01-introduction">01-introduction</a></li>
-    <li><a href="#02-data-types">02-data-types</a></li>
-    <li><a href="#03-features-and-architecture">03-features-and-architecture</a></li>
-    <li><a href="#04-operator-and-expressions">04-operator-and-expressions</a></li>
-  </ol>
-</details>
+- [About The Project](#about-the-project)
+- [01-introduction](#01-introduction)
+- [02-data-types](#02-data-types)
+- [03-features-and-architecture](#03-features-and-architecture)
+- [04-operator-and-expressions](#04-operator-and-expressions)
 
 &nbsp;
 
-## About The Project
+# About The Project
 
 - Learn JAVA Programming - Beginner to Master
 - Deep Dive in Core Java programming -Standard Edition. A Practical approach to learn Java. Become a Java Expert
@@ -21,11 +16,7 @@
 
 &nbsp;
 
----
-
-&nbsp;
-
-## 01-introduction
+# 01-introduction
 
 - **JDK:** Java Development Toolkit
   - First.java -> `javac First.java` (Compiler) -> First.class
@@ -38,11 +29,7 @@
 
 &nbsp;
 
----
-
-&nbsp;
-
-## 02-data-types
+# 02-data-types
 
 ```sh
 javap java.lang.Integer
@@ -98,11 +85,7 @@ javap java.lang.Boolean
 
 &nbsp;
 
----
-
-&nbsp;
-
-## 03-features-and-architecture
+# 03-features-and-architecture
 
 - **Aim**
   - To check errors
@@ -177,11 +160,7 @@ javap java.lang.Boolean
 
 &nbsp;
 
----
-
-&nbsp;
-
-## 04-operator-and-expressions
+# 04-operator-and-expressions
 
 - The mechanism of converting data type internally by the compiler is known as **COERCION**.
 - **Bit Merging and Masking:**
@@ -240,9 +219,5 @@ javap java.lang.Boolean
 
 - These bitwise operator are performed only on integer type of data
 - If you are taking byte and short the result will still be an integer
-
-&nbsp;
-
----
 
 &nbsp;
