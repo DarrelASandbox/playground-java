@@ -50,7 +50,8 @@
 - [Aspect-Oriented Programming (AOP)](#aspect-oriented-programming-aop)
   - [Cross-Cutting Concerns](#cross-cutting-concerns)
     - [How to Handle Cross-Cutting Concerns](#how-to-handle-cross-cutting-concerns)
-  - [Pointcut](#pointcut)
+  - [Pointcut Expressions](#pointcut-expressions)
+  - [Pointcut Declaration](#pointcut-declaration)
 
 &nbsp;
 
@@ -1116,7 +1117,7 @@ Understanding and properly handling cross-cutting concerns is a hallmark of matu
   - Keep the code fast
   - Do not perform any expensive / slow operations Get in and out as QUICKLY as possible
 
-## Pointcut
+## Pointcut Expressions
 
 - A predicate expression for where advice should be applied
 - `execution(modifiers-pattern? return-type-pattern declaring-type-pattern? method-name-pattern(param-pattern) throws-pattern?)`
@@ -1127,5 +1128,20 @@ Understanding and properly handling cross-cutting concerns is a hallmark of matu
 |  ()  |          matches a method with no arguments           |
 | (\*) |    matches a method with one argument of any type     |
 | (..) | matches a method with 0 or more arguments of any type |
+
+## Pointcut Declaration
+
+- How can we reuse a pointcut expression?
+- **Development Process**
+  - Create a pointcut declaration
+  - Apply pointcut declaration to advice(s)
+- **Benefits of Pointcut Declarations**
+  - Easily reuse pointcut expressions
+  - Update pointcut in one location
+  - Can also share and combine pointcut expressions
+- **Combine pointcut expressions using logic operators**
+  - AND (`&&`)
+  - OR (`||`)
+  - NOT (`!`)
 
 &nbsp;

@@ -31,6 +31,12 @@ public class Application {
 		theAccountDAO.addAccount2(myAccount);
 		theAccountDAO.doWork();
 
+		// call the accountdao getter/setter methods
+		theAccountDAO.setName("foobar");
+		theAccountDAO.setServiceCode("silver");
+		String name = theAccountDAO.getName();
+		String code = theAccountDAO.getServiceCode();
+
 		// call the membership business method
 		theMembershipDAO.addSillyMember();
 		theMembershipDAO.addSillyMember2(true);
