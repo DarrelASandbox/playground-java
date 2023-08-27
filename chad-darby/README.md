@@ -50,6 +50,7 @@
 - [Aspect-Oriented Programming (AOP)](#aspect-oriented-programming-aop)
   - [Cross-Cutting Concerns](#cross-cutting-concerns)
     - [How to Handle Cross-Cutting Concerns](#how-to-handle-cross-cutting-concerns)
+  - [Pointcut](#pointcut)
 
 &nbsp;
 
@@ -1110,5 +1111,21 @@ Understanding and properly handling cross-cutting concerns is a hallmark of matu
   - Create target object: AccountDAO
   - Create main app
   - Create an Aspect with `@Before` advice
+- **Best Practices: Aspect and Advices**
+  - Keep the code small
+  - Keep the code fast
+  - Do not perform any expensive / slow operations Get in and out as QUICKLY as possible
+
+## Pointcut
+
+- A predicate expression for where advice should be applied
+- `execution(modifiers-pattern? return-type-pattern declaring-type-pattern? method-name-pattern(param-pattern) throws-pattern?)`
+  - The pattern is optional if it has `?`
+
+|      |                     param-pattern                     |
+| :--: | :---------------------------------------------------: |
+|  ()  |          matches a method with no arguments           |
+| (\*) |    matches a method with one argument of any type     |
+| (..) | matches a method with 0 or more arguments of any type |
 
 &nbsp;

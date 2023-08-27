@@ -1,7 +1,12 @@
 package com.darrelasandbox._14_aop_demo.dao;
 
+import com.darrelasandbox._14_aop_demo.Account;
+
 public interface AccountDAO {
 
-    void addAccount();
+    void addAccount(Account theAccount, boolean vipFlag);
 
+    void addAccount2(Account theAccount);
+
+    boolean doWork();
 }

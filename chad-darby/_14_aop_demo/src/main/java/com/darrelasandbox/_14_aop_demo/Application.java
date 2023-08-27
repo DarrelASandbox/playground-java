@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.darrelasandbox._14_aop_demo.dao.AccountDAO;
+import com.darrelasandbox._14_aop_demo.dao.MembershipDAO;
 
 @SpringBootApplication
 public class Application {
@@ -15,18 +16,26 @@ public class Application {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO) {
+	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
 
 		return runner -> {
-			demoTheBeforeAdvice(theAccountDAO);
+			demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
 		};
 	}
 
-	private void demoTheBeforeAdvice(AccountDAO theAccountDAO) {
+	private void demoTheBeforeAdvice(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
+
 		// call the business method
-		theAccountDAO.addAccount();
-		System.out.println("\n let's call `theAccountDAO.addAccount()` again!\n");
-		theAccountDAO.addAccount();
+		Account myAccount = new Account();
+		theAccountDAO.addAccount(myAccount, true);
+		theAccountDAO.addAccount2(myAccount);
+		theAccountDAO.doWork();
+
+		// call the membership business method
+		theMembershipDAO.addSillyMember();
+		theMembershipDAO.addSillyMember2(true);
+		theMembershipDAO.goToSleep();
+
 	}
 
 }
