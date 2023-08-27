@@ -56,6 +56,7 @@
   - [Control Order](#control-order)
   - [Reading Method Arguments with JoinPoints](#reading-method-arguments-with-joinpoints)
   - [`@AfterReturning` Advice Type](#afterreturning-advice-type)
+  - [`@AfterThrowing` Advice Type](#afterthrowing-advice-type)
 
 &nbsp;
 
@@ -1177,5 +1178,25 @@ Understanding and properly handling cross-cutting concerns is a hallmark of matu
   - Add new method: find `Accounts()` in `AccountDAO`
   - Update main app to call the new method: `findAccounts()`
   - Add `@AfterReturning` advice
+
+## `@AfterThrowing` Advice Type
+
+- This advice will run **after an exception is thrown**
+- **Use Cases**
+  - Log the exception
+  - Perform auditing on the exception
+  - Notify DevOps team via email or SMS
+  - Encapsulate this functionality in AOP aspect for easy reuse
+- **Exception Propagation**
+  - We are only intercepting the exception (reading it)
+  - However, the exception is still propagated to calling program
+  - If you want to stop the exception propagation then use the `@Around` advice
+
+![afterthrowing_advice_sequence_diagram](_00_diagrams/afterthrowing_advice_sequence_diagram.png)
+
+- **Development Process**
+  - In Main App, add a `try/catch` block for exception handling
+  - Modify `AccountDAO` to simulate throwing an exception
+  - Add `@AfterThrowing` advice
 
 &nbsp;

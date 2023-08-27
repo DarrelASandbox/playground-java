@@ -22,10 +22,26 @@ public class Application {
 
 		return runner -> {
 			// demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
-			demoTheAfterReturningAdvice(theAccountDAO);
+			// demoTheAfterReturningAdvice(theAccountDAO);
+			demoTheAfterThrowingAdvice(theAccountDAO);
 		};
 	}
 
+	private void demoTheAfterThrowingAdvice(AccountDAO theAccountDAO) {
+		List<Account> theAccounts = null;
+		try {
+			boolean tripWire = true;
+			theAccounts = theAccountDAO.findAccounts(tripWire);
+		} catch (Exception exc) {
+			System.out.println("\n\nMain Program: ... caught exception: " + exc);
+		}
+		System.out.println("\n\nMain Program: demoTheAfterThrowingAdvice");
+		System.out.println("----");
+		System.out.println(theAccounts);
+		System.out.println("\n");
+	}
+
+	@SuppressWarnings("unused")
 	private void demoTheAfterReturningAdvice(AccountDAO theAccountDAO) {
 		List<Account> theAccounts = theAccountDAO.findAccounts();
 		System.out.println("\n\nMain Program: demoTheAfterReturningAdvice");
