@@ -57,6 +57,7 @@
   - [Reading Method Arguments with JoinPoints](#reading-method-arguments-with-joinpoints)
   - [`@AfterReturning` Advice Type](#afterreturning-advice-type)
   - [`@AfterThrowing` Advice Type](#afterthrowing-advice-type)
+  - [`@After` Advice Type](#after-advice-type)
 
 &nbsp;
 
@@ -1192,11 +1193,31 @@ Understanding and properly handling cross-cutting concerns is a hallmark of matu
   - However, the exception is still propagated to calling program
   - If you want to stop the exception propagation then use the `@Around` advice
 
-![afterthrowing_advice_sequence_diagram](_00_diagrams/afterthrowing_advice_sequence_diagram.png)
+![sequence_diagram_afterthrowing_advice](_00_diagrams/sequence_diagram_afterthrowing_advice.png)
 
 - **Development Process**
   - In Main App, add a `try/catch` block for exception handling
   - Modify `AccountDAO` to simulate throwing an exception
   - Add `@AfterThrowing` advice
+
+## `@After` Advice Type
+
+- **Use Cases**
+  - Log the exception and/or perform auditing
+  - Code to run regardless of method outcome
+  - Encapsulate this functionality in AOP aspect for easy reuse
+- **Tips**
+  - The `@After` advice does not have access to the exception
+  - If you need exception, then use `@AfterThrowing` advice
+  - The `@After` advice should be able to run in the case of success or error
+  - Your code should not depend on happy path or an exception
+  - Logging / auditing is the easiest case here
+
+![sequence_diagram_after_advice](_00_diagrams/sequence_diagram_after_advice.png)
+
+- **Development Process**
+  - Add `@After` advice
+  - Test for failure/exception case
+  - Test for success case
 
 &nbsp;
