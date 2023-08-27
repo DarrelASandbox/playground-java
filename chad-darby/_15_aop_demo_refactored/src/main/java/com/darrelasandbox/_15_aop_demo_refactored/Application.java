@@ -27,10 +27,23 @@ public class Application {
 			// demoTheAfterReturningAdvice(theAccountDAO);
 			// demoTheAfterThrowingAdvice(theAccountDAO);
 			// demoTheAfterAdvice(theAccountDAO);
-			demoTheAroundAdvice(theTrafficFortuneService);
+			// demoTheAroundAdvice(theTrafficFortuneService);
+			demoTheAroundAdviceHandleException(theTrafficFortuneService);
 		};
 	}
 
+	// The exception was never thrown to the main app
+	// Exception being handled in `@Around` advice
+	private void demoTheAroundAdviceHandleException(TrafficFortuneService theTrafficFortuneService) {
+		System.out.println("\nMain Program: demoTheAroundAdviceHandleException");
+		System.out.println("Calling getFortune()");
+		boolean tripWire = true;
+		String data = theTrafficFortuneService.getFortune(tripWire);
+		System.out.println("\nMy fortune is: " + data);
+		System.out.println("Finished");
+	}
+
+	@SuppressWarnings("unused")
 	private void demoTheAroundAdvice(TrafficFortuneService theTrafficFortuneService) {
 		System.out.println("\nMain Program: demoTheAroundAdvice");
 		System.out.println("Calling getFortune()");

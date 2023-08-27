@@ -28,7 +28,15 @@ public class MyDemoLoggingAspect {
         String method = theProceedingJoinPoint.getSignature().toShortString();
         System.out.println("\n=====>>> Executing @Around on method: " + method);
         long begin = System.currentTimeMillis();
-        Object result = theProceedingJoinPoint.proceed();
+
+        Object result = null;
+        try {
+            result = theProceedingJoinPoint.proceed();
+        } catch (Exception exc) {
+            System.out.println(exc.getMessage());
+            result = "Major accident! But no worries, your private AOP helicopter is on the way!";
+        }
+
         long end = System.currentTimeMillis();
         long duration = end - begin;
         System.out.println("\n=====> Duration: " + duration / 1000.0 + " seconds");
