@@ -52,6 +52,7 @@
     - [How to Handle Cross-Cutting Concerns](#how-to-handle-cross-cutting-concerns)
   - [Pointcut Expressions](#pointcut-expressions)
   - [Pointcut Declaration](#pointcut-declaration)
+  - [Control Order](#control-order)
 
 &nbsp;
 
@@ -1143,5 +1144,11 @@ Understanding and properly handling cross-cutting concerns is a hallmark of matu
   - AND (`&&`)
   - OR (`||`)
   - NOT (`!`)
+
+## Control Order
+
+- Refactor: Place advices in separate Aspects
+- Control order on Aspects using the `@Order` annotation
+- Guarantees order of when Aspects are applied
 
 &nbsp;
