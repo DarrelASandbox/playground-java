@@ -34,7 +34,12 @@ public class MyDemoLoggingAspect {
             result = theProceedingJoinPoint.proceed();
         } catch (Exception exc) {
             System.out.println(exc.getMessage());
+
+            // give user a custom message
             result = "Major accident! But no worries, your private AOP helicopter is on the way!";
+
+            // rethrow exception
+            // throw exc;
         }
 
         long end = System.currentTimeMillis();
