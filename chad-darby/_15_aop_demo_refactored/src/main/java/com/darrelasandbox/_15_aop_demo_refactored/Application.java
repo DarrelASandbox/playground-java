@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 
 import com.darrelasandbox._15_aop_demo_refactored.dao.AccountDAO;
 import com.darrelasandbox._15_aop_demo_refactored.dao.MembershipDAO;
+import com.darrelasandbox._15_aop_demo_refactored.service.TrafficFortuneService;
 
 @SpringBootApplication
 public class Application {
@@ -18,16 +19,27 @@ public class Application {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
+	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO,
+			TrafficFortuneService theTrafficFortuneService) {
 
 		return runner -> {
 			// demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
 			// demoTheAfterReturningAdvice(theAccountDAO);
 			// demoTheAfterThrowingAdvice(theAccountDAO);
-			demoTheAfterAdvice(theAccountDAO);
+			// demoTheAfterAdvice(theAccountDAO);
+			demoTheAroundAdvice(theTrafficFortuneService);
 		};
 	}
 
+	private void demoTheAroundAdvice(TrafficFortuneService theTrafficFortuneService) {
+		System.out.println("\nMain Program: demoTheAroundAdvice");
+		System.out.println("Calling getFortune()");
+		String data = theTrafficFortuneService.getFortune();
+		System.out.println("\nMy fortune is: " + data);
+		System.out.println("Finished");
+	}
+
+	@SuppressWarnings("unused")
 	private void demoTheAfterAdvice(AccountDAO theAccountDAO) {
 		List<Account> theAccounts = null;
 		try {

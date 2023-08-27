@@ -58,6 +58,7 @@
   - [`@AfterReturning` Advice Type](#afterreturning-advice-type)
   - [`@AfterThrowing` Advice Type](#afterthrowing-advice-type)
   - [`@After` Advice Type](#after-advice-type)
+  - [`@Around` Advice Type](#around-advice-type)
 
 &nbsp;
 
@@ -1219,5 +1220,27 @@ Understanding and properly handling cross-cutting concerns is a hallmark of matu
   - Add `@After` advice
   - Test for failure/exception case
   - Test for success case
+
+## `@Around` Advice Type
+
+- **Use Cases**
+  - **Most common**: logging, auditing, security
+  - Pre-processing and post-processing data
+  - Instrumentation / profiling code
+    - How long does it take for a section of code to run?
+  - Managing exceptions
+    - Swallow / handle / stop exceptions
+- **ProceedingJoinPoint**
+  - When using `@Around` advice
+  - You will get a reference to a **“proceeding join point”**
+  - This is a handle to the **target method**
+  - Your code can use the **proceeding join point** to execute **target method**
+
+![sequence_diagram_around_advice](_00_diagrams/sequence_diagram_around_advice.png)
+
+- **Development Process**
+  - Create `TrafficFortuneService` service
+  - Update main app to call `TrafficFortuneService` service
+  - Add `@Around` advice
 
 &nbsp;
