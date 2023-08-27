@@ -59,6 +59,7 @@
   - [`@AfterThrowing` Advice Type](#afterthrowing-advice-type)
   - [`@After` Advice Type](#after-advice-type)
   - [`@Around` Advice Type](#around-advice-type)
+- [Integrating AOP with Spring MVC CRUD app](#integrating-aop-with-spring-mvc-crud-app)
 
 &nbsp;
 
@@ -1242,5 +1243,21 @@ Understanding and properly handling cross-cutting concerns is a hallmark of matu
   - Create `TrafficFortuneService` service
   - Update main app to call `TrafficFortuneService` service
   - Add `@Around` advice
+
+&nbsp;
+
+# Integrating AOP with Spring MVC CRUD app
+
+- Add AOP Logging support to our Spring MVC CRUD app
+
+![aop_mvc_crud_logging_aspect](_00_diagrams/aop_mvc_crud_logging_aspect.png)
+
+- **Development Process**
+  - Add Spring Boot AOP Starter to Maven pom file
+  - CreateAspect
+    - Add logging support
+    - Setup pointcut declarations
+    - Add `@Before` advice
+    - Add `@AfterReturning` advice
 
 &nbsp;
