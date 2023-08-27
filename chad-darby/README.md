@@ -45,6 +45,7 @@
   - [One-to-One Mapping (Unidirectional)](#one-to-one-mapping-unidirectional)
   - [One-to-One Mapping (Bidirectional)](#one-to-one-mapping-bidirectional)
   - [One-to-Many Mapping (Bidirectional)](#one-to-many-mapping-bidirectional)
+  - [One-to-Many Mapping (Unidirectional)](#one-to-many-mapping-unidirectional)
 
 &nbsp;
 
@@ -904,9 +905,9 @@ Instructor -> Instructor Detail
 ```
 
 - **Development Process**
-  - Prep Work - Define database tables
-  - Create InstructorDetail class
-  - Create Instructor class
+  - Define database tables
+  - Create `InstructorDetail` class
+  - Create `Instructor` class
   - Create Main App
 
 ## One-to-One Mapping (Bidirectional)
@@ -934,13 +935,13 @@ Instructor <-> Instructor Detail
    +-------+-------+-------+
    |       |       |       |
    V       V       V       V
-Course1 Course2 Course3 Course4
+Course  Course  Course  Course
 ```
 
 - **Development Process**
   - Define database tables
-  - Create Course class
-  - Update Instructor class
+  - Create `Course` class
+  - Update `Instructor` class
   - Create Main App
 - **Only load data when absolutely needed**
   - Prefer **lazy loading** instead of **eager loading**
@@ -953,5 +954,23 @@ Course1 Course2 Course3 Course4
 | @OneToMany  |   FetchType.LAZY   |
 | @ManyToOne  |  FetchType.EAGER   |
 | @ManyToMany |   FetchType.LAZY   |
+
+## One-to-Many Mapping (Unidirectional)
+
+```
+            Course
+              ^
+              |
+              |
+   +-------+-------+-------+
+   |       |       |       |
+   V       V       V       V
+Review  Review  Review  Review
+```
+
+- **Development Process**
+  - Define database tables
+  - Create `Review` class
+  - Update `Course` class
 
 &nbsp;

@@ -11,6 +11,7 @@ import com.darrelasandbox._13_jpa_advance_mappings.dao.AppDAO;
 import com.darrelasandbox._13_jpa_advance_mappings.entity.Course;
 import com.darrelasandbox._13_jpa_advance_mappings.entity.Instructor;
 import com.darrelasandbox._13_jpa_advance_mappings.entity.InstructorDetail;
+import com.darrelasandbox._13_jpa_advance_mappings.entity.Review;
 
 @SpringBootApplication
 public class Application {
@@ -39,6 +40,11 @@ public class Application {
 			// updateCourse(appDAO);
 			// deleteInstructor(appDAO);
 			// deleteCourse(appDAO);
+
+			// Database: hb-04-one-to-many-uni
+			// createCourseAndReviews(appDAO);
+			// retrieveCourseAndReviews(appDAO);
+			deleteCourseAndReviews(appDAO);
 		};
 	}
 
@@ -99,11 +105,7 @@ public class Application {
 		// associate the objects
 		tempInstructor.setInstructorDetail(tempInstructorDetail);
 
-		// save the instructor
-		//
-		// NOTE: this will ALSO save the details object
-		// because of CascadeType.ALL
-		//
+		// This will ALSO save the details object because of CascadeType.ALL
 		System.out.println("Saving instructor: " + tempInstructor);
 		appDAO.save(tempInstructor);
 		System.out.println("Done!");
@@ -191,34 +193,60 @@ public class Application {
 	@SuppressWarnings("unused")
 	private void createInstructorWithCourses(AppDAO appDAO) {
 
-		// create the instructor
 		Instructor tempInstructor = new Instructor("Susan", "Public", "susan.public@luv2code.com");
 
-		// create the instructor detail
 		InstructorDetail tempInstructorDetail = new InstructorDetail(
 				"http://www.youtube.com",
 				"Video Games");
 
 		// associate the objects
 		tempInstructor.setInstructorDetail(tempInstructorDetail);
-
-		// create some courses
 		Course tempCourse1 = new Course("Air Guitar - The Ultimate Guide");
 		Course tempCourse2 = new Course("The Pinball Masterclass");
-
-		// add courses to instructor
 		tempInstructor.add(tempCourse1);
 		tempInstructor.add(tempCourse2);
 
-		// save the instructor
-		//
-		// NOTE: this will ALSO save the courses
-		// because of CascadeType.PERSIST
-		//
+		// This will ALSO save the courses because of CascadeType.PERSIST
 		System.out.println("Saving instructor: " + tempInstructor);
 		System.out.println("The courses: " + tempInstructor.getCourses());
 		appDAO.save(tempInstructor);
 
 		System.out.println("Done!");
 	}
+
+	//
+	// Database: hb-04-one-to-many-uni
+	//
+
+	@SuppressWarnings("unused")
+	private void deleteCourseAndReviews(AppDAO appDAO) {
+		int theId = 10;
+		System.out.println("Deleting course id: " + theId);
+		appDAO.deleteCourseById(theId);
+		System.out.println("Done!");
+	}
+
+	@SuppressWarnings("unused")
+	private void retrieveCourseAndReviews(AppDAO appDAO) {
+		int theId = 10;
+		Course tempCourse = appDAO.findCourseAndReviewsByCourseId(theId);
+		System.out.println(tempCourse);
+		System.out.println(tempCourse.getReviews());
+	}
+
+	@SuppressWarnings("unused")
+	private void createCourseAndReviews(AppDAO appDAO) {
+		Course tempCourse = new Course("Pacman - How To Score One Million Points");
+		tempCourse.addReview(new Review("Great course ... loved it!"));
+		tempCourse.addReview(new Review("Cool course, job well done."));
+		tempCourse.addReview(new Review("What a dumb course, you are an idiot!"));
+
+		// Leverage the cascade all
+		System.out.println("Saving the course");
+		System.out.println(tempCourse);
+		System.out.println(tempCourse.getReviews());
+		appDAO.save(tempCourse);
+		System.out.println("Done!");
+	}
+
 }
