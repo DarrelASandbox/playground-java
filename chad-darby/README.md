@@ -1103,5 +1103,12 @@ Understanding and properly handling cross-cutting concerns is a hallmark of matu
     - **Disadvantages**:
       - Compile-time weaving requires extra compilation step
       - AspectJ pointcut syntax can become complex
+- **Spring Boot AOP Starter**
+  - Spring Boot will automatically enable support for AOP
+  - No need to explicitly use `@EnableAspectJAutoProxy`
+- **Development Process**
+  - Create target object: AccountDAO
+  - Create main app
+  - Create an Aspect with `@Before` advice
 
 &nbsp;
