@@ -50,10 +50,12 @@
 - [Aspect-Oriented Programming (AOP)](#aspect-oriented-programming-aop)
   - [Cross-Cutting Concerns](#cross-cutting-concerns)
     - [How to Handle Cross-Cutting Concerns](#how-to-handle-cross-cutting-concerns)
+  - [`@Before` Advice Type](#before-advice-type)
   - [Pointcut Expressions](#pointcut-expressions)
   - [Pointcut Declaration](#pointcut-declaration)
   - [Control Order](#control-order)
   - [Reading Method Arguments with JoinPoints](#reading-method-arguments-with-joinpoints)
+  - [`@AfterReturning` Advice Type](#afterreturning-advice-type)
 
 &nbsp;
 
@@ -1110,6 +1112,9 @@ Understanding and properly handling cross-cutting concerns is a hallmark of matu
 - **Spring Boot AOP Starter**
   - Spring Boot will automatically enable support for AOP
   - No need to explicitly use `@EnableAspectJAutoProxy`
+
+## `@Before` Advice Type
+
 - **Development Process**
   - Create target object: AccountDAO
   - Create main app
@@ -1157,5 +1162,20 @@ Understanding and properly handling cross-cutting concerns is a hallmark of matu
 - **Development Process**
   - Access and display **Method Signature**
   - Access and display **Method Arguments**
+
+## `@AfterReturning` Advice Type
+
+- This advice will run after the method call **(success execution)**
+- **Use Cases**
+  - **Most common**: logging, security, transactions
+  - **Audit logging**: who, what, when, where
+  - **Post-processing Data**:
+    - Post process the data before returning to caller
+    - Format the data or enrich the data (really cool but be careful)
+- **Development Process**
+  - Add constructors to `Account` class
+  - Add new method: find `Accounts()` in `AccountDAO`
+  - Update main app to call the new method: `findAccounts()`
+  - Add `@AfterReturning` advice
 
 &nbsp;

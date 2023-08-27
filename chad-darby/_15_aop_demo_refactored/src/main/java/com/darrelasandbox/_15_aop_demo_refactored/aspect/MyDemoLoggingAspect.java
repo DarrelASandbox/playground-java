@@ -1,6 +1,9 @@
 package com.darrelasandbox._15_aop_demo_refactored.aspect;
 
+import java.util.List;
+
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -13,6 +16,13 @@ import com.darrelasandbox._15_aop_demo_refactored.Account;
 @Component
 @Order(2)
 public class MyDemoLoggingAspect {
+
+    @AfterReturning(pointcut = "execution(* com.darrelasandbox._15_aop_demo_refactored.dao.AccountDAO.findAccounts(..))", returning = "result")
+    public void afterReturningFindAccountsAdvice(JoinPoint theJoinPoint, List<Account> result) {
+        String method = theJoinPoint.getSignature().toShortString();
+        System.out.println("\n=====>>> Executing @AfterReturning on method: " + method);
+        System.out.println("\n=====>>> result is: " + result);
+    }
 
     // @Before("execution(public void addAccount(..))")
     // @Before("execution(public void com.darrelasandbox._15_aop_demo_refactored.dao.AccountDAO.addAccount(..))")
