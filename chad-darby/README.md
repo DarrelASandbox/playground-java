@@ -47,6 +47,9 @@
   - [One-to-Many Mapping (Bidirectional)](#one-to-many-mapping-bidirectional)
   - [One-to-Many Mapping (Unidirectional)](#one-to-many-mapping-unidirectional)
   - [Many-to-Many Mapping](#many-to-many-mapping)
+- [Aspect-Oriented Programming (AOP)](#aspect-oriented-programming-aop)
+  - [Cross-Cutting Concerns](#cross-cutting-concerns)
+    - [How to Handle Cross-Cutting Concerns](#how-to-handle-cross-cutting-concerns)
 
 &nbsp;
 
@@ -989,5 +992,116 @@ Review  Review  Review  Review
   - Define database tables
   - Update `Course` class
   - Update `Student` class
+
+&nbsp;
+
+# Aspect-Oriented Programming (AOP)
+
+- Account Controller <-> Account Service <-> Account DAO <-> Database
+- **Requirements for DAO methods**
+  - Add logging
+  - Make sure user is authorized
+
+## Cross-Cutting Concerns
+
+Cross-cutting concerns are aspects of a program that affect other concerns. These concerns often cannot be completely decomposed from the rest of the system in both the design and implementation. Examples include logging, security, transactions, and caching. These concerns are applicable throughout an application and do not usually neatly fit into the architecture of the software.
+
+Here's a breakdown of some common cross-cutting concerns:
+
+1. **Logging**: Capturing what happens in your application, useful for debugging and auditing.
+2. **Security**: Concerns like authentication and authorization that apply to many parts of an application.
+3. **Transactions**: Ensuring that a series of operations are completed successfully before committing any changes.
+4. **Caching**: Storing and retrieving frequently-used data to improve performance.
+5. **Monitoring**: Keeping track of application health and performance metrics.
+6. **Data Validation**: Ensuring that data is clean, correct, and useful.
+7. **Error Handling**: Defining how to propagate errors and handle them in a unified way.
+8. **Internationalization (i18n) and Localization (l10n)**: Adapting the user interface for multiple languages or regions.
+
+### How to Handle Cross-Cutting Concerns
+
+1. **Aspect-Oriented Programming (AOP)**: This programming paradigm aims to increase modularity by allowing the separation of cross-cutting concerns. Libraries like AspectJ for Java can be used for this.
+
+2. **Middleware**: In frameworks like Express.js for Node.js or Django for Python, middleware can be used to handle these concerns.
+
+3. **Decorators**: In languages that support them, like Python or TypeScript, decorators can be used to inject behavior before, after, or around method calls.
+
+4. **Interceptors**: In frameworks like Angular or in languages like Java (with Java EE), you can use interceptors to write functions that are automatically called whenever a method is invoked.
+
+5. **Event Bus**: An event bus can be used to decouple event producers from consumers, thus allowing cross-cutting concerns to be handled in a centralized manner.
+
+6. **Built-in Language Features**: Some languages have built-in support for handling certain cross-cutting concerns. For example, the `try`/`catch` mechanism in many languages is a built-in way to handle errors.
+
+**Best Practices:**
+
+- **Consistency**: Choose a consistent way to handle each cross-cutting concern across your application.
+- **Documentation**: Document how each concern is handled, especially if you're using less common methods or custom-built solutions.
+- **Separation of Concerns**: Try to keep the logic for each concern isolated from the main business logic and from other cross-cutting concerns.
+
+Understanding and properly handling cross-cutting concerns is a hallmark of mature software design and is something that senior engineers pay close attention to. It's essential for creating maintainable, scalable, and robust software.
+
+![aop_proxy_design_pattern](_00_diagrams/aop_proxy_design_pattern.png)
+
+- **Benefits of AOP**
+  - **Code for Aspect is defined in a single class**
+    - Much better than being scattered everywhere
+    - Promotes code reuse and easier to change
+  - **Business code in your application is cleaner**
+    - Only applies to business functionality: addAccount
+    - Reduces code complexity
+  - **Configurable**
+    - Based on configuration, apply Aspects selectively to different parts of app
+    - No need to make changes to main application code ... very important!
+- **Additional AOP Use Cases**
+  - **Most common**: logging, security, transactions
+  - **Audit logging**: who, what, when, where
+  - **Exception handling**: log exception and notify DevOps team via SMS/email
+  - **API Management**: - how many times has a method been called user - **analytics**: what are peak times? what is average load? who is top user?
+- **Advantages**:
+  - Reusable modules
+  - Resolve code tangling
+  - Resolve code scatter
+  - Applied selectively based on configuration
+- **Disadvantages**:
+  - Too many aspects and app flow is hard to follow
+  - Minor performance cost for aspect execution (run-time weaving)
+- **AOP Terminology**
+  - **Aspect**: module of code for a cross-cutting concern (logging, security, ...)
+  - **Advice**: What action is taken and when it should be applied
+    - **Before advice**: run before the method
+    - **After finally advice**: run after the method (finally)
+    - **After returning advice**: run after the method (success execution)
+    - **After throwing advice**: run after method (if exception thrown) Around advice: run before and after method
+  - **Join Point**: When to apply code during program execution
+  - **Pointcut**: A predicate expression for where advice should be applied
+  - **Weaving**
+    - Connecting aspects to target objects to create an advised object
+    - **Different types of weaving**: Compile-time, load-time or run-time
+    - **Regarding performance**: run-time weaving is the slowest
+- **AOP Frameworks**
+  - **Spring AOP**
+    - Spring provides AOP support
+    - **Key component of Spring**: Security, transactions, caching etc
+    - Uses run-time weaving of aspects
+    - **Advantages**:
+      - Simpler to use than AspectJ
+      - Uses Proxy pattern
+      - Can migrate to AspectJ when using `@Aspect` annotation
+    - **Disadvantages**:
+      - Only supports method-level join points
+      - Can only apply aspects to beans created by Spring app context
+      - Minor performance cost for aspect execution (run-time weaving)
+  - [**AspectJ**](www.eclipse.org/aspectj)
+    - Original AOP framework, released in 2001
+    - Provides complete support for AOP Rich support for
+      - **join points**: method-level, constructor, field
+      - **code weaving**: compile-time, post compile-time and load-time
+    - **Advantages**:
+      - Support all join points
+      - Works with any POJO, not just beans from app context
+      - Faster performance compared to Spring AOP
+      - Complete AOP support
+    - **Disadvantages**:
+      - Compile-time weaving requires extra compilation step
+      - AspectJ pointcut syntax can become complex
 
 &nbsp;
