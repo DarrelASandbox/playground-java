@@ -27,6 +27,8 @@ public class Application {
 
 		// call the business method
 		Account myAccount = new Account();
+		myAccount.setName("Madhu");
+		myAccount.setLevel("Platinum");
 		theAccountDAO.addAccount(myAccount, true);
 		theAccountDAO.addAccount2(myAccount);
 		theAccountDAO.doWork();
