@@ -34,7 +34,9 @@ public class Application {
 		// call the accountdao getter/setter methods
 		theAccountDAO.setName("foobar");
 		theAccountDAO.setServiceCode("silver");
+		@SuppressWarnings("unused")
 		String name = theAccountDAO.getName();
+		@SuppressWarnings("unused")
 		String code = theAccountDAO.getServiceCode();
 
 		// call the membership business method

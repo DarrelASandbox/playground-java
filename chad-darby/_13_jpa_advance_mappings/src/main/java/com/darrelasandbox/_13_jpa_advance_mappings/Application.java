@@ -52,7 +52,7 @@ public class Application {
 			// findCourseAndStudents(appDAO);
 			// findStudentAndCourses(appDAO);
 			// addMoreCoursesForStudent(appDAO);
-			deleteStudent(appDAO);
+			// deleteStudent(appDAO);
 		};
 	}
 
