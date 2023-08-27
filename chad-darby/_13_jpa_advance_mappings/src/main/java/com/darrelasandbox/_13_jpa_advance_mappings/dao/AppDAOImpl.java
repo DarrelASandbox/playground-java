@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.darrelasandbox._13_jpa_advance_mappings.entity.Course;
 import com.darrelasandbox._13_jpa_advance_mappings.entity.Instructor;
 import com.darrelasandbox._13_jpa_advance_mappings.entity.InstructorDetail;
+import com.darrelasandbox._13_jpa_advance_mappings.entity.Student;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
@@ -141,5 +142,42 @@ public class AppDAOImpl implements AppDAO {
         query.setParameter("data", theId);
         Course course = query.getSingleResult();
         return course;
+    }
+
+    @Override
+    public Course findCourseAndStudentsByCourseId(int theId) {
+        TypedQuery<Course> query = entityManager.createQuery(
+                "select c from Course c "
+                        + "JOIN FETCH c.students "
+                        + "where c.id = :data",
+                Course.class);
+        query.setParameter("data", theId);
+        Course course = query.getSingleResult();
+        return course;
+    }
+
+    @Override
+    public Student findStudentAndCoursesByStudentId(int theId) {
+        TypedQuery<Student> query = entityManager.createQuery(
+                "select s from Student s "
+                        + "JOIN FETCH s.courses "
+                        + "where s.id = :data",
+                Student.class);
+        query.setParameter("data", theId);
+        Student student = query.getSingleResult();
+        return student;
+    }
+
+    @Override
+    @Transactional
+    public void update(Student tempStudent) {
+        entityManager.merge(tempStudent);
+    }
+
+    @Override
+    @Transactional
+    public void deleteStudentById(int theId) {
+        Student tempStudent = entityManager.find(Student.class, theId);
+        entityManager.remove(tempStudent);
     }
 }

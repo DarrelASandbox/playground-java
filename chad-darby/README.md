@@ -46,6 +46,7 @@
   - [One-to-One Mapping (Bidirectional)](#one-to-one-mapping-bidirectional)
   - [One-to-Many Mapping (Bidirectional)](#one-to-many-mapping-bidirectional)
   - [One-to-Many Mapping (Unidirectional)](#one-to-many-mapping-unidirectional)
+  - [Many-to-Many Mapping](#many-to-many-mapping)
 
 &nbsp;
 
@@ -972,5 +973,21 @@ Review  Review  Review  Review
   - Define database tables
   - Create `Review` class
   - Update `Course` class
+
+## Many-to-Many Mapping
+
+![mappings_uml](_00_diagrams/mappings_uml.png)
+
+![join_table_uml](_00_diagrams/join_table_uml.png)
+
+![join_table](_00_diagrams/join_table.png)
+
+- **Join Table**
+  - A table that provides a mapping between two tables.
+  - It has foreign keys for each table to define the mapping relationship.
+- **Development Process**
+  - Define database tables
+  - Update `Course` class
+  - Update `Student` class
 
 &nbsp;

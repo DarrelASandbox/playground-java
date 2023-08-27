@@ -12,6 +12,7 @@ import com.darrelasandbox._13_jpa_advance_mappings.entity.Course;
 import com.darrelasandbox._13_jpa_advance_mappings.entity.Instructor;
 import com.darrelasandbox._13_jpa_advance_mappings.entity.InstructorDetail;
 import com.darrelasandbox._13_jpa_advance_mappings.entity.Review;
+import com.darrelasandbox._13_jpa_advance_mappings.entity.Student;
 
 @SpringBootApplication
 public class Application {
@@ -44,7 +45,14 @@ public class Application {
 			// Database: hb-04-one-to-many-uni
 			// createCourseAndReviews(appDAO);
 			// retrieveCourseAndReviews(appDAO);
-			deleteCourseAndReviews(appDAO);
+			// deleteCourseAndReviews(appDAO);
+
+			// Database: hb-05-many-to-many
+			// createCourseAndStudents(appDAO);
+			// findCourseAndStudents(appDAO);
+			// findStudentAndCourses(appDAO);
+			// addMoreCoursesForStudent(appDAO);
+			deleteStudent(appDAO);
 		};
 	}
 
@@ -249,4 +257,60 @@ public class Application {
 		System.out.println("Done!");
 	}
 
+	//
+	// hb-05-many-to-many
+	//
+
+	@SuppressWarnings("unused")
+	private void deleteStudent(AppDAO appDAO) {
+		int theId = 1;
+		System.out.println("Deleting student id: " + theId);
+		appDAO.deleteStudentById(theId);
+		System.out.println("Done!");
+	}
+
+	@SuppressWarnings("unused")
+	private void addMoreCoursesForStudent(AppDAO appDAO) {
+		int theId = 2;
+		Student tempStudent = appDAO.findStudentAndCoursesByStudentId(theId);
+		Course tempCourse1 = new Course("Rubik's Cube - How to Speed Cube");
+		Course tempCourse2 = new Course("Atari 2600 - Game Development");
+		tempStudent.addCourse(tempCourse1);
+		tempStudent.addCourse(tempCourse2);
+		System.out.println("Updating student: " + tempStudent);
+		System.out.println("associated courses: " + tempStudent.getCourses());
+		appDAO.update(tempStudent);
+		System.out.println("Done!");
+	}
+
+	@SuppressWarnings("unused")
+	private void findStudentAndCourses(AppDAO appDAO) {
+		int theId = 2;
+		Student tempStudent = appDAO.findStudentAndCoursesByStudentId(theId);
+		System.out.println("Loaded student: " + tempStudent);
+		System.out.println("Courses: " + tempStudent.getCourses());
+		System.out.println("Done!");
+	}
+
+	@SuppressWarnings("unused")
+	private void findCourseAndStudents(AppDAO appDAO) {
+		int theId = 10;
+		Course tempCourse = appDAO.findCourseAndStudentsByCourseId(theId);
+		System.out.println("Loaded course: " + tempCourse);
+		System.out.println("Students: " + tempCourse.getStudents());
+		System.out.println("Done!");
+	}
+
+	@SuppressWarnings("unused")
+	private void createCourseAndStudents(AppDAO appDAO) {
+		Course tempCourse = new Course("Pacman - How To Score One Million Points");
+		Student tempStudent1 = new Student("John", "Doe", "john@luv2code.com");
+		Student tempStudent2 = new Student("Mary", "Public", "mary@luv2code.com");
+		tempCourse.addStudent(tempStudent1);
+		tempCourse.addStudent(tempStudent2);
+		System.out.println("Saving the course: " + tempCourse);
+		System.out.println("associated students: " + tempCourse.getStudents());
+		appDAO.save(tempCourse);
+		System.out.println("Done!");
+	}
 }

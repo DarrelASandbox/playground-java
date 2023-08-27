@@ -5,6 +5,7 @@ import java.util.List;
 import com.darrelasandbox._13_jpa_advance_mappings.entity.Course;
 import com.darrelasandbox._13_jpa_advance_mappings.entity.Instructor;
 import com.darrelasandbox._13_jpa_advance_mappings.entity.InstructorDetail;
+import com.darrelasandbox._13_jpa_advance_mappings.entity.Student;
 
 public interface AppDAO {
 
@@ -33,4 +34,12 @@ public interface AppDAO {
     void save(Course theCourse);
 
     Course findCourseAndReviewsByCourseId(int theId);
+
+    Course findCourseAndStudentsByCourseId(int theId);
+
+    Student findStudentAndCoursesByStudentId(int theId);
+
+    void update(Student tempStudent);
+
+    void deleteStudentById(int theId);
 }
