@@ -3,6 +3,7 @@
 - [02-data-types](#02-data-types)
 - [03-features-and-architecture](#03-features-and-architecture)
 - [04-operator-and-expressions](#04-operator-and-expressions)
+- [05-string-class-and-printing](#05-string-class-and-printing)
 
 &nbsp;
 
@@ -223,5 +224,18 @@ javap java.lang.Boolean
 - Nibble is 4-bits
 
 ![widening_narrowing_chart](00-diagrams/widening_narrowing_chart.png)
+
+&nbsp;
+
+# 05-string-class-and-printing
+
+- Overloaded method
+
+```java
+System.out.print()
+System.out.println()
+System.out.printf()
+System.out.format()
+```
 
 &nbsp;
