@@ -172,15 +172,16 @@ javap java.lang.Boolean
   - XOR operation is used for Swapping two numbers without inserting any third number.
 - **Widening and Narrowing:**
   - It is related to conversion of data type of given data item.
-  - **Widening**: the process of storing the data of smaller size data type into a larger size data type can be done automatically by the compiler.
+  - **Widening**: the process of storing the data of **smaller size data type into a larger size data type** can be done automatically by the compiler.
     - The compiler directly converts the data type without showing any errors i.e from source data type to the destination data type.
     - Since it is done internally it is said as automatically.
-    - The source and destination data type should be compatible.
-    - It is also known as upcasting.
-  - **Narrowing:** the process of storing the data of larger size data type into a smaller size data type.
+    - The source and destination data type should be **compatible**.
+    - It is also known as **upcasting**.
+  - **Narrowing:** the process of storing the data of **larger size data type into a smaller size data type**.
     - due to difference in size it may lead to loss of data.
     - it is not compatible.
     - typecasting is required for narrowing.
+    - is also called **down casting**.
   - Boolean is compatible only with Boolean.
 
 |                      |     |
@@ -219,5 +220,8 @@ javap java.lang.Boolean
 
 - These bitwise operator are performed only on integer type of data
 - If you are taking byte and short the result will still be an integer
+- Nibble is 4-bits
+
+![widening_narrowing_chart](00-diagrams/widening_narrowing_chart.png)
 
 &nbsp;
