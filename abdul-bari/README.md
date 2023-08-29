@@ -4,6 +4,7 @@
 - [03-features-and-architecture](#03-features-and-architecture)
 - [04-operator-and-expressions](#04-operator-and-expressions)
 - [05-string-class-and-printing](#05-string-class-and-printing)
+- [06-conditional-statements](#06-conditional-statements)
 
 &nbsp;
 
@@ -253,5 +254,14 @@ javap java.lang.Boolean
   - **When new is applied the object in pool may or may not be created.**
   - String objects are **immutable**/ they cannot be modified.
 - **Regular Expression**
+
+&nbsp;
+
+# 06-conditional-statements
+
+- **Relational Operators**
+  - `<`, `<=`, `>`, `>=`, `==`, `!=`
+- **Logical Operators**
+  - `&&`, `||`, `!`,
 
 &nbsp;
