@@ -1,4 +1,6 @@
-public class _05_MaskingAndSwapping {
+package src._04operatorAndExpressions;
+
+public class _05MaskingAndSwapping {
 
   public static void main(String[] args) {
     // Swapping 2 numbers

@@ -1,4 +1,6 @@
-public class _06_WideningAndNarrowing {
+package src._04operatorAndExpressions;
+
+public class _06WideningAndNarrowing {
 
   public static void main(String[] args) {
     byte b = 5;
@@ -18,7 +20,7 @@ public class _06_WideningAndNarrowing {
     f = s;
     d = s;
 
-    i = (int) f2;
+    i = (int) f;
     System.out.println(i); // 10 instead of 10.5f
   }
 }

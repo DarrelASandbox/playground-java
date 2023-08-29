@@ -1,7 +1,7 @@
 - [About The Project](#about-the-project)
 - [01-introduction](#01-introduction)
 - [02-data-types](#02-data-types)
-- [03-features-and-architecture](#03-features-and-architecture)
+- [src/\_03featuresAndArchitecture](#src_03featuresandarchitecture)
 - [04-operator-and-expressions](#04-operator-and-expressions)
 - [05-string-class-and-printing](#05-string-class-and-printing)
 - [06-conditional-statements](#06-conditional-statements)
@@ -87,7 +87,7 @@ javap java.lang.Boolean
 
 &nbsp;
 
-# 03-features-and-architecture
+# src/\_03featuresAndArchitecture
 
 - **Aim**
   - To check errors
@@ -109,7 +109,7 @@ javap java.lang.Boolean
   - In interpreter if there is error in one line the code will still execute
   - Interpreter language is easy than compiler language
 
-![platform-independent](03-features-and-architecture/platform-independent.png)
+![platform-independent](src/_03featuresAndArchitecture/platform-independent.png)
 
 - **Platform Independent**
   - Java is platform independent language
@@ -122,7 +122,7 @@ javap java.lang.Boolean
   - As the byte code is same it can run on various operation system and produce the same result provided that it has a JVM hence Java is platform independent
   - Therefore once you compile a java code you can run it anywhere
 
-![cpp-java](03-features-and-architecture/cpp-java.png)
+![cpp-java](src/_03featuresAndArchitecture/cpp-java.png)
 
 - **Architecture of JVM**
   - JVM is responsible for executing the java code
@@ -131,7 +131,7 @@ javap java.lang.Boolean
     - the other for storing the program data like variables etc this values are stored in **stack** area
     - the last space is free space which is used during the run time of program and is called **heap** area
 
-![architecture-of-jvm](03-features-and-architecture/architecture-of-jvm.png)
+![architecture-of-jvm](src/_03featuresAndArchitecture/architecture-of-jvm.png)
 
 - The file with the program is loaded into the code section and the process is called **class loading** as all java code is in class format
 - The job of bringing the code into memory is done by class loader
@@ -143,9 +143,9 @@ javap java.lang.Boolean
 - JVM keeps the addresses of next instructions that needs to be executed and it will hand it over to the CPU
 - In java we can invoke or call the methods of other languages like c, c++ this is called **native methods**, there will be a separate stack for this
 
-![class-loader](03-features-and-architecture/class-loader.png)
+![class-loader](src/_03featuresAndArchitecture/class-loader.png)
 
-![jvm-architecture-details](03-features-and-architecture/jvm-architecture-details.png)
+![jvm-architecture-details](src/_03featuresAndArchitecture/jvm-architecture-details.png)
 
 - **Features**
   - **Simple**
@@ -224,7 +224,7 @@ javap java.lang.Boolean
 - If you are taking byte and short the result will still be an integer
 - The data type which are compatible with each other is given below , source is in right hand side , destination is on left hand side
 
-![widening_narrowing_chart](00-diagrams/widening_narrowing_chart.png)
+![widening_narrowing_chart](src/_00diagrams/widening_narrowing_chart.png)
 
 &nbsp;
 

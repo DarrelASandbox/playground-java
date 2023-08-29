@@ -1,4 +1,6 @@
-public class _01_printing {
+package src._05stringClassAndPrinting;
+
+public class _01Printing {
   public static void main(String[] args) {
     int a = 10;
     float b = 12.55f;

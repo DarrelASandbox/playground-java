@@ -1,6 +1,8 @@
+package src._04operatorAndExpressions;
+
 import java.util.Scanner;
 
-public class _02_Expression {
+public class _02Expression {
   // public static void main(String[] args) {
   // float base, height, area;
   // System.out.println("Enter base and height");

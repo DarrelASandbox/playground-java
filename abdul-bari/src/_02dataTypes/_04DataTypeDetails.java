@@ -1,4 +1,6 @@
-public class _04_DataTypeDetails {
+package src._02dataTypes;
+
+public class _04DataTypeDetails {
   public static void main(String[] args) {
     int x = 5;
     int y = -5;

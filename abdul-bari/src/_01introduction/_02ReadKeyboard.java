@@ -1,6 +1,8 @@
+package src._01introduction;
+
 import java.util.Scanner;
 
-public class _02_ReadKeyboard {
+public class _02ReadKeyboard {
   public static void main(String arg[]) {
     Scanner sc = new Scanner(System.in);
 

@@ -1,4 +1,6 @@
-public class _03_IncDec {
+package src._04operatorAndExpressions;
+
+public class _03IncDec {
   public static void main(String[] args) {
 
     // float x=3.5f

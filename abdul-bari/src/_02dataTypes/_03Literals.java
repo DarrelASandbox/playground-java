@@ -1,4 +1,6 @@
-public class _03_Literals {
+package src._02dataTypes;
+
+public class _03Literals {
   public static void main(String[] args) {
     byte b1 = 10;
     byte b2 = 0b1010;

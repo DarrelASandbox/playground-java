@@ -1,4 +1,6 @@
-public class _02_string_object {
+package src._05stringClassAndPrinting;
+
+public class _02StringObject {
   public static void main(String[] args) {
     String str1 = "Java";
     String str2 = "Java";

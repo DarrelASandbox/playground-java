@@ -1,5 +1,6 @@
+package src._04operatorAndExpressions;
 
-public class _04_BitwiseOperator {
+public class _04BitwiseOperator {
   public static void main(String[] args) {
 
     int x = 10, y = 6, z;

@@ -1,4 +1,6 @@
-public class _01_Arithematic {
+package src._04operatorAndExpressions;
+
+public class _01Arithematic {
 
   public static void main(String[] args) {
 

@@ -1,4 +1,6 @@
-public class _02_Variables {
+package src._02dataTypes;
+
+public class _02Variables {
   public static void main(String[] args) {
     byte b = 5;
     short s = 300;
