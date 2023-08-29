@@ -230,26 +230,28 @@ javap java.lang.Boolean
 # 05-string-class-and-printing
 
 - Overloaded method
-- `String str1` = "Java Program"
-  - `str1`: reference name
-  - `"Java Program"`: string object
-- String is a built-in class available in java.
-- Variable of type object are called as reference.
-- String object is referred to as a literal.
-- References are used for holding or pointing objects.
-- String literal is taken in “ “.
-- Keyword `new` is taken to create an object in **heap**.
-- Constructors are methods or functions used for creating string object.
-- There are three types of constructors:
-  - `String(char[])`: Array of characters is taken and is converted into string.
-  - `String(byte[])`: Array of bytes is taken and is converted into a string.
-  - `String(string)`:
-    - A string literal is taken in this method.
-    - New string is created using this method.
-- Java maintains a pool of string constants.
-- **Whenever new is applied the object is created in heap memory and the memory occupied by the object literal is in pool.**
-- **When same literal is used java does not create another object.**
-- **When new is applied the object in pool may or may not be created.**
-- String objects are immutable/ they cannot be modified.
+- String
+  - `String str1` = "Java Program"
+    - `str1`: reference name
+    - `"Java Program"`: string object
+  - String is a built-in class available in java.
+  - Variable of type object are called as reference.
+  - String object is referred to as a literal.
+  - References are used for holding or pointing objects.
+  - String literal is taken in “ “.
+  - Keyword `new` is taken to create an object in **heap**.
+  - Constructors are methods or functions used for creating string object.
+  - There are three types of constructors:
+    - `String(char[])`: Array of characters is taken and is converted into string.
+    - `String(byte[])`: Array of bytes is taken and is converted into a string.
+    - `String(string)`:
+      - A string literal is taken in this method.
+      - New string is created using this method.
+  - Java maintains a pool of string constants.
+  - **Whenever new is applied the object is created in heap memory and the memory occupied by the object literal is in pool.**
+  - **When same literal is used java does not create another object.**
+  - **When new is applied the object in pool may or may not be created.**
+  - String objects are **immutable**/ they cannot be modified.
+- **Regular Expression**
 
 &nbsp;
