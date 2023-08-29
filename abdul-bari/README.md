@@ -165,10 +165,10 @@ javap java.lang.Boolean
 
 - The mechanism of converting data type internally by the compiler is known as **COERCION**.
 - **Bit Merging and Masking:**
-  - One of the aplication of bitwise operators.
+  - One of the application of bitwise operators.
   - They are used to check whether the bits are marked as zero or one.
-  - The process of setting one of the bit as ‘1’ is known as merging (using or operator).
-  - To check if the bit is on or not by using and operator is known as masking.
+  - The process of setting one of the bit as ‘1’ is known as merging.
+  - Masking means you are hiding all the bits and showing only particular bits
   - 4 bits is also known as nibble.
   - XOR operation is used for Swapping two numbers without inserting any third number.
 - **Widening and Narrowing:**
@@ -185,15 +185,15 @@ javap java.lang.Boolean
     - is also called **down casting**.
   - Boolean is compatible only with Boolean.
 
-|                      |     |
-| :------------------: | :-: |
-|         AND          |  &  |
-|          OR          |     |
-|         NOT          |  ~  |
-|         XOR          |  ^  |
-|     Right Shift      | >>  |
-| Unsigned Right Shift | >>> |
-|      Left Shift      | <<< |
+|                      |      |
+| :------------------: | :--: |
+|         AND          |  &   |
+|          OR          | \|\| |
+|         NOT          |  ~   |
+|         XOR          |  ^   |
+|     Right Shift      |  >>  |
+| Unsigned Right Shift | >>>  |
+|      Left Shift      | <<<  |
 
 - **Bitwise Operator** are faster than other operators
   - It works on the principle of Truth Tables
@@ -221,7 +221,7 @@ javap java.lang.Boolean
 
 - These bitwise operator are performed only on integer type of data
 - If you are taking byte and short the result will still be an integer
-- Nibble is 4-bits
+- The data type which are compatible with each other is given below , source is in right hand side , destination is on left hand side
 
 ![widening_narrowing_chart](00-diagrams/widening_narrowing_chart.png)
 
@@ -230,12 +230,26 @@ javap java.lang.Boolean
 # 05-string-class-and-printing
 
 - Overloaded method
-
-```java
-System.out.print()
-System.out.println()
-System.out.printf()
-System.out.format()
-```
+- `String str1` = "Java Program"
+  - `str1`: reference name
+  - `"Java Program"`: string object
+- String is a built-in class available in java.
+- Variable of type object are called as reference.
+- String object is referred to as a literal.
+- References are used for holding or pointing objects.
+- String literal is taken in “ “.
+- Keyword `new` is taken to create an object in **heap**.
+- Constructors are methods or functions used for creating string object.
+- There are three types of constructors:
+  - `String(char[])`: Array of characters is taken and is converted into string.
+  - `String(byte[])`: Array of bytes is taken and is converted into a string.
+  - `String(string)`:
+    - A string literal is taken in this method.
+    - New string is created using this method.
+- Java maintains a pool of string constants.
+- **Whenever new is applied the object is created in heap memory and the memory occupied by the object literal is in pool.**
+- **When same literal is used java does not create another object.**
+- **When new is applied the object in pool may or may not be created.**
+- String objects are immutable/ they cannot be modified.
 
 &nbsp;
