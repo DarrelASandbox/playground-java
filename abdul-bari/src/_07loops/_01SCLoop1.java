@@ -1,4 +1,4 @@
-package src._07_loops;
+package src._07loops;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package src._07_loops;
+package src._07loops;
 
 /*  j ->
  *  i   1  2  3  4  5
