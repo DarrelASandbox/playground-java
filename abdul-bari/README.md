@@ -1,10 +1,12 @@
 - [About The Project](#about-the-project)
-- [01-introduction](#01-introduction)
-- [02-data-types](#02-data-types)
-- [src/\_03featuresAndArchitecture](#src_03featuresandarchitecture)
-- [04-operator-and-expressions](#04-operator-and-expressions)
-- [05-string-class-and-printing](#05-string-class-and-printing)
-- [06-conditional-statements](#06-conditional-statements)
+- [\_01introduction](#_01introduction)
+- [\_02dataTypes](#_02datatypes)
+- [\_03featuresAndArchitecture](#_03featuresandarchitecture)
+- [\_04operatorAndExpressions](#_04operatorandexpressions)
+- [\_05stringClassAndPrinting](#_05stringclassandprinting)
+- [\_06conditionalStatements](#_06conditionalstatements)
+- [\_07loops](#_07loops)
+- [\_08arrays](#_08arrays)
 
 &nbsp;
 
@@ -18,7 +20,7 @@
 
 &nbsp;
 
-# 01-introduction
+# \_01introduction
 
 - **JDK:** Java Development Toolkit
   - First.java -> `javac First.java` (Compiler) -> First.class
@@ -31,7 +33,7 @@
 
 &nbsp;
 
-# 02-data-types
+# \_02dataTypes
 
 ```sh
 javap java.lang.Integer
@@ -87,7 +89,7 @@ javap java.lang.Boolean
 
 &nbsp;
 
-# src/\_03featuresAndArchitecture
+# \_03featuresAndArchitecture
 
 - **Aim**
   - To check errors
@@ -162,7 +164,7 @@ javap java.lang.Boolean
 
 &nbsp;
 
-# 04-operator-and-expressions
+# \_04operatorAndExpressions
 
 - The mechanism of converting data type internally by the compiler is known as **COERCION**.
 - **Bit Merging and Masking:**
@@ -228,7 +230,7 @@ javap java.lang.Boolean
 
 &nbsp;
 
-# 05-string-class-and-printing
+# \_05stringClassAndPrinting
 
 - Overloaded method
 - String
@@ -257,11 +259,37 @@ javap java.lang.Boolean
 
 &nbsp;
 
-# 06-conditional-statements
+# \_06conditionalStatements
 
 - **Relational Operators**
   - `<`, `<=`, `>`, `>=`, `==`, `!=`
 - **Logical Operators**
   - `&&`, `||`, `!`,
+
+&nbsp;
+
+# \_07loops
+
+- **4 types of loops**
+  - For loop
+  - While loop
+  - Do while loop
+  - For each loop
+
+&nbsp;
+
+# \_08arrays
+
+- Array is a collection of similar data elements
+- In java the array size is given after creating the new object.
+  - As `int A[]= new int[x];`
+  - Where `A[]` is the **reference** and `int[x]` is the **object**.
+  - Where object is created in the **heap**.
+  - And the reference is either in **stack** or **heap**.
+- 1D arrays
+- 2D arrays
+  - Suitable for matrices and tabular form.
+  - Jagged array is a type of array in which the members are of different sizes.
+  - In jagged array the members of arrays are created separately according to their sizes using their indices.
 
 &nbsp;
