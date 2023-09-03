@@ -22,5 +22,10 @@ public class _06WideningAndNarrowing {
 
     i = (int) f;
     System.out.println(i); // 10 instead of 10.5f
+
+    System.out.println(l);
+    System.out.println(d);
+    System.out.println(c);
+    System.out.println(bl);
   }
 }
