@@ -7,6 +7,7 @@
 - [\_06conditionalStatements](#_06conditionalstatements)
 - [\_07loops](#_07loops)
 - [\_08arrays](#_08arrays)
+- [\_09methods](#_09methods)
 
 &nbsp;
 
@@ -291,5 +292,70 @@ javap java.lang.Boolean
   - Suitable for matrices and tabular form.
   - Jagged array is a type of array in which the members are of different sizes.
   - In jagged array the members of arrays are created separately according to their sizes using their indices.
+
+&nbsp;
+
+# \_09methods
+
+- **What are methods:**
+  - Methods are members of classes which provide functionality for classes.
+  - The functions performing on the data are known as methods.
+  - When a method returns a value then the method itself takes the value.
+  - A method will have its own copy of variable.
+- **Passing object as parameters**
+  - When the method is called the value of actual parameters are copied in formal parameters which is the only parameter passing method in java.
+  - The address of object in formal and actual parameter is **same**.
+  - String cannot be modified as it is immutable.
+  - A method can also return an object.
+- **Parameter passing in java**
+  - The parameters/arguments passed in calling method are called as **actual parameters**.
+  - And the parameters of a called method are called as **formal parameters**.
+  - Formal parameters are nothing but input into a method where the return type is known as output to a method.
+  - The contents of actual parameters are copied in formal parameters is the only method of parameter passing in java.
+  - Passing of objects also follow the same method.
+  - Parameter passing for primitive data types the values are copied in formal parameters, whereas in parameter passing of objects the reference of the object id is copied in formal parameters.
+  - **Primitive data types are passed by value and the objects are passed by reference**.
+- **Method overloading**
+  - Writing more than one method having same names but different parameter list or data types.
+  - Compiler will call the corresponding method depending upon the parameter list.
+- **Variable arguments**
+- **Command line arguments**
+
+```
+
+# Beginning of programming
+ ######## Monolithic Program ########
+#   ...                             #
+#   ...                             #
+#   ...                             #
+#   ...                             #
+#   ...                             #
+#                                   #
+ ###################################
+
+# Idea of breaking up the program into modules
+########## Modular Program ##########
+#                                   #
+#             main                  #
+#               |                   #
+#    _______________________        #
+#   |       |       |       |       #
+# module  module  module  module    #
+#                                   #
+ ###################################
+
+# Function is not the correct term for OOP
+# Method is the correct term
+############### Class ###############
+#                                   #
+#             Data                  #
+#               |                   #
+#    _______________________        #
+#   |       |       |       |       #
+# Method  Method  Method  Method    #
+#                                   #
+ ###################################
+
+```
 
 &nbsp;
