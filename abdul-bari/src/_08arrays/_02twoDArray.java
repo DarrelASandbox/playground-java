@@ -1,6 +1,6 @@
 package src._08arrays;
 
-public class _02twoDArray {
+public class _02TwoDArray {
   public static void main(String[] args) {
 
     /*
