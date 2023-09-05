@@ -319,7 +319,13 @@ javap java.lang.Boolean
   - Writing more than one method having same names but different parameter list or data types.
   - Compiler will call the corresponding method depending upon the parameter list.
 - **Variable arguments**
-- **Command line arguments**
+  - It is nothing but writing a single method which can run for number of parameters of same data types.
+  - `…` represents the variable arguments.
+  - The parameters passed are converted into an array.
+  - The parameters can be directly passed using an anonymous array.
+  - Variable argument should always be the last parameter.
+- **Command line arguments**: Dos file is used for command line arguments.
+- **Recursion**
 
 ```
 
