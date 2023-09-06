@@ -8,6 +8,7 @@
 - [\_07loops](#_07loops)
 - [\_08arrays](#_08arrays)
 - [\_09methods](#_09methods)
+- [Object-Oriented Programming (OOP)](#object-oriented-programming-oop)
 
 &nbsp;
 
@@ -363,5 +364,22 @@ javap java.lang.Boolean
  ###################################
 
 ```
+
+&nbsp;
+
+# Object-Oriented Programming (OOP)
+
+- **Principles**
+  - **Abstraction** means hiding internal details and showing the required things.
+  - **Encapsulation** is the process of grouping data in a single section.
+  - **Inheritance** means designing an object or a class by re-using the properties of the existing class and object. It is same as specialization.
+  - **Polymorphism** is a concept in which we can execute a single operation in different ways. It is same as generalization.
+- **Class VS Object**
+  - Object is defined in terms of its **properties** and **behavior**.
+  - Operation of behaviors will affect the properties.
+  - Anything in the world can be defined in the terms of properties and behavior.
+  - For a single class we can have many objects.
+- In java there is an area inside **main memory** which is known as [method area](https://www.baeldung.com/java-jvm-run-time-data-areas#2-method-area) which contains all the methods.
+- The definitions of the methods will be present inside the **heap**, as the objects will be based on the definitions so the objects are also present in heap.
 
 &nbsp;
