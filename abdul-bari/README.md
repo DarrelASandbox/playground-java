@@ -381,5 +381,8 @@ javap java.lang.Boolean
   - For a single class we can have many objects.
 - In java there is an area inside **main memory** which is known as [method area](https://www.baeldung.com/java-jvm-run-time-data-areas#2-method-area) which contains all the methods.
 - The definitions of the methods will be present inside the **heap**, as the objects will be based on the definitions so the objects are also present in heap.
+- **Data Hiding**
+  - Usually data is hidden and the operations are made visible and operations or methods are performed over the data.
+  - e.g. Actual operation of the television is performed in the circuitry which is done by pressing a button.so the circuitry is data and operations are methods where the data is hidden inside the box.
 
 &nbsp;
