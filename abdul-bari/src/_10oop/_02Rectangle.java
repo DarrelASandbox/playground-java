@@ -4,6 +4,22 @@ class Rectangle {
   private double length;
   private double breath;
 
+  // Non-parameterized constructors
+  public Rectangle() {
+    length = 1;
+    breath = 1;
+  }
+
+  // Parameterized constructors
+  public Rectangle(double length, double breath) {
+    setLength(length);
+    setBreath(breath);
+  }
+
+  public Rectangle(double side) {
+    length = breath = side;
+  }
+
   public double getLength() {
     return length;
   }
@@ -41,16 +57,12 @@ class Rectangle {
 public class _02Rectangle {
   public static void main(String args[]) {
     Rectangle r1 = new Rectangle();
-    r1.setLength(10);
-    r1.setBreath(5);
 
     System.out.println("Area: " + r1.area());
     System.out.println("Perimeter: " + r1.perimeter());
     System.out.println("isSquare: " + r1.isSquare());
 
-    Rectangle r2 = new Rectangle();
-    r2.setLength(7);
-    r2.setBreath(7);
+    Rectangle r2 = new Rectangle(10, 5);
 
     System.out.println("\nArea: " + r2.area());
     System.out.println("Perimeter: " + r2.perimeter());

@@ -4,10 +4,12 @@ class Cylinder {
   private int radius;
   private int height;
 
+  // Non-parameterized constructors
   public Cylinder() {
     radius = height = 1;
   }
 
+  // Parameterized constructors
   public Cylinder(int r, int h) {
     radius = r;
     height = h;
@@ -35,9 +37,9 @@ class Cylinder {
       radius = 0;
   }
 
-  public void setDimensions(int h, int r) {
-    height = h;
+  public void setDimensions(int r, int h) {
     radius = r;
+    height = h;
   }
 
   public double lidArea() {
@@ -59,9 +61,7 @@ class Cylinder {
 
 public class _03Cylinder {
   public static void main(String args[]) {
-    Cylinder c1 = new Cylinder();
-    c1.setHeight(10);
-    c1.setRadius(7);
+    Cylinder c1 = new Cylinder(7, 10);
     c1.setDimensions(10, 7);
 
     System.out.println("LidArea " + c1.lidArea());

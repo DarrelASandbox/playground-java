@@ -384,5 +384,19 @@ javap java.lang.Boolean
 - **Data Hiding**
   - Usually data is hidden and the operations are made visible and operations or methods are performed over the data.
   - e.g. Actual operation of the television is performed in the circuitry which is done by pressing a button.so the circuitry is data and operations are methods where the data is hidden inside the box.
+- **Types of Properties**
+  - Read and writable
+  - Read
+  - Write
+- **Constructor**
+  - A method is required for **initialization of properties** at the time of construction of an object, this method is known as constructor.
+  - **Constructor is a method of class called when an object is created.**
+  - Every class will have a **default constructor** provided by java compiler.
+  - Constructor will not have any return type.
+  - 2 types of constructors
+    - Parameterized
+    - Non-parameterized
+  - Non-parameterized constructors is a replacement for default constructors.
+  - Constructors can be overloaded.
 
 &nbsp;
