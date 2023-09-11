@@ -441,5 +441,12 @@ iPhone  Samsung  Vivo     Car  Bike  Ship     Triangle  Rectangle  Circle
 - **Inheritance**
   - Inheritance is the process of **acquiring features of an existing class into a new class**.
   - A class will have properties and method.
+- **Method Overriding**
+  - RedePining the method of the Super Class in the Sub Class.
+  - Method will be called depending on the object.
+  - Method overriding is achieved in Inheritance.
+- In Java, a superclass reference variable can point to an object of its subclass. This feature allows Java to achieve **polymorphism**.
+- When you declare a variable with the type of a superclass, it means that the variable can reference any object of that superclass or its subclasses.
+- An object of a subclass is an instance of that subclass but also an instance of its superclass due to inheritance.
 
 &nbsp;
