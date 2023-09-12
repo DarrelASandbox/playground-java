@@ -1,3 +1,5 @@
 {
-  "java.project.sourcePaths": ["abdul-bari"]
+  "java.project.sourcePaths": ["abdul-bari/src"],
+  "java.project.outputPath": "abdul-bari/bin",
+  "java.project.referencedLibraries": ["lib/**/*.jar"]
 }
