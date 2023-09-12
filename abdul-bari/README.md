@@ -448,5 +448,7 @@ iPhone  Samsung  Vivo     Car  Bike  Ship     Triangle  Rectangle  Circle
 - In Java, a superclass reference variable can point to an object of its subclass. This feature allows Java to achieve **polymorphism**.
 - When you declare a variable with the type of a superclass, it means that the variable can reference any object of that superclass or its subclasses.
 - An object of a subclass is an instance of that subclass but also an instance of its superclass due to inheritance.
+- **Dynamic Method Dispatch**
+  - It is useful for achieving Runtime Polymorphism.
 
 &nbsp;
