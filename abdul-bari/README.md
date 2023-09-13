@@ -10,6 +10,7 @@
 - [\_09methods](#_09methods)
 - [\_10oop](#_10oop)
 - [\_11inheritance](#_11inheritance)
+- [\_12abstractClasses](#_12abstractclasses)
 
 &nbsp;
 
@@ -450,5 +451,16 @@ iPhone  Samsung  Vivo     Car  Bike  Ship     Triangle  Rectangle  Circle
 - An object of a subclass is an instance of that subclass but also an instance of its superclass due to inheritance.
 - **Dynamic Method Dispatch**
   - It is useful for achieving Runtime Polymorphism.
+
+&nbsp;
+
+# \_12abstractClasses
+
+- If abstract keyword is used before the class then it is an **abstract class** if nothing is written before class then it is a **concrete class**
+- Object of an abstract class cannot be created but object of concrete class can be created
+- Reference of abstract class is allowed
+- The abstract method is **undefined** method
+- **Abstract classes are used for imposing standards and sharing methods**
+- Sub classes are meant for following standards
 
 &nbsp;
