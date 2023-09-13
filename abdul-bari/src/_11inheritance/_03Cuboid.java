@@ -1,14 +1,14 @@
 package src._11inheritance;
 
-class Rectangle {
+class Rectangle2 {
   private int length;
   private int breadth;
 
-  Rectangle() {
+  Rectangle2() {
     length = breadth = 1;
   }
 
-  Rectangle(int l, int b) {
+  Rectangle2(int l, int b) {
     length = l;
     breadth = b;
   }
@@ -18,7 +18,7 @@ class Rectangle {
   }
 }
 
-class Cuboid extends Rectangle {
+class Cuboid extends Rectangle2 {
   private int height;
 
   Cuboid() {

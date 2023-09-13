@@ -1,18 +1,18 @@
 package src._11inheritance;
 
-class Rectangle2 {
+class Rectangle3 {
   int length;
   int breadth;
   int x = 10;
 
-  Rectangle2(int length, int breadth) {
+  Rectangle3(int length, int breadth) {
     this.length = length;
     this.breadth = breadth;
   }
 
 }
 
-class Cuboid2 extends Rectangle2 {
+class Cuboid2 extends Rectangle3 {
   int height;
   int x = 20;
 

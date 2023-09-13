@@ -20,9 +20,9 @@ class Super3 {
   }
 }
 
-class Sub2 extends Super3 {
+class Sub3 extends Super3 {
   public void display() {
-    System.out.println("Sub2 Display");
+    System.out.println("Sub3  Display");
   }
 }
 
@@ -36,7 +36,7 @@ public class _08Polymorphism {
 
     // Runtime or Dynamic polymorphism
     // Determine at runtime which method to use
-    Super3 s = new Sub2();
+    Super3 s = new Sub3();
     s.display();
   }
 }

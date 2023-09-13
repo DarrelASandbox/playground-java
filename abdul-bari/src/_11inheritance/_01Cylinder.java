@@ -1,6 +1,6 @@
 package src._11inheritance;
 
-class Circle {
+class Circle2 {
   public double radius;
 
   public double area() {
@@ -16,7 +16,7 @@ class Circle {
   }
 }
 
-class Cylinder extends Circle {
+class Cylinder extends Circle2 {
   public double height;
 
   public double volume() {
