@@ -11,6 +11,7 @@
 - [\_10oop](#_10oop)
 - [\_11inheritance](#_11inheritance)
 - [\_12abstractClasses](#_12abstractclasses)
+- [\_13Interfaces](#_13interfaces)
 
 &nbsp;
 
@@ -462,5 +463,22 @@ iPhone  Samsung  Vivo     Car  Bike  Ship     Triangle  Rectangle  Circle
 - The abstract method is **undefined** method
 - **Abstract classes are used for imposing standards and sharing methods**
 - Sub classes are meant for following standards
+
+&nbsp;
+
+# \_13Interfaces
+
+- **Inheritance is used for borrowing methods.**
+- **Abstract** is used for achieving **polymorphism** as well as **inheritance**.
+- Inheritance is **completely used** for achieving Polymorphism.
+- Interface can be call as abstract class with all abstract methods.
+- All the methods are by default abstract.
+- **Classes are extended but interfaces are implemented.**
+- In Interface we can have reference of interface and the object of the class which is implemented.
+- **Interface VS Multiple Inheritance**
+  - In C++ one class can inherit from multiple classes.
+  - **Multiple inheritance in java** is achieved using `interfaces`.
+  - Interfaces are perfect than using multiple inheritance.
+  - Way of thinking in java is more perfect than C++.
 
 &nbsp;
