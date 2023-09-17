@@ -13,6 +13,7 @@
 - [\_12abstractClasses](#_12abstractclasses)
 - [\_13interfaces](#_13interfaces)
 - [\_14innerClasses](#_14innerclasses)
+- [\_15staticAndFinal](#_15staticandfinal)
 
 &nbsp;
 
@@ -560,5 +561,33 @@ Local and anonymous inner classes are special kinds of inner classes in Java tha
 
 Both types aim to increase encapsulation and readability by reducing the visibility and lifetime of the class. They allow you to put the definition of a class close to where it is actually used, which can make the code more maintainable and clear.
 ```
+
+&nbsp;
+
+# \_15staticAndFinal
+
+- **Static Members**
+  - Static Keyword is used for representing **meta data** (data about data).
+  - It is useful for representing the information of a class.
+  - Static members belongs to a class and they can be **shared by all the objects of the class** and all the objects have their own non-static members.
+  - All the object can use the static variable as a shared data.
+  - Static members can be accessed just by using class name.
+  - The static members of a class are created in the method area.
+  - Static methods can access only static members.
+- **Static Blocks**
+  - Set of statements are written in the form of blocks and are made static.
+  - It is used to initialize static data member.
+  - It is executed before the main method at the time of class loading
+- **Final Members**
+  - Values of final variables are fixed, once the value is assigned then it can’t be modified.
+  - Final variables are written in **CAPITAL LETTERS**.
+  - Final variable can be initialized while declaring the variable, or it can be initialized in a statiC block, or else it can be initialized inside constructor of a class.
+  - As constructors can be overloaded then the final variable must be initialized in every constructor
+  - Final method cannot be overridden.
+  - A final class cannot be extended.
+- **Singleton Class**
+  - A class which can create only one object is called singleton class.
+  - Constructors are made private to and object of the singleton class is written in static method.
+  - In singleton class getInstance() method is used.
 
 &nbsp;
