@@ -69,6 +69,7 @@ public class _01Static {
     sm2.show();
   }
 
+  @SuppressWarnings("unused")
   static void callStaticBlock() {
     System.out.println("\ncallStaticBlock:");
 
@@ -76,6 +77,7 @@ public class _01Static {
     System.out.println("Main");
   }
 
+  @SuppressWarnings("unused")
   static void callFinalKeyword() {
     FinalKeyword fk1 = new FinalKeyword();
   }

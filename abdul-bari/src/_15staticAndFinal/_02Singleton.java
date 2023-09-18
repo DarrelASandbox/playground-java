@@ -1,7 +1,8 @@
 package src._15staticAndFinal;
 
+@SuppressWarnings("unused")
 class CoffeeMachine {
-  private float coffeQty;
+  private float coffeeQty;
   private float milkQty;
   private float waterQty;
   private float sugarQty;
@@ -9,7 +10,7 @@ class CoffeeMachine {
   static private CoffeeMachine my = null;
 
   private CoffeeMachine() {
-    coffeQty = 1;
+    coffeeQty = 1;
     milkQty = 1;
     waterQty = 1;
     sugarQty = 1;

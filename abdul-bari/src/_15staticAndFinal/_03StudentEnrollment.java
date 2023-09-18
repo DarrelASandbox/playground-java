@@ -14,9 +14,11 @@ class Student3 {
     return enrollmentNo;
   }
 
+  @SuppressWarnings("deprecation")
   private String generateEnrollmentNo() {
     Date d = new Date();
     count++;
+    // The method getYear() from the type Date is deprecated
     return "Batch-" + (d.getYear() + 1900) + "-" + count;
   }
 }
