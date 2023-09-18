@@ -14,6 +14,7 @@
 - [\_13interfaces](#_13interfaces)
 - [\_14innerClasses](#_14innerclasses)
 - [\_15staticAndFinal](#_15staticandfinal)
+- [\_16packages](#_16packages)
 
 &nbsp;
 
@@ -589,5 +590,27 @@ Both types aim to increase encapsulation and readability by reducing the visibil
   - A class which can create only one object is called singleton class.
   - Constructors are made private to and object of the singleton class is written in static method.
   - In singleton class getInstance() method is used.
+
+&nbsp;
+
+# \_16packages
+
+```sh
+# Create a directory for package
+javac -d . <filename>
+```
+
+|        Access</br>Modifiers         | `default` | `private` | `protected` | `public` |
+| :---------------------------------: | :-------: | :-------: | :---------: | :------: |
+|             Same Class              |     ✓     |     ✓     |      ✓      |    ✓     |
+|     Same Package</br>Sub Class      |     ✓     |     ⤫     |      ✓      |    ✓     |
+|   Same Package</br>Non-Sub Class    |     ✓     |     ⤫     |      ✓      |    ✓     |
+|   Different Package</br>Sub Class   |     ⤫     |     ⤫     |      ✓      |    ✓     |
+| Different Package</br>Non-Sub Class |     ⤫     |     ⤫     |      ⤫      |    ✓     |
+
+- **Naming Convention**
+- https://www.citibank.com
+- Package 1: com.citibank.accounts
+- Package 2: com.citibank.loans
 
 &nbsp;
