@@ -15,6 +15,7 @@
 - [\_14innerClasses](#_14innerclasses)
 - [\_15staticAndFinal](#_15staticandfinal)
 - [\_16packages](#_16packages)
+- [\_18exceptionHandling](#_18exceptionhandling)
 
 &nbsp;
 
@@ -612,5 +613,28 @@ javac -d . <filename>
 - https://www.citibank.com
 - Package 1: com.citibank.accounts
 - Package 2: com.citibank.loans
+
+&nbsp;
+
+# \_18exceptionHandling
+
+- **Programmers**
+  - **Syntax Error**
+    - Prompt by compilers
+  - **Logical Error**
+    - Trace errors using a debugger
+- **Users**
+  - **Runtime Error**
+    - **Exceptions** are runtime errors
+    - Mishandling of a program
+    - Causes of runtime errors are **bad input** and **unavailability of resources**
+    - Major problems with runtime errors is program will crash
+    - Exception handling is process of responding to the runtime errors
+- **Try with Resources**
+  - All the things that are outside the program are resource to a program
+  - **Heap** is also a resource to a program
+  - Whenever a program needs a resource it should acquire it and when do not need we should return it
+  - **To write an object in heap we write new**
+  - In java heap memory objects are unallocated automatically by garbage collector
 
 &nbsp;
