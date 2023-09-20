@@ -16,6 +16,7 @@
 - [\_15staticAndFinal](#_15staticandfinal)
 - [\_16packages](#_16packages)
 - [\_18exceptionHandling](#_18exceptionhandling)
+- [\_19multithreading](#_19multithreading)
 
 &nbsp;
 
@@ -636,5 +637,26 @@ javac -d . <filename>
   - Whenever a program needs a resource it should acquire it and when do not need we should return it
   - **To write an object in heap we write new**
   - In java heap memory objects are unallocated automatically by garbage collector
+
+&nbsp;
+
+# \_19multithreading
+
+- **What is multi programming?**
+  - Running more than one program that is running multiple programs on a single machine or a computer is known as multi-programming
+  - The idea of multiprogramming started from the utilization of the CPU when it is idle as the CPU works for just few time in the whole hour
+  - There are different form of multi-programming
+- **Multi-user**: more than one user using the machine / running their programs simultaneously
+  - For connecting more than one user to single computer the **dummy terminals** were used
+  - Here the **round robin** fashion was introduced as the programs were executed simultaneously
+  - Unix and Linux are famous operating systems for the multi-user environment
+  - Multi-user machines were known as time sharing machines
+- **Multi-Tasking**: single user runs multiple tasks simultaneously
+  - Here the CPU runs the programs alternatively on high rate
+  - Windows and MacOS(OS X) operating system supports this type of environment
+- **Multi-Threading**: it is a type of multi-threading where there are different tasks going on under a single application.
+  - Threads are light weighted compared to the task
+  - CPU runs the threads alternatively where the user fells the threads running all together
+  - Examples: animation, application, gaming, websites & web servers
 
 &nbsp;
