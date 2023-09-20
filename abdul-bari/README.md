@@ -658,5 +658,41 @@ javac -d . <filename>
   - Threads are light weighted compared to the task
   - CPU runs the threads alternatively where the user fells the threads running all together
   - Examples: animation, application, gaming, websites & web servers
+- **States Of A Thread**
+  - The first state of the thread is new it stores the object of the thread
+  - To run the object of thread the start method is called
+  - When start method is called then it is entered into the ready state where it is ready to run
+  - Then it enters into the running state
+  - After completing the task it will enter into the terminated state
+  - A thread which is terminated is just like a thread which is killed
+  - Therefore the different states of thread are
+    - New
+    - Ready
+    - Running
+    - Terminated
+  - While running the thread may also enter into different states like:
+    - **Wait State**: waiting for acquiring some resource or made to wait by some other thread
+    - **Time Wait State**: to make the thread to delay for some time using the sleep method, it is also known as sleep state
+    - **Wait and Notify**: where the thread is to be in the waiting state to get to its chance till it gets notified.
+    - **Blocked State**: it is just like entering into the monitor where the thread is being locked for some time, it is similar to waiting state.
+- **Thread Priorities**
+  - Java supports thread priorities from 1-10
+  - Execution of threads depends upon scheduler
+  - If a thread is having higher priority then it should get some preference over other threads
+  - In java there are different levels of priority that are:
+    - MIN_PRIORITY=1
+    - NORM_PRIORITY=5
+    - MAX_PRIORITY=10
+- **Thread Class**
+  - Object of the thread class can be created
+  - Whenever a thread is created it gets some IDE
+  - Threads can be identified by mentioning their names
+  - There are different constructors to give the thread classes:
+    - `Thread()`: It is a default class
+    - `Thread(Runnable r)`: The thread contains the runnable interface
+    - `Thread(Runnable r, String name)`: The thread class have its own name with runnable interface
+    - `Thread(ThreadGroup g, String name)`: Thread group to manage various threads together
+  - Getter and setter methods
+  - Instance methods
 
 &nbsp;
