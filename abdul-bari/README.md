@@ -695,4 +695,20 @@ javac -d . <filename>
   - Getter and setter methods
   - Instance methods
 
+```md
+In Java, a daemon thread is a thread that runs in the background and does not prevent the JVM from exiting when the program finishes. The lifecycle of a daemon thread is somewhat similar to a user (non-daemon) thread but with a key difference in its termination behavior.
+
+Here's a summary of the lifecycle of a daemon thread:
+
+1. **New**: When a thread is created, it is in the "New" state. At this point, the thread has not yet started executing.
+
+2. **Runnable**: After the `start()` method is called, the thread becomes "Runnable." It might or might not be running at this point; it's up to the thread scheduler to give it time to execute.
+
+3. **Running**: Once the thread scheduler has allocated CPU time to the thread, it is actually running. This is where the `run()` method gets executed.
+
+4. **Blocked/Waiting**: A daemon thread can also be in a "Blocked" or "Waiting" state if it is waiting for some resource or another operation to complete. Unlike user threads, daemon threads are not considered in the calculation to determine if the application should terminate.
+
+5. **Terminated**: The thread is "Terminated" when its `run()` method completes execution or when the thread is explicitly stopped. In the case of daemon threads, they are also terminated when all the user threads in the program are finished. This is the key difference between user threads and daemon threads. If the JVM finds that only daemon threads are running, it terminates them and exits the program.
+```
+
 &nbsp;
