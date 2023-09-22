@@ -12,8 +12,8 @@ class MyThread5 extends Thread {
 
 public class _08YieldThread {
   public static void main(String[] args) throws InterruptedException {
-    MyThread5 t2 = new MyThread5();
-    t2.start();
+    MyThread5 t5 = new MyThread5();
+    t5.start();
 
     int count = 1;
     while (true) {
