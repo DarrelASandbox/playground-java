@@ -17,6 +17,16 @@
 - [\_16packages](#_16packages)
 - [\_18exceptionHandling](#_18exceptionhandling)
 - [\_19multithreading](#_19multithreading)
+  - [Threads](#threads)
+  - [Synchronization](#synchronization)
+    - [Resource Sharing](#resource-sharing)
+    - [Critical Section](#critical-section)
+    - [Mutual Exclusion](#mutual-exclusion)
+    - [Locking/Mutex](#lockingmutex)
+    - [Semaphore](#semaphore)
+    - [Monitor](#monitor)
+    - [Race Condition](#race-condition)
+    - [Inter-Thread Communication](#inter-thread-communication)
 
 &nbsp;
 
@@ -642,6 +652,8 @@ javac -d . <filename>
 
 # \_19multithreading
 
+## Threads
+
 - **What is multi programming?**
   - Running more than one program that is running multiple programs on a single machine or a computer is known as multi-programming
   - The idea of multiprogramming started from the utilization of the CPU when it is idle as the CPU works for just few time in the whole hour
@@ -709,6 +721,96 @@ Here's a summary of the lifecycle of a daemon thread:
 4. **Blocked/Waiting**: A daemon thread can also be in a "Blocked" or "Waiting" state if it is waiting for some resource or another operation to complete. Unlike user threads, daemon threads are not considered in the calculation to determine if the application should terminate.
 
 5. **Terminated**: The thread is "Terminated" when its `run()` method completes execution or when the thread is explicitly stopped. In the case of daemon threads, they are also terminated when all the user threads in the program are finished. This is the key difference between user threads and daemon threads. If the JVM finds that only daemon threads are running, it terminates them and exits the program.
+```
+
+## Synchronization
+
+Synchronization in Java is used to regulate access to shared resources among multiple threads. Below are various topics associated with multithreading synchronization:
+
+### Resource Sharing
+
+In a multithreaded environment, threads often share resources like data structures, files, or network connections. Sharing these resources without proper management can lead to inconsistencies.
+
+### Critical Section
+
+A critical section is a piece of code where a thread interacts with shared resources. Only one thread should execute the critical section at a given time, or else it can lead to a race condition. In Java, you can define a critical section by using the `synchronized` keyword.
+
+```java
+synchronized(object) {
+  // Critical section
+}
+```
+
+&nbsp;
+
+<figure>
+    <img src="src/_00diagrams/multithreading_critical_section.png"
+         alt="multithreading_critical_section">
+    <figcaption>Critical Section</figcaption>
+</figure>
+
+&nbsp;
+
+### Mutual Exclusion
+
+Mutual exclusion ensures that only one thread can execute the critical section at a given time. In Java, mutual exclusion can be implemented using synchronized methods or synchronized blocks.
+
+### Locking/Mutex
+
+A mutex (mutual exclusion) is a locking mechanism used to synchronize access to a resource. In Java, the `java.util.concurrent.locks.Lock` interface provides more advanced locking capabilities than the `synchronized` keyword, like reentrant locks via `ReentrantLock`.
+
+```java
+Lock lock = new ReentrantLock();
+lock.lock();
+try {
+  // Critical section
+} finally {
+  lock.unlock();
+}
+```
+
+![multithreading_mutex](src/_00diagrams/multithreading_mutex.png)
+
+### Semaphore
+
+Semaphores are used to control the number of threads that can access a particular resource at a given time. Java provides a `Semaphore` class in `java.util.concurrent` package for semaphore-based control.
+
+```java
+Semaphore semaphore = new Semaphore(1);
+semaphore.acquire();
+try {
+  // Critical section
+} finally {
+  semaphore.release();
+}
+```
+
+### Monitor
+
+In Java, every object has an implicit monitor lock (or mutex), and a thread can lock or unlock it by using synchronized methods or blocks. Only one thread can hold the object's monitor at a time.
+
+![multithreading_monitor](src/_00diagrams/multithreading_monitor.png)
+
+### Race Condition
+
+A race condition occurs when two or more threads can access shared data and at least one thread modifies it, causing unpredictable behavior. Race conditions can be avoided using various synchronization mechanisms like `synchronized` blocks, Locks, Semaphores, etc.
+
+### Inter-Thread Communication
+
+Java supports inter-thread communication using `wait()`, `notify()`, and `notifyAll()` methods. These methods are used to allow synchronized threads to communicate about the state of a resource.
+
+- `wait()`: Causes the current thread to wait until another thread invokes the `notify()` or `notifyAll()` method for the same object.
+- `notify()`: Wakes up a single waiting thread that is waiting on the same object's monitor.
+- `notifyAll()`: Wakes up all the threads that are waiting on the same object's monitor.
+
+```java
+synchronized(object) {
+  while (<condition does not hold>) {
+    object.wait();
+  }
+  // Perform action
+  object.notifyAll();
+}
 ```
 
 &nbsp;
