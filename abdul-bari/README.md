@@ -823,6 +823,8 @@ synchronized(object) {
 }
 ```
 
+![multithreading_inter_thread_communication](src/_00diagrams/multithreading_inter_thread_communication.png)
+
 The communication occurs between synchronized threads, specifically between a single producer thread and a consumer thread. Inter-thread communication refers to the synchronization between the producer and consumer threads for simultaneous access to the read and write methods. To facilitate this communication, the flags `Flag=t` and `Flag=f` are used.
 
 &nbsp;
