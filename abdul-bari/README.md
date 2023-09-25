@@ -729,7 +729,7 @@ Synchronization in Java is used to regulate access to shared resources among mul
 
 ### Resource Sharing
 
-In a multithreaded environment, threads often share resources like data structures, files, or network connections. Sharing these resources without proper management can lead to inconsistencies.
+In a multithreaded environment, threads often share resources like data structures, files, or network connections. Sharing these resources without proper management can lead to inconsistencies. If an object exists in the heap and can be accessed by multiple threads, then that object becomes a shared resource.
 
 ### Critical Section
 
@@ -759,6 +759,10 @@ Mutual exclusion ensures that only one thread can execute the critical section a
 
 A mutex (mutual exclusion) is a locking mechanism used to synchronize access to a resource. In Java, the `java.util.concurrent.locks.Lock` interface provides more advanced locking capabilities than the `synchronized` keyword, like reentrant locks via `ReentrantLock`.
 
+If the mutex variable is set to zero, then it is free and unoccupied. When one thread finishes its time period, another thread cannot access the object because the mutex will no longer be zero. A second thread can access the object if and only if the mutex returns to zero.
+
+For every shared resource, there should be a lock that is applied by the thread itself. In this context, the threads are responsible for mutual exclusion. Mutexes are ineffective if the threads overlap each other because the first thread has not locked the mutex.
+
 ```java
 Lock lock = new ReentrantLock();
 lock.lock();
@@ -775,6 +779,8 @@ try {
 
 Semaphores are used to control the number of threads that can access a particular resource at a given time. Java provides a `Semaphore` class in `java.util.concurrent` package for semaphore-based control.
 
+It was similar to an operating system before the introduction of Java, designed to control the coordination of threads so that they would not overlap. This system was supported by the UNIX operating system. The semaphore creates a scenario in which the thread occupying the object signals the others after its work is complete. This forms a blocked queue where upcoming threads remain in a waiting state. The methods used for this are `wait()` and `signal()`. In this setup, the operating system enforces mutual exclusion.
+
 ```java
 Semaphore semaphore = new Semaphore(1);
 semaphore.acquire();
@@ -789,11 +795,15 @@ try {
 
 In Java, every object has an implicit monitor lock (or mutex), and a thread can lock or unlock it by using synchronized methods or blocks. Only one thread can hold the object's monitor at a time.
 
+Here, the object itself assumes responsibility for mutual exclusion, which can be achieved using object orientation. The complete mechanism resides within the object. The read and write methods, the data, and the blocked queue all belong to the shared object, as they can be accessed by any thread at a given time. In this setup, Java ensures that only one thread has access at a time.
+
 ![multithreading_monitor](src/_00diagrams/multithreading_monitor.png)
 
 ### Race Condition
 
 A race condition occurs when two or more threads can access shared data and at least one thread modifies it, causing unpredictable behavior. Race conditions can be avoided using various synchronization mechanisms like `synchronized` blocks, Locks, Semaphores, etc.
+
+There is a single producer thread and multiple consumer threads. The consumers do not execute simultaneously; they operate in a round-robin fashion. When the count is zero, it's the producer's turn; when the count is not zero, it's the consumers' turn. Since there is more than one consumer, any consumer can access the resource. The `notify` method can unblock any thread, as they may not be in a specific order. The race condition occurs when one thread is accessing the shared resource while all others are blocked. Once the active thread has completed its work, it informs the other threads, and any of them may access the object, much like in a race. In the scenario described above, the count method is used to control this race condition, which can be avoided through inter-thread synchronization.
 
 ### Inter-Thread Communication
 
@@ -812,5 +822,7 @@ synchronized(object) {
   object.notifyAll();
 }
 ```
+
+The communication occurs between synchronized threads, specifically between a single producer thread and a consumer thread. Inter-thread communication refers to the synchronization between the producer and consumer threads for simultaneous access to the read and write methods. To facilitate this communication, the flags `Flag=t` and `Flag=f` are used.
 
 &nbsp;
