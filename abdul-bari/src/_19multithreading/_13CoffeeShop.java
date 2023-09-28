@@ -41,7 +41,7 @@ class CoffeeShop {
 
   public void notifyBaristasOfNewOrder() {
     synchronized (orders) {
-      orders.notifyAll();
+      orders.notify();
     }
   }
 
@@ -56,13 +56,14 @@ class CoffeeShop {
       semaphore.acquire();
       String order = null;
 
+      // The check and action (checking if the order list is empty and
+      // removing the order) need to be atomic. 
       synchronized (orders) {
-        if (!orders.isEmpty()) {
-          order = orders.removeFirst();
-        } else {
+        while (orders.isEmpty()) {
           System.out.println("No orders to make. Barista is waiting.");
           orders.wait();
         }
+        order = orders.removeFirst();
       }
 
       System.out.println("Making coffee for: " + order);
