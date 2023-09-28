@@ -22,12 +22,12 @@ class ATM {
   }
 }
 
-class Customer extends Thread {
+class Customer3 extends Thread {
   ATM atm;
   String name;
   int amount;
 
-  Customer(String name, ATM atm, int amount) {
+  Customer3(String name, ATM atm, int amount) {
     this.name = name;
     this.atm = atm;
     this.amount = amount;
@@ -43,7 +43,7 @@ class Customer extends Thread {
 public class _10ATMExample {
   public static void main(String[] args) {
     ATM atm = new ATM();
-    new Customer("Smith", atm, 100);
-    new Customer("Joh", atm, 200);
+    new Customer3("Smith", atm, 100);
+    new Customer3("Joh", atm, 200);
   }
 }
