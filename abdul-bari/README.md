@@ -27,6 +27,9 @@
     - [Monitor](#monitor)
     - [Race Condition](#race-condition)
     - [Inter-Thread Communication](#inter-thread-communication)
+- [\_20javaLangPkg](#_20javalangpkg)
+  - [Object Class](#object-class)
+  - [Wrapper Class](#wrapper-class)
 
 &nbsp;
 
@@ -826,5 +829,33 @@ synchronized(object) {
 ![multithreading_inter_thread_communication](src/_00diagrams/multithreading_inter_thread_communication.png)
 
 The communication occurs between synchronized threads, specifically between a single producer thread and a consumer thread. Inter-thread communication refers to the synchronization between the producer and consumer threads for simultaneous access to the read and write methods. To facilitate this communication, the flags `Flag=t` and `Flag=f` are used.
+
+&nbsp;
+
+# \_20javaLangPkg
+
+## Object Class
+
+- Object class is the parent class for all the classes in java.
+- It can also be said as mother of all classes in the java.
+- Even the user-defined classes are inherited from the object class.
+
+## Wrapper Class
+
+- Java provides wrapper classes around primitives so they can be used as classes and their objects can be created.
+- Wrapper classes are available for every data type.
+- Wrapping is also known as boxing.
+- All these classes are present inside the java.lang package.
+- Number, Character and Boolean classes are child classes of object class.
+  - Number class
+  - Integer class
+  - Byte Class
+  - Long Class
+  - Short Class
+  - Float Class
+  - Double Class
+  - Character Class
+  - Boolean Class
+- AutoBoxing and AutoUnboxing
 
 &nbsp;
