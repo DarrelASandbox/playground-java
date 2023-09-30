@@ -30,6 +30,7 @@
 - [\_20javaLangPkg](#_20javalangpkg)
   - [Object Class](#object-class)
   - [Wrapper Class](#wrapper-class)
+  - [String vs StringBuffer vs StringBuilder](#string-vs-stringbuffer-vs-stringbuilder)
 
 &nbsp;
 
@@ -836,26 +837,42 @@ The communication occurs between synchronized threads, specifically between a si
 
 ## Object Class
 
-- Object class is the parent class for all the classes in java.
-- It can also be said as mother of all classes in the java.
-- Even the user-defined classes are inherited from the object class.
+- The `Object` class is the parent class for all classes in Java.
+- It is sometimes referred to as the mother of all classes in Java.
+- Even user-defined classes implicitly inherit from the `Object` class.
 
 ## Wrapper Class
 
-- Java provides wrapper classes around primitives so they can be used as classes and their objects can be created.
-- Wrapper classes are available for every data type.
-- Wrapping is also known as boxing.
-- All these classes are present inside the java.lang package.
-- Number, Character and Boolean classes are child classes of object class.
+- Java provides wrapper classes for primitive types so that they can be treated as objects.
+- There is a wrapper class for each primitive data type.
+- The process of converting a primitive type to its object representation is known as boxing.
+- All these classes reside in the `java.lang` package.
+- `Number`, `Character`, and `Boolean` are subclasses of the `Object` class.
   - Number class
   - Integer class
-  - Byte Class
-  - Long Class
-  - Short Class
-  - Float Class
-  - Double Class
-  - Character Class
-  - Boolean Class
-- AutoBoxing and AutoUnboxing
+  - Byte class
+  - Long class
+  - Short class
+  - Float class
+  - Double class
+  - Character class
+  - Boolean class
+- AutoBoxing and AutoUnboxing are features that allow automatic conversion between primitive types and their corresponding object wrapper classes.
+
+## String vs StringBuffer vs StringBuilder
+
+- `String` objects are immutable.
+- `StringBuffer` is similar to `String` but is mutable.
+  - It does not return a new object when modified.
+  - Characters can be appended or inserted at a specific index.
+  - Since it's mutable, the above operations modify the existing `StringBuffer` object.
+  - The length of the content within the `StringBuffer` may be less than its capacity.
+  - The default capacity of `StringBuffer` is 16.
+  - The capacity can automatically adjust based on the content.
+  - Only one thread can operate on a `StringBuffer` at a given time, making it thread-safe.
+  - Due to this synchronization, `StringBuffer` methods are synchronized.
+- `StringBuilder` is similar to `StringBuffer`, but it is not thread-safe.
+  - `StringBuilder` is generally faster than `StringBuffer`.
+  - `StringBuilder` can be used in place of `StringBuffer` when only a single thread is involved.
 
 &nbsp;
