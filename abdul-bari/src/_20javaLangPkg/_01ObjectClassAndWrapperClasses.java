@@ -17,9 +17,14 @@ class MyObject {
 class MyObject2 extends MyObject {
 }
 
-public class _01JavaLangPkgDemo {
+public class _01ObjectClassAndWrapperClasses {
   public static void main(String[] args) {
-    // Object Class
+    /* 
+    *
+    * Object Class  
+    * 
+    */
+
     Object o1 = new Object();
     Object o2 = new Object();
     System.out.println(o1.equals(o2));
@@ -30,7 +35,11 @@ public class _01JavaLangPkgDemo {
     System.out.println(mo1.hashCode());
     System.out.println(mo1.equals(new MyObject()));
 
-    // Wrapper Class
+    /* 
+    *
+    * Wrapper Class  
+    * 
+    */
 
     // The constructor Integer(int) has been deprecated since version 9 and marked for removal
     // Integer i1 = new Integer(10); 
