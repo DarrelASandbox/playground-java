@@ -31,6 +31,8 @@
   - [Object Class](#object-class)
   - [Wrapper Class](#wrapper-class)
   - [String vs StringBuffer vs StringBuilder](#string-vs-stringbuffer-vs-stringbuilder)
+  - [Enum](#enum)
+  - [Reflect Package](#reflect-package)
 
 &nbsp;
 
@@ -874,5 +876,20 @@ The communication occurs between synchronized threads, specifically between a si
 - `StringBuilder` is similar to `StringBuffer`, but it is not thread-safe.
   - `StringBuilder` is generally faster than `StringBuffer`.
   - `StringBuilder` can be used in place of `StringBuffer` when only a single thread is involved.
+
+## Enum
+
+- It is used to define our own data types or to define an enumerated data type.
+- We can have pre-defined constants using `enum` in Java.
+- Enums are defined similarly to classes.
+- Interfaces can have final and static members.
+- `Enum` is directly inherited from the `Enum` object in the `java.lang` package.
+- It can also have other methods as well as constructors. Constructors must be either public or protected.
+- All the identifiers are created when the `enum` class is loaded.
+
+## Reflect Package
+
+- Java has a package called `java.lang.reflect` that contains a diverse set of classes.
+- The classes in the reflection package help us retrieve information or definitions about a class.
 
 &nbsp;
