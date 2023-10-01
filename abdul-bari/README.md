@@ -34,6 +34,7 @@
   - [Enum](#enum)
   - [Reflect Package](#reflect-package)
 - [\_21annotationsAndJavaDoc](#_21annotationsandjavadoc)
+  - [Annotations](#annotations)
 
 &nbsp;
 
@@ -909,5 +910,23 @@ The communication occurs between synchronized threads, specifically between a si
 |   @see   | @exception  |         |
 |          | @deprecated |         |
 |          |    @code    |         |
+
+## Annotations
+
+- Annotations are used for defining attributes for a class, interface, or methods.
+- Annotations provide metadata to a class, interface, or method.
+  - **Applied to code**: These annotations are applied to the code. They provide hints to the compiler, allowing it to avoid showing errors and warnings. The in-built annotations applied to the code include:
+    - **@Override**: Informs the compiler that the element is meant to override an element declared in a superclass.
+    - **@Deprecated**: Indicates that the marked element is deprecated and should no longer be used.
+    - **@FunctionalInterface**: Indicates that the type declaration is intended to be a functional interface.
+    - **@SuppressWarnings**: Tells the compiler to suppress specific warnings that it would otherwise generate.
+    - **@SafeVarargs**: When applied to a method or a constructor, it asserts that the code does not perform potentially unsafe operations on its `varargs` parameter.
+  - **Applied to other annotations**: These annotations are applied to user-defined annotations. They include:
+    - **@Retention**: Specifies how the marked annotations are stored.
+    - **@Documented**: Indicates that elements annotated with the specified annotation should be documented using the `javadoc` tool.
+    - **@Target**: Marks another annotation to restrict what kind of Java elements can be applied to.
+    - **@Inherited**: Indicates that the annotation type can be inherited from the superclass.
+    - **@Repeatable**: Indicates that the marked annotation can be applied more than once to the same declaration or type.
+- **Metadata** is "data that provides information about other data". In other words, it is "data about data."
 
 &nbsp;
