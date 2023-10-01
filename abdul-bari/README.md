@@ -33,6 +33,7 @@
   - [String vs StringBuffer vs StringBuilder](#string-vs-stringbuffer-vs-stringbuilder)
   - [Enum](#enum)
   - [Reflect Package](#reflect-package)
+- [\_21annotationsAndJavaDoc](#_21annotationsandjavadoc)
 
 &nbsp;
 
@@ -891,5 +892,21 @@ The communication occurs between synchronized threads, specifically between a si
 
 - Java has a package called `java.lang.reflect` that contains a diverse set of classes.
 - The classes in the reflection package help us retrieve information or definitions about a class.
+
+&nbsp;
+
+# \_21annotationsAndJavaDoc
+
+- [Oracle - Java Documentation](https://docs.oracle.com/en/java/)
+- Java provides tags for documentation known as the `javadoc` tool.
+
+|  Class   |   Method    | Others  |
+| :------: | :---------: | :-----: |
+| @author  |   @param    |  @link  |
+| @version |   @return   | @value  |
+|  @since  |   @throw    | @serial |
+|   @see   | @exception  |         |
+|          | @deprecated |         |
+|          |    @code    |         |
 
 &nbsp;
