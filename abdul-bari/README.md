@@ -899,6 +899,7 @@ The communication occurs between synchronized threads, specifically between a si
 
 - [Oracle - Java Documentation](https://docs.oracle.com/en/java/)
 - Java provides tags for documentation known as the `javadoc` tool.
+- `javadoc -d docs _01Book.java`
 
 |  Class   |   Method    | Others  |
 | :------: | :---------: | :-----: |
