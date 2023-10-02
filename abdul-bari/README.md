@@ -35,6 +35,7 @@
   - [Reflect Package](#reflect-package)
 - [\_21annotationsAndJavaDoc](#_21annotationsandjavadoc)
   - [Annotations](#annotations)
+- [\_22lambdaExpressions](#_22lambdaexpressions)
 
 &nbsp;
 
@@ -928,5 +929,24 @@ The communication occurs between synchronized threads, specifically between a si
     - **@Inherited**: Indicates that the annotation type can be inherited from the superclass.
     - **@Repeatable**: Indicates that the marked annotation can be applied more than once to the same declaration or type.
 - **Metadata** is "data that provides information about other data". In other words, it is "data about data."
+
+&nbsp;
+
+# \_22lambdaExpressions
+
+- Lambda expressions are used for defining anonymous expressions or nameless methods/functions.
+- Lambda expressions are defined with the aid of interfaces.
+- If an interface has a single abstract method, then it is referred to as a **functional interface**.
+- The symbol for lambda expression is `->`.
+- Lambda expressions are powerful, useful, and convenient for programmers.
+- In Java's lambda expressions, "capture" refers to the ability of a lambda to access variables from its enclosing scope. Lambdas in Java have the capability to "capture" (or "close over") variables from their enclosing contexts. However, there are specific rules governing this:
+  - **Local Variables**:
+  - A lambda can capture local variables from its enclosing scope.
+  - The captured local variables must be **effectively final** or actually declared `final`. An "effectively final" variable is one that's not modified after it's assigned a value.
+  - The lambda expression does not actually store the value of the local variable but rather a reference to it.
+- **Instance and Static Variables**:
+  - Lambdas can also capture instance variables (fields) and static variables. Unlike local variables, there's no "effectively final" restriction on these. The lambda has both read and write access to these variables.
+- **`this` Reference**:
+  - Within a lambda expression, the `this` keyword refers to the `this` of the enclosing scope (not the lambda itself, since lambdas don't have a `this`). So, lambdas can access instance methods and instance variables of the enclosing class using the `this` reference.
 
 &nbsp;
