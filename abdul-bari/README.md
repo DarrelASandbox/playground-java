@@ -36,6 +36,7 @@
 - [\_21annotationsAndJavaDoc](#_21annotationsandjavadoc)
   - [Annotations](#annotations)
 - [\_22lambdaExpressions](#_22lambdaexpressions)
+- [\_23javaIOStreams](#_23javaiostreams)
 
 &nbsp;
 
@@ -948,5 +949,18 @@ The communication occurs between synchronized threads, specifically between a si
   - Lambdas can also capture instance variables (fields) and static variables. Unlike local variables, there's no "effectively final" restriction on these. The lambda has both read and write access to these variables.
 - **`this` Reference**:
   - Within a lambda expression, the `this` keyword refers to the `this` of the enclosing scope (not the lambda itself, since lambdas don't have a `this`). So, lambdas can access instance methods and instance variables of the enclosing class using the `this` reference.
+
+&nbsp;
+
+# \_23javaIOStreams
+
+![java_io_streams](src/_00diagrams/java_io_streams.png)
+
+- **Byte Stream**
+  - Input Stream
+  - Output Stream
+- **Character Stream** (2 bytes)
+  - Reader
+  - Writer
 
 &nbsp;
