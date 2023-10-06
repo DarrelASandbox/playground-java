@@ -62,11 +62,11 @@ class Teacher extends Thread {
   }
 }
 
-class Student extends Thread {
+class Student4 extends Thread {
   String name;
   Whiteboard wb;
 
-  public Student(String n, Whiteboard w) {
+  public Student4(String n, Whiteboard w) {
     name = n;
     wb = w;
     start();
@@ -89,10 +89,10 @@ public class _12Classroom {
     Whiteboard wb = new Whiteboard();
     new Teacher(wb);
 
-    new Student("1. John", wb);
-    new Student("2. Jay", wb);
-    new Student("3. Kon", wb);
-    new Student("4. Smith", wb);
+    new Student4("1. John", wb);
+    new Student4("2. Jay", wb);
+    new Student4("3. Kon", wb);
+    new Student4("4. Smith", wb);
 
   }
 }
