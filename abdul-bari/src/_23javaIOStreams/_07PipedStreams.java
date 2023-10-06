@@ -22,7 +22,9 @@ class Producer2 extends Thread {
         System.out.println("Producer: " + count);
         System.out.flush();
         count++;
-      } catch (IOException e) {
+
+        Thread.sleep(10);
+      } catch (IOException | InterruptedException e) {
         e.printStackTrace();
       }
     }
@@ -43,7 +45,9 @@ class Consumer2 extends Thread {
         x = is.read();
         System.out.println("Consumer: " + x);
         System.out.flush();
-      } catch (IOException e) {
+
+        Thread.sleep(10);
+      } catch (IOException | InterruptedException e) {
         e.printStackTrace();
       }
     }
