@@ -37,6 +37,7 @@
   - [Annotations](#annotations)
 - [\_22lambdaExpressions](#_22lambdaexpressions)
 - [\_23javaIOStreams](#_23javaiostreams)
+- [\_24generics](#_24generics)
 
 &nbsp;
 
@@ -986,5 +987,240 @@ Both `FileInputStream` and `FileReader` are classes in Java that allow you to re
 
 The key takeaway is to choose the appropriate class based on the type of data you're reading and whether you want automatic handling of character encoding.
 ```
+
+&nbsp;
+
+# \_24generics
+
+Common drawback of using the general `Object` class for type generalization in Java.
+
+1. **Type Safety**: By assigning everything to an `Object`, you lose type safety. In the code:
+
+   ```java
+   Object obj = new String("Hello");
+   obj = Integer.valueOf(10);
+   ```
+
+   The `obj` reference can refer to any object. First, it's assigned a `String`, then an `Integer`. This flexibility means you don't have compile-time checks to ensure that you're working with the expected type of data.
+
+2. **Type Casting**: Because you're using `Object` for everything, you're forced to cast the object back to its original type when you want to use it as that type:
+
+   ```java
+   String str = (String) obj;
+   ```
+
+   This can lead to runtime errors. In this case, the code will throw a `ClassCastException` at runtime because you're trying to cast an `Integer` to a `String`.
+
+   ```java
+   // Another example: Array of objects
+   Object obj[] = new Object[3];
+   obj[0] = "zero";
+   obj[1] = "one";
+   obj[2] = Integer.valueOf(2);
+
+   String str;
+
+   // Runtime error for `obj[2]`
+   // class java.lang.Integer cannot be cast to class java.lang.String
+   for (int i = 0; i < obj.length; i++) {
+   str = (String) obj[i];
+   System.out.println(str);
+   }
+   ```
+
+3. **Maintenance and Readability Issues**: Using `Object` as a general type makes the code harder to read and maintain. Anyone reading the code will not immediately know what type of object `obj` is expected to be. They have to trace the code to see where `obj` is being used, and what it's being cast to, to understand its intended use.
+
+4. **Loss of Specific Operations**: When you refer to specialized objects like `String` or `Integer` as `Object`, you lose access to their specific methods unless you cast them back. This means that operations that are specific to `String` or `Integer` are not directly accessible from the `obj` reference.
+
+Using generics, introduced in Java 5, alleviates these issues by allowing you to create generalized classes, interfaces, and methods while maintaining type safety. Generics provide compile-time type checking without the need for excessive casting or the risk of `ClassCastException` at runtime.
+
+&nbsp;
+
+---
+
+&nbsp;
+
+The `ArrayList` class and the `Object` class serve very different purposes in Java, and while there might seem to be some overlap in terms of allowing for a general storage of "any type," their roles in the language are distinct. Here are the reasons why both exist and are still relevant:
+
+1. **Historical Reasons**:
+
+   - Before generics were introduced in Java 5, the standard way to handle a general object in a collection (like `ArrayList`) was to use `Object`. This allowed collections to store any type of object, but at the cost of type safety.
+   - Even with the introduction of generics, the `Object` class remains an integral part of Java's type system.
+
+2. **Object is the Ultimate Base Class**:
+
+   - Every class in Java implicitly inherits from the `Object` class if it doesn't extend another class. This makes `Object` the ultimate base class for all Java objects.
+   - This design provides a few default behaviors and methods (like `toString()`, `hashCode()`, `equals()`, etc.) for every object in Java.
+
+3. **General Programming Paradigms**:
+
+   - There are scenarios where you might not care about the type of object you're working with, and `Object` is the most general type available.
+   - It's useful in certain design patterns and APIs where a general object type is needed.
+
+4. **Interoperability with Older Code**:
+
+   - There's a lot of existing Java code (written before generics were introduced) that uses `Object` to handle general objects.
+   - Removing or de-emphasizing `Object` would break backward compatibility, which is a key concern for Java's design philosophy.
+
+5. **`ArrayList` vs. `Object`**:
+
+   - `ArrayList` is a data structure designed to hold a collection of objects, whereas `Object` is a base class for all objects.
+   - An `ArrayList` without generics essentially holds an array of `Object` references, allowing it to store any type of object. With generics, it provides type safety.
+
+6. **Performance Considerations**:
+   - There are times when using an array of `Object` might be more performance-efficient than using an `ArrayList`, especially when you're not adding or removing elements frequently and when you want to avoid the overhead introduced by the `ArrayList` class.
+
+In summary, while `ArrayList` (and other collections) with generics offer a more modern and type-safe way to handle collections of objects, the `Object` class remains a foundational piece of the Java language and serves various roles that can't be replicated solely by generic collections.
+
+&nbsp;
+
+---
+
+&nbsp;
+
+**No Parameter**:
+
+- **Description**: Generics without parameters, commonly known as raw types, defeat the purpose of generics, which is to provide type safety.
+- **Example**:
+  ```java
+  ArrayList list = new ArrayList();  // This is a raw type
+  list.add("Hello");
+  list.add(42);  // No compile-time error, but could lead to runtime errors
+  ```
+- **Best Practices**:
+  - Avoid using raw types. Always specify a type parameter when using generics.
+  - Using raw types leads to warnings and removes the type safety benefits of generics.
+
+&nbsp;
+
+**Multiple Parameters**:
+
+- **Description**: You can define generics with multiple type parameters.
+- **Example**:
+
+  ```java
+  public class Pair<K, V> {
+      private K key;
+      private V value;
+
+      public Pair(K key, V value) {
+          this.key = key;
+          this.value = value;
+      }
+      // ... getters and setters
+  }
+
+  Pair<String, Integer> age = new Pair<>("Alice", 30);
+  ```
+
+- **Best Practices**:
+  - Provide meaningful names for type parameters. Conventionally, single uppercase letters are used (like `T`, `E`, `K`, `V`, etc.), but meaningful names can be more readable in complex scenarios.
+
+&nbsp;
+
+**Subtypes**:
+
+- **Description**: In generics, by default, type parameters are invariant.
+- **Example**:
+  ```java
+  List<String> strings = new ArrayList<>();
+  List<Object> objects = strings;  // This will cause a compile-time error
+  ```
+- **Best Practices**:
+  - Use the PECS rule (Producer `extends`, Consumer `super`).
+
+&nbsp;
+
+**Bounded Types**:
+
+- **Description**: Bounded type parameters limit the types that can be used with generics.
+- **Example**:
+
+  ```java
+  public class Box<T extends Number> {
+      private T value;
+
+      public Box(T value) {
+          this.value = value;
+      }
+      // ... getters and setters
+  }
+
+  Box<Integer> intBox = new Box<>(10);
+  ```
+
+- **Best Practices**:
+  - Use bounded types to ensure that the generic type adheres to specific behaviors or APIs.
+  - Use bounded types sparingly to maintain the reusability of your generic classes or methods.
+
+&nbsp;
+
+**Upper Bound**:
+
+- **Description**: An upper bound restricts the generic type to a particular type or its subtypes.
+- **Example**:
+
+  ```java
+  public class Container<T extends Comparable<T>> {
+      private T value;
+
+      public Container(T value) {
+          this.value = value;
+      }
+
+      public int compareTo(Container<T> other) {
+          return value.compareTo(other.value);
+      }
+  }
+
+  Container<String> strContainer = new Container<>("Hello");
+  Container<Integer> intContainer = new Container<>(5);
+  ```
+
+- **Best Practices**:
+  - Ensure that the restricted type or interface makes logical sense for your generic class or method's intended functionality.
+
+&nbsp;
+
+**Lower Bound**:
+
+- **Description**: Lower bounds restrict the generic type to a particular type or its super types.
+- **Example**:
+
+  ```java
+  public void addNumbers(List<? super Integer> list) {
+      for (int i = 0; i < 10; i++) {
+          list.add(i);
+      }
+  }
+
+  List<Number> numbers = new ArrayList<>();
+  addNumbers(numbers);
+  ```
+
+- **Best Practices**:
+  - Use lower bounds when you need to write data into a structure and want to ensure type safety.
+
+&nbsp;
+
+**Real-World Examples**:
+
+- **No Parameter**: Legacy code before generics were introduced in Java 5 uses raw types.
+- **Multiple Parameters**: Java's `Map<K, V>` interface, where `K` stands for key and `V` stands for value.
+- **Subtypes**: A method that processes lists of any type of number: `processNumbers(List<? extends Number> numbers)`.
+- **Bounded Types**: A library for geometric shapes might have: `public <T extends Shape> void draw(T shape)`.
+- **Upper Bound**: Java's Collections API method: `public static <T extends Object & Comparable<? super T>> T max(Collection<? extends T> coll)`.
+- **Lower Bound**: A system that accumulates error messages might use: `addErrorMessages(List<? super String> list)`.
+
+&nbsp;
+
+**Do's and Don'ts in Generics**
+
+1. Only `extends` is allowed in a generic class definition.
+2. `extends` can be used for interfaces as well.
+3. A class can `extends` from only one class but can implement multiple interfaces.
+4. Both `extends` and `super` are allowed with `?` in method signatures.
+5. `<?>` will accept all types, but specific operations on these types might be restricted.
+6. The base type of an object should be the same as specified or `?`.
 
 &nbsp;
