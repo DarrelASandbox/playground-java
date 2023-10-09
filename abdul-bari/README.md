@@ -38,6 +38,7 @@
 - [\_22lambdaExpressions](#_22lambdaexpressions)
 - [\_23javaIOStreams](#_23javaiostreams)
 - [\_24generics](#_24generics)
+- [\_25collectionFramework](#_25collectionframework)
 
 &nbsp;
 
@@ -1222,5 +1223,13 @@ In summary, while `ArrayList` (and other collections) with generics offer a more
 4. Both `extends` and `super` are allowed with `?` in method signatures.
 5. `<?>` will accept all types, but specific operations on these types might be restricted.
 6. The base type of an object should be the same as specified or `?`.
+
+&nbsp;
+
+# \_25collectionFramework
+
+![collection_framework](src/_00diagrams/collection_framework.svg)
+
+- [Java 21 - Collections](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/doc-files/coll-overview.html)
 
 &nbsp;
