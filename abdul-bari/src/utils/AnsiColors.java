@@ -10,4 +10,13 @@ public class AnsiColors {
   public static final String ANSI_PURPLE = "\u001B[35m";
   public static final String ANSI_CYAN = "\u001B[36m";
   public static final String ANSI_WHITE = "\u001B[37m";
+
+  public static <T> void print(String str) {
+    System.out.print(ANSI_PURPLE + str + ANSI_RESET);
+  }
+
+  public static <T> void println(String str, T v) {
+    System.out.println(ANSI_PURPLE + str + ANSI_RESET + v.toString());
+  }
+
 }
