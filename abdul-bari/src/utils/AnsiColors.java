@@ -15,6 +15,10 @@ public class AnsiColors {
     System.out.print(ANSI_PURPLE + str + ANSI_RESET);
   }
 
+  public static <T> void println(String str) {
+    System.out.println(ANSI_PURPLE + str + ANSI_RESET);
+  }
+
   public static <T> void println(String str, T v) {
     System.out.println(ANSI_PURPLE + str + ANSI_RESET + v.toString());
   }
