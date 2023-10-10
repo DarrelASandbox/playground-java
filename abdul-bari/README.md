@@ -1233,3 +1233,37 @@ In summary, while `ArrayList` (and other collections) with generics offer a more
 - [Java 21 - Collections](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/doc-files/coll-overview.html)
 
 &nbsp;
+
+---
+
+&nbsp;
+
+`ArrayDeque` in Java can function as both a stack and a queue. It implements the `Deque` interface, which stands for "Double-Ended Queue." This means you can efficiently add, remove, and inspect elements from both ends of the deque.
+
+**As a Stack**
+
+You can use `ArrayDeque` as a stack by using the following methods:
+
+- `push(E e)`: Adds an element to the head of the deque (or the top of the stack).
+- `pop()`: Removes and returns the element at the head of the deque (or the top of the stack).
+- `peek()`: Retrieves, but does not remove, the head of the deque (or the top of the stack).
+
+**As** a Queue
+
+You can use `ArrayDeque` as a queue by using these methods:
+
+- `offer(E e)` or `offerLast(E e)`: Adds an element to the tail of the deque (or the end of the queue).
+- `poll()` or `pollFirst()`: Removes and returns the element at the head of the deque (or the front of the queue).
+- `peek()` or `peekFirst()`: Retrieves, but does not remove, the head of the deque (or the front of the queue).
+
+**Additional Methods for Both Ends**
+
+Since it's a double-ended queue, you also have methods to operate on both ends:
+
+- `offerFirst(E e)`: Adds an element to the head of the deque.
+- `pollLast()`: Removes and returns the element at the tail of the deque.
+- `peekLast()`: Retrieves, but does not remove, the tail of the deque.
+
+Because of this flexibility, `ArrayDeque` is often preferred over traditional `Stack` and `Queue` classes for its versatility and performance characteristics. Most operations run in amortized constant time, making it a very efficient data structure.
+
+&nbsp;
