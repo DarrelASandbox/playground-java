@@ -1267,3 +1267,166 @@ Since it's a double-ended queue, you also have methods to operate on both ends:
 Because of this flexibility, `ArrayDeque` is often preferred over traditional `Stack` and `Queue` classes for its versatility and performance characteristics. Most operations run in amortized constant time, making it a very efficient data structure.
 
 &nbsp;
+
+---
+
+&nbsp;
+
+Hashing is a technique used to map data to a fixed-size array, often called a hash table. The idea is to take a key, apply a hash function to it, and then use the resulting hash code to find an index in the array where the corresponding value can be stored or retrieved. Hashing is widely used in various applications for quick data retrieval.
+
+**Loading Factor**
+
+The loading factor, often denoted by the symbol \( \alpha \), is a measure that indicates how full a hash table is. It is calculated as:
+
+\[
+\alpha = \frac{n}{k}
+\]
+
+Where:
+
+- \( n \) is the number of elements in the hash table
+- \( k \) is the total number of slots or buckets in the hash table
+
+The loading factor is a crucial parameter because it affects the performance of a hash table. Here's how:
+
+1. **Low Loading Factor (\( \alpha < 1 \))**: When the loading factor is low, it means that the hash table is relatively empty. This condition minimizes the chance of collisions (two keys hashing to the same index), but it's inefficient in terms of memory usage.
+
+2. **High Loading Factor (\( \alpha > 1 \))**: When the loading factor is high, it means that the hash table is getting full or is already full. This condition increases the likelihood of collisions, which in turn can severely degrade performance.
+
+**Strategies Affected by Loading Factor**
+
+1. **Resizing**: One common strategy to maintain an optimal loading factor is to resize the hash table. When the loading factor crosses a certain threshold, a new, larger hash table is created, and all existing keys are rehashed to the new table.
+
+2. **Open Addressing**: In open addressing schemes like linear probing, quadratic probing, or double hashing, a high loading factor can significantly increase the time it takes to find an open slot.
+
+3. **Separate Chaining**: In separate chaining, each bucket contains a linked list of key-value pairs that have the same hash index. A high loading factor means longer linked lists, which increases the time it takes to search for an element.
+
+4. **Performance**: Both the average and worst-case time complexities for operations like insert, delete, and search are affected by the loading factor.
+
+Understanding and managing the loading factor is crucial for optimizing the performance of hash tables in real-world applications.
+
+&nbsp;
+
+---
+
+&nbsp;
+
+**Hash Functions**
+
+- **Cryptographic Hash Functions**: These are designed to be secure and are used in cryptography. They have properties like collision resistance.
+- **Consistent Hashing**: Useful in distributed systems to minimize rehashing when a node is added or removed.
+
+**Collision Resolution Techniques**
+
+- **Double Hashing**: A form of open addressing where a secondary hash function is used if a collision occurs.
+- **Cuckoo Hashing**: Uses multiple hash functions and moves keys to alternate positions to resolve collisions.
+
+**Dynamic Resizing**
+
+- **Incremental Resizing**: Instead of resizing all at once, which can be costly in terms of time complexity, incremental resizing performs the resizing operation gradually.
+
+**Advanced Data Structures**
+
+- **Bloom Filters**: A probabilistic data structure that can tell you if an element is definitely not in the set or may be in the set.
+- **Count-Min Sketch**: A probabilistic data structure that serves as a frequency table of events in a stream of data.
+
+**Distributed Hashing**
+
+- **Distributed Hash Table (DHT)**: Used in distributed systems; keys are distributed across multiple machines.
+- **Consistent Hashing**: Particularly useful in load balancing.
+
+**Performance Metrics**
+
+- **Average Search Time**: Besides worst-case and best-case, the average-case performance can be crucial.
+- **Space-Time Tradeoff**: Sometimes using more memory can make the hash table operations faster.
+
+**Real-world Applications and Trade-offs**
+
+- **Database Indexing**: Hashing vs. B-trees, and when to use which.
+- **Caching Strategies**: Understanding how hash tables can be used in caching scenarios, including LRU caches.
+
+**Security Implications**
+
+- **Hash DoS Attacks**: Collision attacks can be used to perform denial of service attacks.
+
+**Language-Specific Implementations**
+Since you're familiar with multiple programming languages, understanding the nuances of hash table implementations in languages like Java (HashMap, Hashtable), Python (dictionaries), and Go (maps) could be beneficial.
+
+Understanding these advanced topics can help you make more informed decisions when designing systems, choosing data structures, and optimizing for performance or other constraints.
+
+&nbsp;
+
+---
+
+&nbsp;
+
+**Open Addressing**
+
+Open addressing is a collision resolution technique where all elements are stored in the hash table itself. When a collision occurs, the algorithm searches for the next open slot within the hash table according to a probing sequence. The main types of probing sequences are:
+
+1. **Linear Probing**: After a collision, check the next slot, then the slot after that, and so on.
+   - \( h(k, i) = (h'(k) + i) \mod m \)
+2. **Quadratic Probing**: After a collision, check the slot \(i^2\) positions ahead, then \( (i+1)^2 \) positions, and so on.
+   - \( h(k, i) = (h'(k) + c_1 \cdot i + c_2 \cdot i^2) \mod m \)
+3. **Double Hashing**: Use a second hash function to determine the step size for probing.
+   - \( h(k, i) = (h_1(k) + i \cdot h_2(k)) \mod m \)
+
+**Advantages and Disadvantages of Open Addressing**
+
+- **Advantages**:
+  - Efficient use of memory.
+  - Cache-friendly since all data are stored in the same table.
+- **Disadvantages**:
+  - Performance degrades as the load factor approaches 1.
+  - Not suitable for elements that might be frequently deleted.
+
+**Separate Chaining**
+
+In separate chaining, each slot in the hash table contains a linked list (or another data structure like a balanced tree) to hold all the elements that hash to the same slot.
+
+**Advantages and Disadvantages of Separate Chaining**
+
+- **Advantages**:
+  - Simpler to implement.
+  - Performance degrades gracefully.
+  - Deletion is easier compared to open addressing.
+- **Disadvantages**:
+  - Extra memory overhead for the linked lists.
+  - Cache performance may not be as good as open addressing.
+
+**Coalesced Hashing**
+
+This is a hybrid method that combines elements of separate chaining and open addressing. Colliding elements are stored in the same hash table but are linked together to form chains like in separate chaining.
+
+**Cuckoo Hashing**
+
+In Cuckoo Hashing, two hash functions are used. When a new key collides at the first hash function, it "kicks out" the existing key and reinserts it using the second hash function, and vice versa.
+
+**Dynamic Resizing**
+
+Both open addressing and separate chaining may require dynamic resizing to maintain an efficient load factor. This often involves creating a new, larger table and rehashing all existing keys.
+
+**Bloom Filters**
+
+A Bloom filter is a probabilistic data structure that can tell you if an element is definitely not in the set or may be in the set. It's highly space-efficient but allows for a small false-positive rate.
+
+Understanding these techniques and their trade-offs can help you make informed decisions when implementing or optimizing hash tables in various applications.
+
+&nbsp;
+
+---
+
+&nbsp;
+
+```java
+TreeSet<Integer> ts = new TreeSet<>(List.of(10, 30, 50, 70, 10, 40));
+Collection<Integer> c = new TreeSet<>(List.of(10, 30, 50, 70, 10, 40));
+SortedSet<Integer> ss = new TreeSet<>(List.of(10, 30, 50, 70, 10, 40));
+```
+
+- On the left-hand side of the equation, you specify the type of the variable, which can be an interface (`Collection`, `SortedSet`) or a concrete class (`TreeSet`).
+- On the right-hand side, you use the `new` keyword to create an instance of a concrete class that implements the interface or extends the class specified on the left-hand side. In this case, it's `TreeSet`.
+
+Using an interface is generally recommended for the reasons of flexibility and maintainability.
+
+&nbsp;
