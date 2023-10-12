@@ -1427,3 +1427,50 @@ SortedSet<Integer> ss = new TreeSet<>(List.of(10, 30, 50, 70, 10, 40));
 Using an interface is generally recommended for the reasons of flexibility and maintainability.
 
 &nbsp;
+
+---
+
+&nbsp;
+
+`Hashtable` is considered a legacy class in Java. It was part of the original version of Java, but better alternatives have been introduced since then, such as `HashMap`. Here are some key differences between `Hashtable` and `HashMap`:
+
+1. **Synchronization**: `Hashtable` is thread-safe, meaning it is synchronized. This makes it slower than `HashMap`, which is not synchronized.
+
+2. **Null Keys and Values**: `Hashtable` does not allow null keys or values, whereas `HashMap` allows one null key and multiple null values.
+
+3. **API**: `Hashtable` inherits from the `Dictionary` class, which is considered obsolete. `HashMap` is part of the Java Collections Framework and inherits from the `AbstractMap` class, making it more consistent with modern Java APIs.
+
+4. **Iteration**: `Hashtable` provides an `Enumeration` to iterate over its elements, which is also considered legacy. `HashMap` provides an `Iterator` to iterate over its elements.
+
+5. **Performance**: Generally, `HashMap` offers better performance than `Hashtable` because it is unsynchronized. If you need a thread-safe implementation, you can use `Collections.synchronizedMap()` to get a synchronized version of `HashMap`.
+
+6. **Algorithms**: Both `Hashtable` and `HashMap` use a hashing algorithm to store and retrieve elements, but `HashMap` is generally more efficient due to improvements in its algorithm and the fact that it is not synchronized.
+
+If you don't need synchronization and want to use null keys or values, `HashMap` is generally a better choice. If you do need a thread-safe collection, you might consider using `ConcurrentHashMap`, which offers better concurrency support than `Hashtable`.
+
+&nbsp;
+
+---
+
+&nbsp;
+
+The `Properties` class in Java is somewhat of a special case. While it does extend `Hashtable`, it's not generally considered "legacy" in the same way that `Hashtable` itself is, primarily because `Properties` serves a specific use case that hasn't been directly superseded by newer classes in the Java Collections Framework.
+
+The `Properties` class is designed to read from and write to a particular type of text file that contains key-value pairs. This is often used for configuration settings. The keys and values are both `String` types, and the class provides methods for reading from and writing to streams, making it convenient for file operations.
+
+Here are some of the specialized methods provided by `Properties`:
+
+- `load(InputStream inStream)`: Reads a property list (key-value pairs) from the input byte stream.
+- `store(OutputStream out, String comments)`: Writes this property list (key-value pairs) in this `Properties` table to the output stream in a format suitable for using the `load(InputStream inStream)` method.
+- `getProperty(String key)`: Searches for the property with the specified key in this property list.
+- `setProperty(String key, String value)`: Sets the property indicated by the key to have the specified value.
+
+Because of these specialized methods, `Properties` is still widely used for configuration in Java applications, despite its underlying `Hashtable` implementation. If you're working with properties files or similar key-value-based configuration, using `Properties` is appropriate and not generally considered "legacy" usage.
+
+&nbsp;
+
+---
+
+&nbsp;
+
+&nbsp;
