@@ -39,6 +39,7 @@
 - [\_23javaIOStreams](#_23javaiostreams)
 - [\_24generics](#_24generics)
 - [\_25collectionFramework](#_25collectionframework)
+- [\_27dateAndTimeAPI](#_27dateandtimeapi)
 
 &nbsp;
 
@@ -1472,5 +1473,16 @@ Because of these specialized methods, `Properties` is still widely used for conf
 ---
 
 &nbsp;
+
+# \_27dateAndTimeAPI
+
+- **Date Representation**
+  - `long`: milliseconds
+  - **Starting Time**: 1 Jan 1970
+  - **Starting Calender Year**: 1900
+- **Legacy Classes**
+  - **Date Class**
+  - **Calender Class**
+  - **Timezone Class**
 
 &nbsp;
