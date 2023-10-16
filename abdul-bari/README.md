@@ -1476,6 +1476,7 @@ Because of these specialized methods, `Properties` is still widely used for conf
 
 # \_27dateAndTimeAPI
 
+- [Wikipedia - List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 - **Date Representation**
   - `long`: milliseconds
   - **Starting Time**: 1 Jan 1970
@@ -1484,5 +1485,11 @@ Because of these specialized methods, `Properties` is still widely used for conf
   - **Date Class**
   - **Calender Class**
   - **Timezone Class**
+- **Joda Date & Time API**
+  - seconds & nano seconds
+  - `LocalDate`
+  - `LocalTime`
+  - `LocalDateTime`
+  - Immutable
 
 &nbsp;
