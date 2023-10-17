@@ -40,6 +40,14 @@
 - [\_24generics](#_24generics)
 - [\_25collectionFramework](#_25collectionframework)
 - [\_27dateAndTimeAPI](#_27dateandtimeapi)
+- [\_27networking](#_27networking)
+  - [OSI Model](#osi-model)
+  - [TCP/IP Model](#tcpip-model)
+    - [Layer 1: Network Interface (or Link) Layer](#layer-1-network-interface-or-link-layer)
+    - [Layer 2: Internet Layer](#layer-2-internet-layer)
+    - [Layer 3: Transport Layer](#layer-3-transport-layer)
+    - [Layer 4: Application Layer](#layer-4-application-layer)
+      - [Key Differences between OSI and TCP/IP Models](#key-differences-between-osi-and-tcpip-models)
 
 &nbsp;
 
@@ -1526,5 +1534,176 @@ Here's a breakdown of why you don't need the `new` keyword for each of the class
 6. **LocalDate**: In the expression `LocalDate.now()`, `now()` is again a static factory method that returns a new `LocalDate` object initialized with the current date.
 
 The use of static factory methods is a common pattern in modern Java libraries. It can provide better readability and sometimes additional benefits like caching of frequently-used instances, which wouldn't be straightforward to do with constructors.
+
+&nbsp;
+
+---
+
+&nbsp;
+
+# \_27networking
+
+## OSI Model
+
+- **Open System Interconnection (OSI)** is the standard for network connections.
+- This model defines a network system in the form of layers.
+- **The issues involved in network communication are addressed at different layers.**
+- The network connection is formed between the client and server.
+  - **Application Layer:** The connection of the layer between the client and server is peer-to-peer communication.
+  - **Presentation Layer:** The encryption and decryption of the data are done at this layer.
+  - **Session Layer:**
+    - This layer decides the time period of communication, or the complete start and end of the communication.
+    - The beginning of the file download to the end of the file download is known as a session; even if the connection is lost, the session may continue.
+  - **Transport Layer:** At this layer, the communication may be connection-oriented or connectionless; here, network transmission takes place.
+  - **Network Layer:** This layer deals with the routing of the data; it identifies machines at different addresses using their IP addresses, which are logical addresses.
+  - **Data Link Layer:** This layer deals with the transmission of data from client to server; it takes care of transferring every single bit.
+  - **Physical Layer:** This is the actual medium via which transmission or communication occurs; it may be wired or wireless.
+- At the network layer, the device is identified by its IP address; at the data link layer, devices are identified by their MAC (Medium Access Controller) address.
+- IP addresses may change depending on the network connection, but the MAC address is like an in-built address.
+
+&nbsp;
+
+---
+
+&nbsp;
+
+The OSI (Open Systems Interconnection) model is a conceptual framework used to standardize the functions of a telecommunication or computing system into seven layers. This model was developed by the International Organization for Standardization (ISO) and serves as a guide for understanding and designing a network architecture that is flexible, robust, and interoperable.
+
+Here's a brief rundown of the seven layers, from the lowest layer to the highest:
+
+**Layer 1: Physical Layer**
+
+The Physical Layer deals with the hardware aspects of data transmission. It defines the electrical and mechanical specifications for devices, such as the shape of connectors, voltage levels, and data rates. Examples of devices that operate at this layer include cables, switches, and network interface cards (NICs).
+
+**Layer 2: Data Link Layer**
+
+The Data Link Layer establishes a reliable link between two directly connected nodes. It provides error detection and correction to ensure that frames (data packets) can be sent and received reliably. Switches and bridges typically operate at this layer.
+
+**Layer 3: Network Layer**
+
+The Network Layer is responsible for routing data from the source to the destination across multiple nodes and even multiple networks. This layer deals with logical addressing, such as IP addresses. Routers work at this layer to determine the best path for data packets.
+
+**Layer 4: Transport Layer**
+
+The Transport Layer ensures that data is delivered from source to destination reliably and in the correct order. It deals with error detection and correction, as well as data segmentation. Protocols like TCP (Transmission Control Protocol) and UDP (User Datagram Protocol) operate at this layer.
+
+**Layer 5: Session Layer**
+
+The Session Layer manages sessions between applications on different devices. It is responsible for establishing, maintaining, and terminating sessions. This layer is not as commonly referenced as the others and is often considered part of the application layer in modern networking contexts.
+
+**Layer 6: Presentation Layer**
+
+The Presentation Layer deals with the translation, encryption, and compression of data between the application and transport layers. For example, it might convert EBCDIC-encoded text from a mainframe to ASCII-encoded text that a PC can understand.
+
+**Layer 7: Application Layer**
+
+The Application Layer is the layer closest to the end user and provides network services directly to end-user applications. This layer interacts with software applications that implement a communicating component, like web browsers or email clients. Protocols like HTTP, FTP, and SMTP operate at this layer.
+
+Understanding the OSI model helps networking professionals design and troubleshoot network architectures. Although real-world networking protocols do not always fit neatly into these seven layers, the OSI model remains a useful tool for understanding and discussing network functions.
+
+&nbsp;
+
+---
+
+&nbsp;
+
+Real-world networking protocols often don't fit neatly into the OSI model's seven layers for several reasons:
+
+**Layer Overlapping**
+
+Some protocols perform functions that span multiple layers of the OSI model. For example, TCP/IP, which is the basis for the modern internet, roughly maps to the OSI model but performs functions that cross between layers. TCP, for instance, provides both transport-layer and some session-layer functionalities.
+
+**Protocol Stacking**
+
+In practice, protocol stacks are often used, where multiple protocols work together to provide a set of network services. These stacks may not cleanly match OSI layers, either because they perform functions that cross layers or because they omit functions that would be performed by a strict interpretation of OSI layers.
+
+**Historical and Practical Reasons**
+
+Many existing protocols were developed before the OSI model was formalized or without strict adherence to it. Engineers and designers often create protocols to solve specific problems, without necessarily aiming for OSI compliance.
+
+**Simplification and Optimization**
+
+Sometimes, combining functionalities of different layers can result in performance benefits or simpler implementation. For example, real-world switches may have routing capabilities, effectively operating at both the data link and network layers, for performance or network design reasons.
+
+**Ambiguity in Classification**
+
+The boundaries between the functions of each OSI layer can sometimes be a bit ambiguous. For example, some security protocols can operate at multiple layers, providing both data encryption (typically a presentation-layer function) and secure data transport (a transport-layer function).
+
+**Commercial and Proprietary Solutions**
+
+Vendors may create their own protocols that offer unique features but do not adhere strictly to the OSI model. These proprietary solutions may become widely adopted, further pushing real-world implementations away from OSI strictures.
+
+**Evolution of Technology**
+
+As technology evolves, new types of communication methods and protocols emerge that may not fit neatly into the OSI model. The model, while foundational, was created in a different era of computing and networking and thus may not account for all modern needs.
+
+While the OSI model provides a useful framework for understanding and discussing network functions, it's important to recognize that it serves as a guide rather than a strict rulebook for network protocol design.
+
+&nbsp;
+
+## TCP/IP Model
+
+- The running network model in our systems is TCP/IP, which is similar to OSI.
+- It is a five-layer model.
+- Basically, TCP/IP refers to the transport and network layers.
+- **Layers From Bottom to Top:**
+  - **Network Access Layer:** Ethernet is used in this layer. The data link layer and the physical layer from the OSI model are combined to form this layer.
+  - **Network Layer:** This layer takes care of routing packets or data from source to destination, or server to client. IP (Internet Protocol) addresses are used in this layer, which come in two versions: 4 and 6 bytes.
+    - Data Link Layer
+    - Physical Layer
+  - **Transport Layer:** This layer has two types of protocols: TCP (Transmission Control Protocol), which is connection-oriented (an example is telephone service), and UDP (User Datagram Packets), which is connectionless (an example is telegram services).
+  - **Application Layer:** The first three layers of the OSI model are combined to form this layer. A set of standard protocols are given for common types of communication:
+    - **HTTP (Hyper Text Transfer Protocol):** For accessing the web.
+    - **FTP (File Transfer Protocol):** For file transferring.
+    - **SMTP (Simple Mail Transfer Protocol):** For transferring email.
+    - **POP (Post Office Protocol):** For receiving email.
+
+&nbsp;
+
+---
+
+&nbsp;
+
+The TCP/IP model, also known as the Internet protocol suite, is another conceptual framework that describes network protocols used by the internet. While similar in purpose to the OSI model, the TCP/IP model was developed by the United States Department of Defense in the 1970s, predating the OSI model. The TCP/IP model has four layers, each roughly corresponding to one or more layers in the OSI model.
+
+Here are the layers of the TCP/IP model:
+
+### Layer 1: Network Interface (or Link) Layer
+
+This layer is equivalent to both the Physical and Data Link layers of the OSI model. It is responsible for the actual physical connection between the devices and handles the direct communication between them. This layer defines how data packets are placed on the network media.
+
+### Layer 2: Internet Layer
+
+This layer is roughly equivalent to the Network Layer of the OSI model. It handles routing packets of data to the correct location. IP (Internet Protocol) is the main protocol used at this layer, and it is the protocol that allows for the global interconnected network of networks that is the internet.
+
+### Layer 3: Transport Layer
+
+Similar to the OSI Transport Layer, this layer provides a means for delivering data from source to destination, potentially over multiple networks. It offers error checking and data segmentation, and it is responsible for maintaining a reliable connection. TCP (Transmission Control Protocol) and UDP (User Datagram Protocol) are the primary protocols used at this layer.
+
+### Layer 4: Application Layer
+
+This layer is responsible for the protocols and methods that software applications use to communicate over a network. It is equivalent to the Session, Presentation, and Application layers of the OSI model. Common protocols at this layer include HTTP (HyperText Transfer Protocol), FTP (File Transfer Protocol), and SMTP (Simple Mail Transfer Protocol).
+
+#### Key Differences between OSI and TCP/IP Models
+
+1. **Number of Layers**: OSI has seven layers, while TCP/IP has only four.
+
+2. **Development and Usage Context**: OSI was developed as a theoretical model to understand and standardize networking, whereas TCP/IP was developed for practical needs, specifically for the United States Department of Defense.
+
+3. **Layer Functions**: OSI has more segmented functionalities across its layers compared to TCP/IP, which often combines the functionalities of multiple OSI layers into a single layer.
+
+4. **Protocol Specifications**: OSI is protocol-agnostic and serves as a general guideline, whereas the TCP/IP model was developed alongside the protocols it describes.
+
+5. **Adoption and Relevance**: TCP/IP is the dominant model used for the internet, making it highly relevant for current network implementations.
+
+Both models are important for understanding network architectures, and they each have their strengths and weaknesses. However, TCP/IP is more commonly used today because it is the basis for the internet.
+
+![OSI_vs_TCP](src/_00diagrams/OSI_vs_TCP.png)
+
+&nbsp;
+
+---
+
+&nbsp;
 
 &nbsp;
