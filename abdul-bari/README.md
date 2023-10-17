@@ -1491,5 +1491,40 @@ Because of these specialized methods, `Properties` is still widely used for conf
   - `LocalTime`
   - `LocalDateTime`
   - Immutable
+- **Date & Time Classes**
+  - ZonedDateTime
+  - OffsetDateTime
+  - OffsetTime
+  - ZoneId
+  - MonthDay
+  - YearMonth
+  - Year
+  - Period
+  - Duration
+  - Instant
+
+&nbsp;
+
+---
+
+&nbsp;
+
+In Java, the `new` keyword is typically used to instantiate a new object of a class. However, the classes from the `java.time` package you're using in your example often provide static factory methods that internally handle the object creation for you. These methods offer a more readable and sometimes more efficient way to create new instances of date-time objects.
+
+Here's a breakdown of why you don't need the `new` keyword for each of the classes in your example:
+
+1. **OffsetDateTime**: The `OffsetDateTime.now()` method is a static factory method that creates a new `OffsetDateTime` instance initialized with the current date-time and the default offset.
+
+2. **ZonedDateTime**: Similarly, `ZonedDateTime.now()` and `ZonedDateTime.now(ZoneId.of(...))` are static factory methods that return a new instance of `ZonedDateTime` initialized with the current date-time and either the default time zone or a specified time zone.
+
+3. **MonthDay**: The `MonthDay.now()` method is another static factory method that gives you a `MonthDay` instance for the current month and day.
+
+4. **Period**: The `Period.of(int years, int months, int days)` method is a static factory method that returns a new `Period` object representing the provided years, months, and days.
+
+5. **Instant**: `Instant.now()` is a static factory method that returns an `Instant` object representing the current moment in time.
+
+6. **LocalDate**: In the expression `LocalDate.now()`, `now()` is again a static factory method that returns a new `LocalDate` object initialized with the current date.
+
+The use of static factory methods is a common pattern in modern Java libraries. It can provide better readability and sometimes additional benefits like caching of frequently-used instances, which wouldn't be straightforward to do with constructors.
 
 &nbsp;
