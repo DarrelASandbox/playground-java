@@ -48,6 +48,8 @@
     - [Layer 3: Transport Layer](#layer-3-transport-layer)
     - [Layer 4: Application Layer](#layer-4-application-layer)
       - [Key Differences between OSI and TCP/IP Models](#key-differences-between-osi-and-tcpip-models)
+- [\_28jdbcUsingSQLite](#_28jdbcusingsqlite)
+  - [Data Type of SQLite](#data-type-of-sqlite)
 
 &nbsp;
 
@@ -1705,5 +1707,72 @@ Both models are important for understanding network architectures, and they each
 ---
 
 &nbsp;
+
+# \_28jdbcUsingSQLite
+
+- File vs Database
+- Database Terminology
+  - Relation
+  - Record
+  - Field
+  - Primary Key
+  - Relationship
+  - Foreign Key
+  - Constraints
+- Data Definition Language (DDL)
+- Data Manipulation Language (DML)
+- Data Control Language (DCL)
+
+|   DDL    |  DML   | Query  |
+| :------: | :----: | :----: |
+|  CREATE  | INSERT | SELECT |
+|   DROP   | DELETE |  FROM  |
+|  ALTER   | UPDATE | WHERE  |
+| TRUNCATE |        |        |
+|  RENAME  |        |        |
+
+## Data Type of SQLite
+
+- NULL
+- INTEGER
+- REAL / FLOAT / NUMERIC
+- TEXT
+- CHAR / VARCHAR
+- Binary Large Object (BLOB)
+  - Image
+  - Video
+  - Audio
+
+The `PRAGMA foreign_keys=ON;` statement is specific to SQLite and is used to enable foreign key constraint enforcement within the database session. By default, SQLite has foreign key constraints disabled, meaning that the database engine won't enforce foreign key relationships unless explicitly told to do so.
+
+When foreign key constraints are enabled with `PRAGMA foreign_keys=ON;`, SQLite ensures that:
+
+1. **Referential Integrity**: You can't insert a record into the "child" table that does not have a corresponding record in the "parent" table, unless the foreign key value is `NULL`.
+
+2. **Cascade Actions**: Actions like `CASCADE`, `SET NULL`, or `SET DEFAULT` specified in the foreign key constraint will be executed. For example, if you delete a record in the "parent" table, any corresponding records in the "child" table will also be deleted if a `CASCADE` action is specified.
+
+3. **Updates and Deletes**: Any attempt to update or delete records is checked against the foreign key constraints, and the operation will fail if it would result in a violation.
+
+Note that the `PRAGMA foreign_keys=ON;` setting is not persistent and will need to be run for each database session where you require foreign key enforcement.
+
+The Cartesian product, often simply called the "cross join" in the context of SQL and databases, is an operation that returns the combination of every row from the first table with every row from the second table. If the first table has \( N \) rows and the second table has \( M \) rows, the result of the Cartesian product will have \( N \times M \) rows.
+
+In SQL, you can perform a Cartesian product using the `CROSS JOIN` clause, or simply by listing the tables in the `FROM` clause separated by commas without a `WHERE` clause to filter them. Here's how you could do it:
+
+Using `CROSS JOIN`:
+
+```sql
+SELECT * FROM TableA CROSS JOIN TableB;
+```
+
+Or using a comma:
+
+```sql
+SELECT * FROM TableA, TableB;
+```
+
+In practice, Cartesian products are often not very useful on their own because they generate a lot of data. However, they can be a part of more complex queries where you filter the results further to get the data you need.
+
+Be cautious when using Cartesian products, especially with large tables, as they can produce an extremely large result set and consume a lot of resources, potentially slowing down or even crashing your database system.
 
 &nbsp;
