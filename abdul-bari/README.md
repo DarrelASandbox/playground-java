@@ -50,6 +50,12 @@
       - [Key Differences between OSI and TCP/IP Models](#key-differences-between-osi-and-tcpip-models)
 - [\_28jdbcUsingSQLite](#_28jdbcusingsqlite)
   - [Data Type of SQLite](#data-type-of-sqlite)
+  - [Java Database Connectivity (JDBC) Drivers](#java-database-connectivity-jdbc-drivers)
+    - [Type 1: JDBC-ODBC Bridge (partial)](#type-1-jdbc-odbc-bridge-partial)
+    - [Type 2: Native-API (partial)](#type-2-native-api-partial)
+    - [Type 3: Java-Net Protocol Driver (pure)](#type-3-java-net-protocol-driver-pure)
+    - [Type 4: Thin Driver (pure)](#type-4-thin-driver-pure)
+  - [SQLite JDBC Driver](#sqlite-jdbc-driver)
 
 &nbsp;
 
@@ -1774,5 +1780,61 @@ SELECT * FROM TableA, TableB;
 In practice, Cartesian products are often not very useful on their own because they generate a lot of data. However, they can be a part of more complex queries where you filter the results further to get the data you need.
 
 Be cautious when using Cartesian products, especially with large tables, as they can produce an extremely large result set and consume a lot of resources, potentially slowing down or even crashing your database system.
+
+## Java Database Connectivity (JDBC) Drivers
+
+![components_of_jdbc](src/_00diagrams/components_of_jdbc.png)
+
+### Type 1: JDBC-ODBC Bridge (partial)
+
+- **Description**: This driver converts JDBC calls into ODBC calls and redirects the requests to the ODBC driver.
+- **Advantages**: Easy to use; can connect to any database that supports an ODBC driver.
+- **Disadvantages**: Performance overhead because of the extra translation layer; not suitable for production.
+
+### Type 2: Native-API (partial)
+
+- **Description**: This driver uses the client-side libraries of the database. It converts JDBC calls into database-specific calls.
+- **Examples**: Oracle's OCI (Oracle Call Interface) is one such native API.
+- **Advantages**: Better performance than Type 1; more feature-rich.
+- **Disadvantages**: Database-specific; requires native libraries to be installed on client machines.
+
+### Type 3: Java-Net Protocol Driver (pure)
+
+- **Description**: This driver sends the JDBC calls to a middleware server that translates the calls into database-specific calls.
+- **Advantages**: No client-side libraries needed; can connect to multiple databases.
+- **Disadvantages**: Requires additional network round-trips to the middleware server; may have performance issues.
+
+### Type 4: Thin Driver (pure)
+
+- **Description**: This driver converts JDBC calls directly into the vendor-specific database protocol.
+- **Advantages**: High performance; no need for client-side libraries.
+- **Disadvantages**: Database-specific; cannot switch databases easily.
+
+## SQLite JDBC Driver
+
+- [sqlite-jdbc](https://github.com/xerial/sqlite-jdbc)
+
+```sh
+# If you've installed OpenJDK, you can find its installation path by running:
+/usr/libexec/java_home -V
+
+# To set the `CLASSPATH` temporarily for the current terminal session, you can use:
+export CLASSPATH=abdul-bari/src/_28jdbcUsingSQLite/sqlite-jdbc-3.43.2.0.jar:abdul-bari/src/_28jdbcUsingSQLite/slf4j-api-2.0.9
+# To check if it's set, you can then use:
+echo $CLASSPATH
+
+# Run command from this directory
+cd abdul-bari
+
+# Compile the Java files for the JDBC SQLite example and utility classes
+# _01MyDatabase.java is the main class for the database example
+# AnsiColors.java contains utility methods for console text formatting
+javac src/_28jdbcUsingSQLite/_01MyDatabase.java src/utils/AnsiColors.java
+
+# Run the compiled Java program
+# - The classpath is set to include the SQLite JDBC driver and SLF4J API libraries
+# - The main class to execute is src._28jdbcUsingSQLite._01MyDatabase
+java -classpath "src/_28jdbcUsingSQLite/sqlite-jdbc-3.43.2.0.jar:src/_28jdbcUsingSQLite/slf4j-api-2.0.9.jar:." src._28jdbcUsingSQLite._01MyDatabase
+```
 
 &nbsp;
