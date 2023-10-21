@@ -3,6 +3,7 @@ sqlite3
 .databases
 .open university.db
 .tables
+.schema
 
 CREATE TABLE dept(deptNo INTEGER PRIMARY KEY NOT NULL UNIQUE, dName TEXT);
 CREATE TABLE students(roll INTEGER PRIMARY KEY, name TEXT, city TEXT, deptNo INTEGER, FOREIGN KEY(deptNo) REFERENCES dept(deptNo));
