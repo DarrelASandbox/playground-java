@@ -7,8 +7,11 @@ import java.awt.Choice;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Frame;
+import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.Label;
 import java.awt.List;
+import java.awt.Panel;
 import java.awt.Scrollbar;
 import java.awt.TextArea;
 import java.awt.TextField;
@@ -20,6 +23,22 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.TextEvent;
 import java.awt.event.TextListener;
+
+class CustomPanel extends Panel {
+  private int top, left, bottom, right;
+
+  public CustomPanel(int top, int left, int bottom, int right) {
+    this.top = top;
+    this.left = left;
+    this.bottom = bottom;
+    this.right = right;
+  }
+
+  @Override
+  public Insets getInsets() {
+    return new Insets(top, left, bottom, right);
+  }
+}
 
 class MyFrame2 extends Frame implements ActionListener, ItemListener {
   int count = 0;
@@ -99,36 +118,59 @@ class MyFrame2 extends Frame implements ActionListener, ItemListener {
 
     tf3 = new TextField(20);
 
-    tf3.setBounds(50, 50, 300, 50);
-    red.setBounds(50, 150, 300, 30);
-    green.setBounds(50, 200, 300, 30);
-    blue.setBounds(50, 250, 300, 30);
+    // Using `GridLayout`
+    // tf3.setBounds(50, 50, 300, 50);
+    // red.setBounds(50, 150, 300, 30);
+    // green.setBounds(50, 200, 300, 30);
+    // blue.setBounds(50, 250, 300, 30);
 
     ScrollbarHandler sh = new ScrollbarHandler();
     red.addAdjustmentListener(sh);
     green.addAdjustmentListener(sh);
     blue.addAdjustmentListener(sh);
 
-    setLayout(new FlowLayout());
+    setLayout(new GridLayout(7, 4));
+
     // Count Button
-    add(l1);
-    add(b1);
+    Panel p1 = new Panel(new FlowLayout());
+    p1.add(l1);
+    p1.add(b1);
+    add(p1);
+    add(new Label()); // Empty space
+    add(new Label()); // Empty space
+    add(new Label()); // Empty space
 
     // Checkboxes
     add(l2);
-    add(c1);
-    add(c2);
-    add(c3);
+    Panel p2 = new Panel(new FlowLayout());
+    p2.add(c1);
+    p2.add(c2);
+    p2.add(c3);
+    add(p2);
+    add(new Label()); // Empty space
+    add(new Label()); // Empty space
 
     // Radio Buttons
-    add(r1);
-    add(r2);
-    add(r3);
+    add(new Label()); // Empty space
+    Panel p3 = new Panel(new FlowLayout());
+    p3.add(r1);
+    p3.add(r2);
+    p3.add(r3);
+    add(p3);
+    add(new Label()); // Empty space
+    add(new Label()); // Empty space
 
     // TextField & TextEvent
-    add(l3);
-    add(tf1);
-    add(l4);
+    CustomPanel cp4 = new CustomPanel(10, 10, 10, 10);
+    CustomPanel cp5 = new CustomPanel(10, 10, 10, 10);
+    CustomPanel cp6 = new CustomPanel(10, 10, 10, 10);
+    cp4.add(l3);
+    cp5.add(tf1);
+    cp6.add(l4);
+    add(cp4);
+    add(cp5);
+    add(cp6);
+    add(new Label()); // Empty space
 
     // TextArea
     add(ta1);
@@ -140,6 +182,7 @@ class MyFrame2 extends Frame implements ActionListener, ItemListener {
     add(l);
     add(c);
     add(ta2);
+    add(new Label()); // Empty space
 
     // Scrollbar
     add(tf3);
@@ -226,7 +269,7 @@ class MyFrame2 extends Frame implements ActionListener, ItemListener {
 public class _03Form {
   public static void main(String[] args) {
     MyFrame2 f = new MyFrame2();
-    f.setSize(660, 660);
+    f.setSize(1080, 500);
     f.setVisible(true);
   }
 }
