@@ -56,6 +56,8 @@
     - [Type 3: Java-Net Protocol Driver (pure)](#type-3-java-net-protocol-driver-pure)
     - [Type 4: Thin Driver (pure)](#type-4-thin-driver-pure)
   - [SQLite JDBC Driver](#sqlite-jdbc-driver)
+- [\_29abstractWindowToolkit](#_29abstractwindowtoolkit)
+  - [Event Delegation Model](#event-delegation-model)
 
 &nbsp;
 
@@ -1836,5 +1838,26 @@ javac src/_28jdbcUsingSQLite/_01MyDatabase.java src/utils/AnsiColors.java
 # - The main class to execute is src._28jdbcUsingSQLite._01MyDatabase
 java -classpath "src/_28jdbcUsingSQLite/sqlite-jdbc-3.43.2.0.jar:src/_28jdbcUsingSQLite/slf4j-api-2.0.9.jar:." src._28jdbcUsingSQLite._01MyDatabase
 ```
+
+&nbsp;
+
+# \_29abstractWindowToolkit
+
+## Event Delegation Model
+
+The Event Delegation Model is a design pattern commonly used in Java's Abstract Window Toolkit (AWT) and Swing libraries for handling events like button clicks, mouse movements, and keyboard inputs. This model allows for efficient event handling and provides a clean separation between the components that generate events and the objects that handle these events.
+
+1. **Event Source**: The component that generates an event. For example, a button in a GUI could be an event source for click events.
+2. **Event Listener**: An object that wants to be notified when a specific type of event occurs. The listener implements specific interfaces to handle these events.
+3. **Event Object**: An object that encapsulates information about the event. This object is created by the event source and passed to the event listener.
+
+- **How It Works**
+  1. **Registration**: The first step is to register an event listener with an event source. This is usually done by calling an `addXxxListener` method on the event source, where `Xxx` is the type of event (e.g., `ActionListener` for button clicks).
+  2. **Event Generation**: When the event occurs (e.g., a button is clicked), the event source creates an event object to encapsulate information about the event.
+  3. **Notification**: The event source then notifies all registered listeners by invoking the appropriate method on the listener and passing the event object as an argument.
+- **Advantages**
+  - **Decoupling**: The event source doesn't need to know what action will be taken when an event occurs. It only needs to notify the registered listeners.
+  - **Flexibility**: Multiple listeners can be registered for the same event source, allowing for modular and reusable code.
+  - **Efficiency**: Only the registered listeners are notified when an event occurs, making it more efficient than models where every object must be checked to see if it's interested in a particular event.
 
 &nbsp;
