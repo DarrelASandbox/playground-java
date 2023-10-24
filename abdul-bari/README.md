@@ -58,6 +58,7 @@
   - [SQLite JDBC Driver](#sqlite-jdbc-driver)
 - [\_29abstractWindowToolkit](#_29abstractwindowtoolkit)
   - [Event Delegation Model](#event-delegation-model)
+  - [Different Ways of Handling Events](#different-ways-of-handling-events)
 
 &nbsp;
 
@@ -1859,5 +1860,12 @@ The Event Delegation Model is a design pattern commonly used in Java's Abstract 
   - **Decoupling**: The event source doesn't need to know what action will be taken when an event occurs. It only needs to notify the registered listeners.
   - **Flexibility**: Multiple listeners can be registered for the same event source, allowing for modular and reusable code.
   - **Efficiency**: Only the registered listeners are notified when an event occurs, making it more efficient than models where every object must be checked to see if it's interested in a particular event.
+
+## Different Ways of Handling Events
+
+1. Frame Class as Listener
+2. Inner Class
+3. Anonymous Class
+4. Lambda Expression
 
 &nbsp;
