@@ -7,7 +7,8 @@ import java.awt.Choice;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Frame;
-import java.awt.GridLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Label;
 import java.awt.List;
@@ -118,77 +119,118 @@ class MyFrame2 extends Frame implements ActionListener, ItemListener {
 
     tf3 = new TextField(20);
 
-    // Using `GridLayout`
-    // tf3.setBounds(50, 50, 300, 50);
-    // red.setBounds(50, 150, 300, 30);
-    // green.setBounds(50, 200, 300, 30);
-    // blue.setBounds(50, 250, 300, 30);
-
     ScrollbarHandler sh = new ScrollbarHandler();
     red.addAdjustmentListener(sh);
     green.addAdjustmentListener(sh);
     blue.addAdjustmentListener(sh);
 
-    setLayout(new GridLayout(7, 4));
+    setLayout(new GridBagLayout());
+    GridBagConstraints gbc = new GridBagConstraints();
 
     // Count Button
+    gbc.gridx = 0;
+    gbc.gridy = 0;
+    gbc.gridwidth = 1;
+    gbc.gridheight = 1;
     Panel p1 = new Panel(new FlowLayout());
     p1.add(l1);
     p1.add(b1);
-    add(p1);
-    add(new Label()); // Empty space
-    add(new Label()); // Empty space
-    add(new Label()); // Empty space
+    add(p1, gbc);
+
+    // Empty spaces
+    for (int i = 1; i <= 3; i++) {
+      gbc.gridx = i;
+      add(new Label(), gbc);
+    }
 
     // Checkboxes
-    add(l2);
+    gbc.gridy = 1;
+    gbc.gridx = 0;
+    add(l2, gbc);
+
+    gbc.gridx = 1;
     Panel p2 = new Panel(new FlowLayout());
     p2.add(c1);
     p2.add(c2);
     p2.add(c3);
-    add(p2);
-    add(new Label()); // Empty space
-    add(new Label()); // Empty space
+    add(p2, gbc);
+
+    // Empty spaces
+    for (int i = 2; i <= 3; i++) {
+      gbc.gridx = i;
+      add(new Label(), gbc);
+    }
 
     // Radio Buttons
-    add(new Label()); // Empty space
+    gbc.gridy = 2;
+    gbc.gridx = 1;
     Panel p3 = new Panel(new FlowLayout());
     p3.add(r1);
     p3.add(r2);
     p3.add(r3);
-    add(p3);
-    add(new Label()); // Empty space
-    add(new Label()); // Empty space
+    add(p3, gbc);
+
+    // Empty spaces
+    for (int i = 0; i <= 3; i++) {
+      if (i != 1) {
+        gbc.gridx = i;
+        add(new Label(), gbc);
+      }
+    }
 
     // TextField & TextEvent
+    gbc.gridy = 3;
     CustomPanel cp4 = new CustomPanel(10, 10, 10, 10);
-    CustomPanel cp5 = new CustomPanel(10, 10, 10, 10);
-    CustomPanel cp6 = new CustomPanel(10, 10, 10, 10);
     cp4.add(l3);
+    gbc.gridx = 0;
+    add(cp4, gbc);
+
+    CustomPanel cp5 = new CustomPanel(10, 10, 10, 10);
     cp5.add(tf1);
+    gbc.gridx = 1;
+    add(cp5, gbc);
+
+    CustomPanel cp6 = new CustomPanel(10, 10, 10, 10);
     cp6.add(l4);
-    add(cp4);
-    add(cp5);
-    add(cp6);
-    add(new Label()); // Empty space
+    gbc.gridx = 2;
+    add(cp6, gbc);
+
+    // Empty space
+    gbc.gridx = 3;
+    add(new Label(), gbc);
 
     // TextArea
-    add(ta1);
-    add(l5);
-    add(tf2);
-    add(b2);
+    gbc.gridy = 4;
+    gbc.gridx = 0;
+    add(ta1, gbc);
+    gbc.gridx = 1;
+    add(l5, gbc);
+    gbc.gridx = 2;
+    add(tf2, gbc);
+    gbc.gridx = 3;
+    add(b2, gbc);
 
     // ListBox & Choice
-    add(l);
-    add(c);
-    add(ta2);
+    gbc.gridy = 5;
+    gbc.gridx = 0;
+    add(l, gbc);
+    gbc.gridx = 1;
+    add(c, gbc);
+    gbc.gridx = 2;
+    add(ta2, gbc);
+    gbc.gridx = 3;
     add(new Label()); // Empty space
 
     // Scrollbar
-    add(tf3);
-    add(red);
-    add(green);
-    add(blue);
+    gbc.gridy = 6;
+    gbc.gridx = 0;
+    add(tf3, gbc);
+    gbc.gridx = 1;
+    add(red, gbc);
+    gbc.gridx = 2;
+    add(green, gbc);
+    gbc.gridx = 3;
+    add(blue, gbc);
   }
 
   // Implement the actionPerformed method for button click events
@@ -269,7 +311,7 @@ class MyFrame2 extends Frame implements ActionListener, ItemListener {
 public class _03Form {
   public static void main(String[] args) {
     MyFrame2 f = new MyFrame2();
-    f.setSize(1080, 500);
+    f.setSize(900, 820);
     f.setVisible(true);
   }
 }
