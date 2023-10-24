@@ -24,6 +24,8 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.TextEvent;
 import java.awt.event.TextListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 class CustomPanel extends Panel {
   private int top, left, bottom, right;
@@ -57,6 +59,7 @@ class MyFrame2 extends Frame implements ActionListener, ItemListener {
   // Constructor to initialize the UI components
   public MyFrame2() {
     super("Third App");
+
     l1 = new Label("" + count);
     b1 = new Button("Click");
     b1.addActionListener(this);
@@ -84,16 +87,16 @@ class MyFrame2 extends Frame implements ActionListener, ItemListener {
     tf1.addActionListener(tfh);
 
     l5 = new Label("No text is entered yet");
-    ta1 = new TextArea(10, 30);
+    ta1 = new TextArea(10, 20);
     tf2 = new TextField(20);
     b2 = new Button("Click");
 
     TextAreaHandler tah = new TextAreaHandler();
     b2.addActionListener(tah);
 
-    l = new List(4, true);
+    l = new List(7, true);
     c = new Choice();
-    ta2 = new TextArea(20, 30);
+    ta2 = new TextArea(7, 10);
 
     l.add("Monday");
     l.add("Tuesday");
@@ -231,6 +234,13 @@ class MyFrame2 extends Frame implements ActionListener, ItemListener {
     add(green, gbc);
     gbc.gridx = 3;
     add(blue, gbc);
+
+    addWindowListener(new WindowAdapter() {
+      @Override
+      public void windowClosing(WindowEvent e) {
+        System.exit(0);
+      }
+    });
   }
 
   // Implement the actionPerformed method for button click events
@@ -311,7 +321,7 @@ class MyFrame2 extends Frame implements ActionListener, ItemListener {
 public class _03Form {
   public static void main(String[] args) {
     MyFrame2 f = new MyFrame2();
-    f.setSize(900, 820);
+    f.setSize(780, 720);
     f.setVisible(true);
   }
 }
