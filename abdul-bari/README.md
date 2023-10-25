@@ -59,6 +59,7 @@
 - [\_29abstractWindowToolkit](#_29abstractwindowtoolkit)
   - [Event Delegation Model](#event-delegation-model)
   - [Different Ways of Handling Events](#different-ways-of-handling-events)
+- [\_30javaSwing](#_30javaswing)
 
 &nbsp;
 
@@ -1867,5 +1868,17 @@ The Event Delegation Model is a design pattern commonly used in Java's Abstract 
 2. Inner Class
 3. Anonymous Class
 4. Lambda Expression
+
+&nbsp;
+
+# \_30javaSwing
+
+|        AWT         |          Swing          |
+| :----------------: | :---------------------: |
+| Platform Dependent |       Independent       |
+|    Heavy Weight    |      Light Weight       |
+|   Few Components   |     Many Components     |
+| Host Look and Feel | Pluggable Look and Feel |
+|       No MVC       |       Support MVC       |
 
 &nbsp;
