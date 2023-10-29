@@ -1900,10 +1900,12 @@ The Event Delegation Model is a design pattern commonly used in Java's Abstract 
 - [Run HelloWorld using JavaFX SDK](https://openjfx.io/openjfx-docs/#install-javafx)
 
 ```sh
-cd abdul-bari/src/_31javaFX
+# Extract `openjfx-21.0.1_osx-aarch64_bin-sdk.zip`
+cd abdul-bari
 export PATH_TO_FX=javafx-sdk-21.0.1/lib
-javac --module-path $PATH_TO_FX --add-modules javafx.controls,javafx.fxml HelloFX.java
-java --module-path $PATH_TO_FX --add-modules javafx.controls HelloFX
+echo $PATH_TO_FX
+javac --module-path $PATH_TO_FX --add-modules javafx.controls,javafx.fxml src/_31javaFX/_01HelloFX.java
+java --module-path $PATH_TO_FX --add-modules javafx.controls,javafx.fxml src._31javaFX._01HelloFX
 ```
 
 &nbsp;

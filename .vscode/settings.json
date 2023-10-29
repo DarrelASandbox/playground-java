@@ -1,5 +1,8 @@
 {
   "java.project.sourcePaths": ["abdul-bari"],
   "java.project.outputPath": "abdul-bari/bin",
-  "java.project.referencedLibraries": ["lib/**/*.jar"]
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "abdul-bari/javafx-sdk-21.0.1/lib/**/*.jar"
+  ]
 }
