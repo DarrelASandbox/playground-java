@@ -60,6 +60,7 @@
   - [Event Delegation Model](#event-delegation-model)
   - [Different Ways of Handling Events](#different-ways-of-handling-events)
 - [\_30javaSwing](#_30javaswing)
+- [\_31javaFX](#_31javafx)
 
 &nbsp;
 
@@ -1880,5 +1881,54 @@ The Event Delegation Model is a design pattern commonly used in Java's Abstract 
 |   Few Components   |     Many Components     |
 | Host Look and Feel | Pluggable Look and Feel |
 |       No MVC       |       Support MVC       |
+
+&nbsp;
+
+# \_31javaFX
+
+- **Key Features**
+  - Java API
+  - FXML Scene Builder
+  - WebView
+  - Swing Interoperability
+  - Built-in UI Controls as CSS
+  - Canvas API
+  - Multi-touch Support
+  - Hardware-Accelerated Graphics Pipeline
+  - High-Performance Media Engine
+  - Self-Contained Application Deployment Model
+- [Run HelloWorld using JavaFX SDK](https://openjfx.io/openjfx-docs/#install-javafx)
+
+```sh
+cd abdul-bari/src/_31javaFX
+export PATH_TO_FX=javafx-sdk-21.0.1/lib
+javac --module-path $PATH_TO_FX --add-modules javafx.controls,javafx.fxml HelloFX.java
+java --module-path $PATH_TO_FX --add-modules javafx.controls HelloFX
+```
+
+&nbsp;
+
+---
+
+&nbsp;
+
+In Java 8, JavaFX was included in the standard JDK and JRE bundles, making it easier for developers to use JavaFX out of the box.
+
+Starting with Java 11, JavaFX was decoupled from the JDK, meaning it is no longer a part of the standard JDK distribution. It is now available as a separate download. This was done to make it easier to update JavaFX independently of Java itself. Here are some changes and additions:
+
+1. **Modularization**: JavaFX libraries are now modular, taking advantage of the Java Platform Module System introduced in Java 9.
+2. **New Features and Components**: Continued development has led to new features, controls, and bug fixes.
+3. **JDK 11 Compatibility**: JavaFX 11 is designed to be used with JDK 11, but it can also be used with later versions.
+4. **OpenJFX**: JavaFX is now developed under the OpenJFX project, which is an open-source project.
+5. **Separate Download**: As it's not bundled with JDK anymore, you need to download it separately or use build tools like Maven or Gradle to include it in your project.
+
+**Comparison**:
+
+- **Ease of Setup**: Java 8 had JavaFX bundled, making it easier to set up, while Java 11 requires a separate download or dependency management via build tools.
+- **Modularity**: Java 11 benefits from the modular system, making it more flexible and maintainable.
+- **Updates**: JavaFX can be updated independently starting from Java 11, allowing for quicker adoption of new features and fixes.
+- **Community and Ecosystem**: The decoupling in Java 11 has led to a more vibrant community ecosystem, as it can now evolve independently of the Java SDK.
+
+Both versions offer a rich set of features for desktop application development, but Java 11 provides more flexibility in terms of modularity and updates.
 
 &nbsp;
