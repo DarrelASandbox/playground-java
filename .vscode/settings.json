@@ -3,6 +3,6 @@
   "java.project.outputPath": "abdul-bari/bin",
   "java.project.referencedLibraries": [
     "lib/**/*.jar",
-    "abdul-bari/javafx-sdk-21.0.1/lib/**/*.jar"
+    "/Users/darre/Projects/playground-java/abdul-bari/javafx-sdk-21.0.1/lib/**/*.jar"
   ]
 }
