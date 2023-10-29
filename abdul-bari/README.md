@@ -1898,6 +1898,7 @@ The Event Delegation Model is a design pattern commonly used in Java's Abstract 
   - High-Performance Media Engine
   - Self-Contained Application Deployment Model
 - [Run HelloWorld using JavaFX SDK](https://openjfx.io/openjfx-docs/#install-javafx)
+- [Unmanaged Project](https://stackoverflow.com/a/69275154)
 
 ```sh
 # Extract `openjfx-21.0.1_osx-aarch64_bin-sdk.zip`
