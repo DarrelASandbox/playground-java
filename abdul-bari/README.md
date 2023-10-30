@@ -61,6 +61,7 @@
   - [Different Ways of Handling Events](#different-ways-of-handling-events)
 - [\_30javaSwing](#_30javaswing)
 - [\_31javaFX](#_31javafx)
+  - [Different Ways of Handling Events](#different-ways-of-handling-events-1)
 
 &nbsp;
 
@@ -1933,5 +1934,37 @@ Starting with Java 11, JavaFX was decoupled from the JDK, meaning it is no longe
 - **Community and Ecosystem**: The decoupling in Java 11 has led to a more vibrant community ecosystem, as it can now evolve independently of the Java SDK.
 
 Both versions offer a rich set of features for desktop application development, but Java 11 provides more flexibility in terms of modularity and updates.
+
+&nbsp;
+
+---
+
+&nbsp;
+
+| **Core** | **Container Controls** | **Layout** |
+| -------- | ---------------------- | ---------- |
+| Stage    | Accordion              | HBox       |
+| Scene    | TitledPane             | VBox       |
+| Node     | TabPane                | FlowPane   |
+| FXML     | SplitPane              | BorderPane |
+|          | ScrollPane             | TilePane   |
+|          |                        | GridPane   |
+|          |                        | Group      |
+
+| **Basic Controls** |               |             |               |
+| ------------------ | ------------- | ----------- | ------------- |
+| Label              | CheckBox      | Tooltip     | TableView     |
+| Button             | ChoiceBox     | Hyperlink   | TreeView      |
+| MenuButton         | ComboBox      | ProgressBar | TreeTableView |
+| SplitMenuButton    | ListView      | MenuBar     | HTMLEditor    |
+| ToggleButton       | TextField     | ContextMenu | Pagination    |
+| RadioButton        | PasswordField | Separator   | FileChooser   |
+|                    | TextArea      | ImageView   |
+
+## Different Ways of Handling Events
+
+1. Implementing Interface
+2. Anonymous Inner Class
+3. Lambda Expression
 
 &nbsp;
