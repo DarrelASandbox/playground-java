@@ -62,6 +62,7 @@
 - [\_30javaSwing](#_30javaswing)
 - [\_31javaFX](#_31javafx)
   - [Different Ways of Handling Events](#different-ways-of-handling-events-1)
+  - [Layouts \& Panes](#layouts--panes)
 
 &nbsp;
 
@@ -1966,5 +1967,13 @@ Both versions offer a rich set of features for desktop application development, 
 1. Implementing Interface
 2. Anonymous Inner Class
 3. Lambda Expression
+
+## Layouts & Panes
+
+|  Layouts   |    &     |   Panes    |            |
+| :--------: | :------: | :--------: | :--------: |
+|  FlowPane  |   HBox   | ScrollPane | TitledPane |
+|  TilePane  |   VBox   | SplitPane  | Accordion  |
+| BorderPane | GridPane |  TabPane   |            |
 
 &nbsp;
